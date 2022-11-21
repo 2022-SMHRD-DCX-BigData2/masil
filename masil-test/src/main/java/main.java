@@ -9,6 +9,8 @@ public class main {
 		System.out.println("굶죠");
 		System.out.println("뜨끈한 국밥!");
 		System.out.println("국밥...별로....");
+		System.out.println("팀장님이 점심 맛있는거 사신답니다." );
+		
 
 	}
 
