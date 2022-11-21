@@ -9,6 +9,7 @@ public class main {
 		System.out.println("굶죠");
 		System.out.println("뜨끈한 국밥!");
 		System.out.println("update1");
+		System.out.println("국밥으로 결정!");
 
 	}
 
