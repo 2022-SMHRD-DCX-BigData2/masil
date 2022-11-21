@@ -5,14 +5,25 @@ import java.math.BigDecimal;
 public class MTH_WLK_RT_NAME {
 	
 	private BigDecimal wlk_rt_nbr;
-	private String wlk_rt_name;
 	private BigDecimal wlk_nbr_for_wlk_rt;
+	private String wlk_rt_name;
+
 	
 	public MTH_WLK_RT_NAME(String wlk_rt_name, BigDecimal wlk_nbr_for_wlk_rt) {
 		super();
 		this.wlk_rt_name = wlk_rt_name;
 		this.wlk_nbr_for_wlk_rt = wlk_nbr_for_wlk_rt;
 	}
+	
+
+	public MTH_WLK_RT_NAME(BigDecimal wlk_rt_nbr, BigDecimal wlk_nbr_for_wlk_rt, String wlk_rt_name) {
+		super();
+		this.wlk_rt_nbr = wlk_rt_nbr;
+		this.wlk_nbr_for_wlk_rt = wlk_nbr_for_wlk_rt;
+		this.wlk_rt_name = wlk_rt_name;
+	}
+
+
 
 	public BigDecimal getWlk_rt_nbr() {
 		return wlk_rt_nbr;

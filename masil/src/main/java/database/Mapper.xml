@@ -75,7 +75,7 @@
 
 <!-- 산책로 이름 입력 -->
 <insert id="insertWlk_rt_name" parameterType="domain.MTH_WLK_RT_NAME">
-	insert into mth_wlk_rt_name values (mth_wlk_rt_name_seq.nextval, #{wlk_rt_name}, #{wlk_nbr_for_wlk_rt})
+	insert into mth_wlk_rt_name  (WLK_RT_NBR,WLK_NBR_FOR_WLK_RT,WLK_RT_NAME) values (mth_wlk_rt_name_seq.nextval, #{wlk_nbr_for_wlk_rt},#{wlk_rt_name})
 </insert>
 
 <!-- 산책로 이름으로 산책로 번호 찾기 -->
@@ -85,10 +85,23 @@
 
 <!-- 산책로 입력 -->
 <insert id="insertWlk_rt" parameterType="domain.WLK_RT">
-	insert into insertWlk_rt values (#{wlk_rt_nbr_for_wlk_rt}, #{wlk_rt_path_nbr}, #{lon_For_wlk_rt}, #{lat_for_wlk_rt})
+	insert into WLK_RT values (#{wlk_rt_nbr_for_wlk_rt}, #{wlk_rt_path_nbr}, #{lon_For_wlk_rt}, #{lat_for_wlk_rt})
 </insert>
 
+<!-- 지역별 산책로 목적지 리스트-->
+<select id="WalkingRtListByArea" parameterType="int" resultType="domain.WLK">
+      SELECT WLK_NBR, WLK_NAME, LAT_FOR_WLK, LON_FOR_WLK,area_nbr_for_wlk FROM WLK WHERE area_nbr_for_wlk=#{area_nbr}
+</select>
 
+<!--산책로 목적지에 따른 산책로 경로 리스트-->
+<select id="selectWlkRtByWlk" parameterType="int" resultType="domain.MTH_WLK_RT_NAME">
+      SELECT WLK_RT_NBR, WLK_NBR_FOR_WLK_RT, WLK_RT_NAME  FROM mth_wlk_rt_name WHERE wlk_nbr_for_wlk_rt=#{wlk_nbr_for_wlk_rt}
+</select>
+
+<!--산책로 경로에 따른 산책로 경로 위도.경도.순서-->
+<select id="WalkingRtPathByRtNbr" parameterType="int" resultType="domain.WLK_RT">
+      SELECT WLK_RT_NBR_FOR_WLK_RT, WLK_RT_PATH_NBR,LAT_FOR_WLK_RT, LON_FOR_WLK_RT FROM WLK_RT WHERE WLK_RT_NBR_FOR_WLK_RT = #{wlk_rt_nbr}
+</select>
 
 
 </mapper>

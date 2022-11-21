@@ -71,6 +71,25 @@
   	<description></description>
   	<servlet-class>controller.SetBclsArea</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>SetWalkingRtList</servlet-name>
+  	<display-name>SetWalkingRtList</display-name>
+  	<description></description>
+  	<servlet-class>controller.SetWalkingRtList</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>SetWalkingRt</servlet-name>
+  	<display-name>SetWalkingRt</display-name>
+  	<description></description>
+  	<servlet-class>controller.SetWalkingRt</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>SetWalkingRtPath</servlet-name>
+  	<display-name>SetWalkingRtPath</display-name>
+  	<description></description>
+  	<servlet-class>controller.SetWalkingRtPath</servlet-class>
+  </servlet>
+ 
 
  
   <servlet-mapping>
@@ -118,6 +137,19 @@
   	<servlet-name>SetBclsArea</servlet-name>
   	<url-pattern>/SetBclsArea</url-pattern>
   </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>SetWalkingRtList</servlet-name>
+  	<url-pattern>/SetWalkingRtList</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>SetWalkingRt</servlet-name>
+  	<url-pattern>/SetWalkingRt</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>SetWalkingRtPath</servlet-name>
+  	<url-pattern>/SetWalkingRtPath</url-pattern>
+  </servlet-mapping>
+
 
  
 </web-app>

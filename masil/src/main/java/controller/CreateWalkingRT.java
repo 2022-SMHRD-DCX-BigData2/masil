@@ -35,19 +35,22 @@ public class CreateWalkingRT extends HttpServlet {
 		//WLK_RT_NAME을 MTH_WLK_RT_NAME에 넣음
 		//MTH_WLK_RT_NAME에서 WLK_RT_NAME에 해당하는 WLK_RT_NBR을 꺼내옴
 		//WLK_RT_NAME는 UNIQUE제약조건을 넣어야 함
-		MTH_WLK_RT_NAME_DAO mthDao = new MTH_WLK_RT_NAME_DAO();
-		int result1 = mthDao.insertWlk_rt_name(wlk_rt_name,wlk_nbr);
-		BigDecimal wlk_rt_nbr = mthDao.isWlk_rt_Exist(wlk_rt_name);
+		MTH_WLK_RT_NAME_DAO mthDao1 = new MTH_WLK_RT_NAME_DAO();
+		int result1 = mthDao1.insertWlk_rt_name(wlk_rt_name,wlk_nbr);
+		MTH_WLK_RT_NAME_DAO mthDao2 = new MTH_WLK_RT_NAME_DAO();
+		BigDecimal wlk_rt_nbr = mthDao2.isWlk_rt_Exist(wlk_rt_name);
 		
 		
-		String[] Lats_string = Lat.split("|");
-		String[] Lons_string = Lon.split("|");
+		String[] Lats_string = Lat.split("\\|");
+		String[] Lons_string = Lon.split("\\|");
 
 		
 		//WLK_RT에 WLK_RT_NBR과 그 순서 위도, 경도를 집어넣음
 		WLK_RT_DAO wlkRtDao = new WLK_RT_DAO();
 		int result2= wlkRtDao.insertWlk_rt(wlk_rt_nbr, Lats_string, Lons_string);
-		
+		if(result2>0) {
+			//경로 리스트로 이동
+		}
 		
 	}
 

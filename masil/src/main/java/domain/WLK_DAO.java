@@ -1,6 +1,7 @@
 package domain;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -23,7 +24,6 @@ public class WLK_DAO {
 
 	     // 만약에 내가 원하는 일을 했으면 DB에 반영
 	     if(result!=null) {
-	        System.out.println("DAO메소드에선 값을 잘 가져옴");
 	        sqlSession.commit();
 	     }else {
 	        // 만약에 원하는 일을 못하면 다시 원래대로 돌려주기
@@ -50,7 +50,6 @@ public class WLK_DAO {
 
 	     // 만약에 내가 원하는 일을 했으면 DB에 반영
 	     if(cnt>0) {
-	        System.out.println("DAO메소드에선 값을 잘 가져옴");
 	        result = sqlSession.selectOne("isWlkExist",wlk_name);
 	        
 	        sqlSession.commit();
@@ -67,6 +66,35 @@ public class WLK_DAO {
 	  }
 		return result;
 		
+	}
+	
+	   
+	public List<WLK> WalkingRtListByArea(int area_nbr) {
+		
+		List<WLK> result = null;
+		
+		try {
+		     //               mapper.xml의 id값
+	     result = sqlSession.selectList("WalkingRtListByArea",area_nbr);
+	     
+	     // 만약에 내가 원하는 일을 했으면 DB에 반영
+	     if(result!=null) {
+	        System.out.println("DAO메소드에선 값을 잘 가져옴");
+	        sqlSession.commit();
+	     }else {
+	        // 만약에 원하는 일을 못하면 다시 원래대로 돌려주기
+	        sqlSession.rollback();
+	     }
+	     
+	     
+	  } catch (Exception e) {
+	     // TODO: handle exception
+	     e.printStackTrace();
+	  } finally {
+	     // 빌렸던 Connection 객체를 반납
+	     sqlSession.close();
+	  }
+		return result;
 	}
 	
 
