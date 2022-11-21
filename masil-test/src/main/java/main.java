@@ -7,6 +7,7 @@ public class main {
 		System.out.println("팀원 커밋!");
 		System.out.println("오늘 점심 메뉴는?");
 		System.out.println("굶죠");
+		System.out.println("뜨끈한 국밥!");
 
 	}
 
