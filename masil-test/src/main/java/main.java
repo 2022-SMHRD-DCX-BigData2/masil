@@ -5,6 +5,7 @@ public class main {
 		// TODO Auto-generated method stub
 		System.out.println("팀장 커밋!");
 		System.out.println("팀원 커밋!");
+		System.out.println("오늘 점심 메뉴는?");
 
 	}
 
