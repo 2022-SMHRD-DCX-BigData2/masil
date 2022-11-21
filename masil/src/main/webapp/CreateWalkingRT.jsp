@@ -100,6 +100,8 @@ kakao.maps.event.addListener(map, 'click', function(mouseEvent) {
         
         // 다시 선에 좌표 배열을 설정하여 클릭 위치까지 선을 그리도록 설정합니다
         clickLine.setPath(path);
+        
+        console.log(path)
 
         var distance = Math.round(clickLine.getLength());
         displayCircleDot(clickPosition, distance);

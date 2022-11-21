@@ -39,7 +39,7 @@ public class CreateWalkingRT extends HttpServlet {
 		int result1 = mthDao1.insertWlk_rt_name(wlk_rt_name,wlk_nbr);
 		MTH_WLK_RT_NAME_DAO mthDao2 = new MTH_WLK_RT_NAME_DAO();
 		BigDecimal wlk_rt_nbr = mthDao2.isWlk_rt_Exist(wlk_rt_name);
-		
+		System.out.println(wlk_rt_nbr);
 		
 		String[] Lats_string = Lat.split("\\|");
 		String[] Lons_string = Lon.split("\\|");

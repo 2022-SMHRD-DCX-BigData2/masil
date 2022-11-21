@@ -85,7 +85,7 @@
 
 <!-- 산책로 입력 -->
 <insert id="insertWlk_rt" parameterType="domain.WLK_RT">
-	insert into WLK_RT values (#{wlk_rt_nbr_for_wlk_rt}, #{wlk_rt_path_nbr}, #{lon_For_wlk_rt}, #{lat_for_wlk_rt})
+	insert into WLK_RT values (#{wlk_rt_nbr_for_wlk_rt}, #{wlk_rt_path_nbr}, #{lon_for_wlk_rt}, #{lat_for_wlk_rt})
 </insert>
 
 <!-- 지역별 산책로 목적지 리스트-->

@@ -26,8 +26,10 @@ public class SetWalkingRtPath extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		int wlk_rt_nbr = Integer.parseInt(request.getParameter("wlk_rt_nbr"));
+		//System.out.println(wlk_rt_nbr);
 		WLK_RT_DAO dao = new WLK_RT_DAO();
 		List<WLK_RT> list = dao.WalkingRtPathByRtNbr(wlk_rt_nbr);
+
 
 		
 		Gson gson = new Gson();
