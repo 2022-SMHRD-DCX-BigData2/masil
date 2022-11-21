@@ -1,0 +1,94 @@
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="database.Mapper">
+
+
+
+<!-- 전체 지역 조회 -->
+<resultMap id="selectAllArea" type="domain.AREA">
+  <result property="b_cls" column="b_cls"/>
+  <result property="s_cls" column="s_cls"/>
+</resultMap>
+
+<select id="selectAllArea" resultType="domain.AREA">
+      SELECT B.B_CLS, A.S_CLS FROM B_CLS_AREA B JOIN AREA A ON B.B_CLS_NBR=A.B_CLS_NBR
+</select>
+
+<!-- 큰 단위 지역 조회 -->
+<select id="selectAllBclsArea" resultType="string">
+      SELECT B_CLS FROM B_CLS_AREA
+</select>
+
+<!-- 지역 번호 찾기 -->
+<select id="matchAreaNbr" resultType="bigdecimal">
+      SELECT A.AREA_NBR FROM B_CLS_AREA B JOIN AREA A ON B.B_CLS_NBR=A.B_CLS_NBR WHERE B_CLS=#{b_cls} AND S_CLS=#{s_cls}
+</select>
+
+<!-- 지역 번호로 큰 분류 지역 찾기 -->
+<select id="matchBcls" resultType="string">
+      SELECT B.B_CLS FROM B_CLS_AREA B JOIN AREA A ON B.B_CLS_NBR=A.B_CLS_NBR WHERE A.AREA_NBR=#{area_nbr}
+</select>
+
+<!-- 지역 번호로 큰 분류 지역 번호 -->
+<select id="matchBcls_nbr" resultType="bigdecimal">
+      SELECT B.B_CLS_NBR FROM B_CLS_AREA B JOIN AREA A ON B.B_CLS_NBR=A.B_CLS_NBR WHERE A.AREA_NBR=#{area_nbr}
+</select>
+
+<!-- 큰 분류 지역 이름으로 큰 분류 지역 번호 -->
+<select id="matchBcls_nbr_fromSB" resultType="bigdecimal">
+      SELECT B_CLS_NBR FROM B_CLS_AREA WHERE B_CLS=#{area}
+</select>
+
+<!-- 회원가입 (sequence로 번호 매김)-->
+<insert id="insertMBR" parameterType="domain.MBR">
+      insert into MBR values (mbr_seq.nextval,#{mbr_id},#{mbr_pw},#{area_nbr_for_mbr},null,null,'C')
+</insert>
+
+<!-- 로그인 -->
+<select id="loginMBR" resultType="domain.MBR">
+      SELECT mbr_id, mbr_pw, area_nbr_for_mbr, fav_list, dog_list, mbr_type FROM MBR WHERE mbr_id=#{mbr_id} AND mbr_pw=#{mbr_pw}
+</select>
+
+
+<!--게시판 조회 wrt_type에 따라 nbr_for_wrt_type이 조회해야 할 컬럼이 변경됨-->
+<resultMap id="selectWRT" type="domain.WRT">
+  <result property="WRT_NBR" column="WRT_NBR"/>
+  <result property="WRT_TTL" column="WRT_TTL"/>
+  <result property="WRT_ATH" column="WRT_ATH"/>
+</resultMap>
+
+<select id="selectWRT" parameterType="hashmap" resultType="domain.WRT">
+ SELECT WRT_NBR,WRT_TTL,WRT_ATH FROM WRT WHERE WRT_TYPE = #{wrt_type} AND COALESCE(B_CLS_NBR_FOR_WRT,WLK_RT_NBR_FOR_WRT,GRP_NBR_FOR_WRT)=#{nbr_for_wrt_type}
+</select>
+
+
+<!-- 목적지 찾기 -->
+<select id="isWlkExist" resultType="bigdecimal">
+      SELECT wlk_nbr from wlk where wlk_name=#{wlk_name}
+</select>
+
+<!-- (sequence로 번호 매김)-->
+<insert id="insertWlk" parameterType="domain.WLK">
+      insert into WLK values (wlk_seq.nextval,#{wlk_name},#{lat_for_wlk},#{lon_for_wlk},#{area_nbr_for_wlk})
+</insert>
+
+<!-- 산책로 이름 입력 -->
+<insert id="insertWlk_rt_name" parameterType="domain.MTH_WLK_RT_NAME">
+	insert into mth_wlk_rt_name values (mth_wlk_rt_name_seq.nextval, #{wlk_rt_name}, #{wlk_nbr_for_wlk_rt})
+</insert>
+
+<!-- 산책로 이름으로 산책로 번호 찾기 -->
+<select id="isWlk_rt_Exist" resultType="bigdecimal">
+      SELECT wlk_rt_nbr from mth_wlk_rt_name where wlk_rt_name=#{wlk_rt_name}
+</select>
+
+<!-- 산책로 입력 -->
+<insert id="insertWlk_rt" parameterType="domain.WLK_RT">
+	insert into insertWlk_rt values (#{wlk_rt_nbr_for_wlk_rt}, #{wlk_rt_path_nbr}, #{lon_For_wlk_rt}, #{lat_for_wlk_rt})
+</insert>
+
+
+
+
+</mapper>
