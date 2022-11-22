@@ -8,28 +8,23 @@
 <title>PathWay에 오신 것을 환영합니다<title>
 </head>
 <body>
-
 <!-- 로그인 세션 확인 -->
 <%
 MBR loginedMBR = (MBR) session.getAttribute("loginedMBR");
 %>
 
 
-	<c:choose>
-		<c:when test="${empty loginedMBR}">
-			로그인
-			<c:import url="Login.jsp"/>
-			회원가입
-			<c:import url="Join.jsp"/>
-		</c:when>
-	</c:choose>
-	
-	<c:choose>
-		<c:when test="${not empty loginedMBR}">
-			로그아웃
-		</c:when>
-	</c:choose>
-	
+
+<c:if test="${empty loginedMBR}">
+	<c:import url="Login.jsp"/>
+	<c:import url="Join.jsp"/>
+</c:if>
+<c:if test="${not empty loginedMBR}">
+	<c:import url="Logout.jsp"/>
+</c:if>
+<c:if test="${loginedMBR.mbr_type eq 'ADMIN'}">
+	<c:import url="Admin.jsp"/>
+</c:if>
 
 
 <!-- 지역 게시판 -->
@@ -44,6 +39,8 @@ MBR loginedMBR = (MBR) session.getAttribute("loginedMBR");
 <br>
 <c:import url="LocalWalkingList.jsp"/>
 <br>
+
+
 
 </body>
 </html>
