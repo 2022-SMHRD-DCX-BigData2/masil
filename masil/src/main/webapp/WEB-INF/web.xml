@@ -89,6 +89,12 @@
   	<description></description>
   	<servlet-class>controller.SetWalkingRtPath</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>CreateWriting</servlet-name>
+  	<display-name>CreateWriting</display-name>
+  	<description></description>
+  	<servlet-class>controller.CreateWriting</servlet-class>
+  </servlet>
  
 
  
@@ -148,6 +154,10 @@
   <servlet-mapping>
   	<servlet-name>SetWalkingRtPath</servlet-name>
   	<url-pattern>/SetWalkingRtPath</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>CreateWriting</servlet-name>
+  	<url-pattern>/CreateWriting</url-pattern>
   </servlet-mapping>
 
 

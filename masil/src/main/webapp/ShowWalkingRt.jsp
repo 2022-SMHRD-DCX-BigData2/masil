@@ -15,16 +15,19 @@
 .distanceInfo .label {display:inline-block;width:50px;}
 .distanceInfo:after {content:none;}
 </style>
-
-
 </head>
+
 <body>
 ${requestScope.wlk_rt_name}<br>
 ${requestScope.wlk_rt_nbr}
+
 <div id="map" style="width:100%;height:350px;"></div>  
 
 
-<!-- 경로 리뷰 게시판 보여주기 & 경로 리뷰 쓰기 -->
+<!-- wlk_rt_nbr에 해당하는 경로 리뷰 보여주기 & 경로 리뷰 쓰기 -->
+<!-- 경로 리뷰 보여주기는 비동기로 만들어보기! -->
+<a href="CreateWriting.jsp?type=2&type_nbr=${requestScope.wlk_rt_nbr}">리뷰 작성하기</a>
+
 
 
 

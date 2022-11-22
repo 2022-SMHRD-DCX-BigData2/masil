@@ -52,14 +52,12 @@ public class Writing extends HttpServlet {
 			RequestDispatcher rd1 = request.getRequestDispatcher("ShowWriting.jsp");
 			rd1.forward(request, response);
 			break;
-		case 2://2가 경로 리뷰 게시판
-			
-			
+		case 2://2가 경로 리뷰 게시판 -> 비동기를 배운 후니까 비동기 ajax통신 써보자!
 			break;
 
 		case 3://3이 모임게시판
 			break;
-		case 4://동네 산책로 게시판
+		case 4://동네 산책로
 			int area_nbr4 = Integer.parseInt(request.getParameter("area_nbr"));
 			request.setAttribute("type", 2);
 			request.setAttribute("type_nbr", area_nbr4);
@@ -80,9 +78,7 @@ public class Writing extends HttpServlet {
 			System.out.println("잘못된 접근입니다");		
 		}
 		
-		
-		
-		
+
 	}
 
 }

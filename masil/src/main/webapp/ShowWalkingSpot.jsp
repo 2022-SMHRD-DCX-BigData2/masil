@@ -56,13 +56,6 @@ infowindow.open(map, marker);
 
 <div id="WlkRtList"></div>
 <!-- ${param.wlk_nbr}에 해당하는 경로 보여주기 -->
-
-
-
-
-
-
-
 <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
