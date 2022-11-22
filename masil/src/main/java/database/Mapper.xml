@@ -57,7 +57,6 @@
   <result property="WRT_TTL" column="WRT_TTL"/>
   <result property="WRT_ATH" column="WRT_ATH"/>
 </resultMap>
-
 <select id="selectWRT" parameterType="hashmap" resultType="domain.WRT">
  SELECT WRT_NBR,WRT_TTL,WRT_ATH FROM WRT WHERE WRT_TYPE = #{wrt_type} AND COALESCE(B_CLS_NBR_FOR_WRT,WLK_RT_NBR_FOR_WRT,GRP_NBR_FOR_WRT)=#{nbr_for_wrt_type}
 </select>
@@ -85,7 +84,7 @@
 
 <!-- 산책로 입력 -->
 <insert id="insertWlk_rt" parameterType="domain.WLK_RT">
-	insert into WLK_RT values (#{wlk_rt_nbr_for_wlk_rt}, #{wlk_rt_path_nbr}, #{lon_for_wlk_rt}, #{lat_for_wlk_rt})
+	insert into WLK_RT (wlk_rt_nbr_for_wlk_rt,wlk_rt_path_nbr,lat_for_wlk_rt,lon_for_wlk_rt) values (#{wlk_rt_nbr_for_wlk_rt}, #{wlk_rt_path_nbr},  #{lat_for_wlk_rt},#{lon_for_wlk_rt})
 </insert>
 
 <!-- 지역별 산책로 목적지 리스트-->
@@ -99,6 +98,12 @@
 </select>
 
 <!--산책로 경로에 따른 산책로 경로 위도.경도.순서-->
+<resultMap id="WalkingRtPathByRtNbr" type="domain.WLK_RT">
+  <result property="wlk_rt_nbr_for_wlk_rt" column="wlk_rt_nbr_for_wlk_rt"/>
+  <result property="wlk_rt_path_nbr" column="wlk_rt_path_nbr"/>
+  <result property="lat_for_wlk_rt" column="lat_for_wlk_rt"/>
+  <result property="lon_for_wlk_rt" column="lon_for_wlk_rt"/>
+</resultMap>
 <select id="WalkingRtPathByRtNbr" parameterType="int" resultType="domain.WLK_RT">
       SELECT WLK_RT_NBR_FOR_WLK_RT, WLK_RT_PATH_NBR,LAT_FOR_WLK_RT, LON_FOR_WLK_RT FROM WLK_RT WHERE WLK_RT_NBR_FOR_WLK_RT = #{wlk_rt_nbr}
 </select>

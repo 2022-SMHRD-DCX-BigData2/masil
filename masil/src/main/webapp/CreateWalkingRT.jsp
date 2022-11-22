@@ -311,17 +311,17 @@ function getTimeHTML(distance) {
 function checkPath(){
 	var path = clickLine.getPath();
 	for(var i = 0; i<path.length;i++){
-		$("#showPath").append(path[i]["La"]+"<br>");
 		$("#showPath").append(path[i]["Ma"]+"<br>");
+		$("#showPath").append(path[i]["La"]+"<br>");
 	}
 	var text= "<form action='CreateWalkingRT' method='post'> <input type='hidden' name='wlk_nbr' value = \'"+${param.wlk_nbr}+"\'> <input type='hidden' name = 'Lat' value = \'";
 	for(i = 0; i<path.length;i++){
-		text += path[i]["La"]+"|";
+		text += path[i]["Ma"]+"|";
 	}
 	text += "\'>";
 	text += "<input type='hidden' name = 'Lon' value = \'";
 	for(i = 0; i<path.length;i++){
-		text += path[i]["Ma"]+"|";
+		text += path[i]["La"]+"|";
 	}
 	text += "\'>";
 	text += "경로 이름<input type='text' name='wlk_rt_name'>";

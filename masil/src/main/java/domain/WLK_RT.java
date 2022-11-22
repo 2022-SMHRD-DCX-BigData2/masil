@@ -6,16 +6,18 @@ public class WLK_RT {
 	
 	BigDecimal wlk_rt_nbr_for_wlk_rt;
 	BigDecimal wlk_rt_path_nbr;
-	BigDecimal lon_for_wlk_rt;
 	BigDecimal lat_for_wlk_rt;
+	BigDecimal lon_for_wlk_rt;
+
 	
-	public WLK_RT(BigDecimal wlk_rt_nbr_for_wlk_rt, BigDecimal wlk_rt_path_nbr, BigDecimal lon_for_wlk_rt,
-			BigDecimal lat_for_wlk_rt) {
+	public WLK_RT(BigDecimal wlk_rt_nbr_for_wlk_rt, BigDecimal wlk_rt_path_nbr, BigDecimal lat_for_wlk_rt,
+			BigDecimal lon_for_wlk_rt) {
 		super();
 		this.wlk_rt_nbr_for_wlk_rt = wlk_rt_nbr_for_wlk_rt;
 		this.wlk_rt_path_nbr = wlk_rt_path_nbr;
-		this.lon_for_wlk_rt = lon_for_wlk_rt;
 		this.lat_for_wlk_rt = lat_for_wlk_rt;
+		this.lon_for_wlk_rt = lon_for_wlk_rt;
+		
 	}
 
 	public BigDecimal getWlk_rt_nbr_for_wlk_rt() {
