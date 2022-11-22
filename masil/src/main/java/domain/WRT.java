@@ -34,6 +34,18 @@ public class WRT {
 		this.nbr_for_wrt_type = nbr_for_wrt_type;
 	}
 	
+
+	public WRT(BigDecimal wrt_nbr, String wrt_ttl, String wrt_cnt, BigDecimal wrt_ath, BigDecimal wrt_type,
+			BigDecimal nbr_for_wrt_type, java.sql.Timestamp  wrt_time) {
+		super();
+		this.wrt_nbr = wrt_nbr;
+		this.wrt_ttl = wrt_ttl;
+		this.wrt_cnt = wrt_cnt;
+		this.wrt_ath = wrt_ath;
+		this.wrt_type = wrt_type;
+		this.nbr_for_wrt_type = nbr_for_wrt_type;
+		this.wrt_time = wrt_time;
+	}
 	
 	
 
@@ -48,17 +60,6 @@ public class WRT {
 	}
 
 
-	public WRT(BigDecimal wrt_nbr, String wrt_ttl, String wrt_cnt, BigDecimal wrt_ath, BigDecimal wrt_type,
-			BigDecimal nbr_for_wrt_type, java.sql.Timestamp  wrt_time) {
-		super();
-		this.wrt_nbr = wrt_nbr;
-		this.wrt_ttl = wrt_ttl;
-		this.wrt_cnt = wrt_cnt;
-		this.wrt_ath = wrt_ath;
-		this.wrt_type = wrt_type;
-		this.nbr_for_wrt_type = nbr_for_wrt_type;
-		this.wrt_time = wrt_time;
-	}
 
 
 	public BigDecimal getWrt_nbr() {

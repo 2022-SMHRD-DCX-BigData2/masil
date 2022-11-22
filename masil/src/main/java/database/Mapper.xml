@@ -128,7 +128,7 @@
 
 <!--글 번호로 글 정보 가져오기-->
 <select id="selectWRTbyWrtNbr" parameterType="int" resultType="domain.WRT">
-      SELECT  FROM WRT WHERE wrt_nbr=#{wrt_nbr}
+      SELECT WRT_NBR,WRT_TTL,WRT_CNT,WRT_ATH,WRT_TYPE,COALESCE(B_CLS_NBR_FOR_WRT,WLK_RT_NBR_FOR_WRT,GRP_NBR_FOR_WRT),WRT_TIME FROM WRT WHERE wrt_nbr=#{wrt_nbr}
 </select>
 
 

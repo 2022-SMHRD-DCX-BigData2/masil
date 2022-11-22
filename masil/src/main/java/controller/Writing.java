@@ -46,10 +46,6 @@ public class Writing extends HttpServlet {
 			b_cls = request.getParameter("area");
 			int b_cls_nbr = areaDao.matchBcls_nbr_fromSB(b_cls).intValue();
 			text =  wrtDao.selectWRT(1, b_cls_nbr);
-			for (WRT wrt : text) {
-				wrt.getWrt_ttl();
-			}
-			
 			int type = 1;
 			request.setAttribute("type", type);
 			request.setAttribute("type_nbr", b_cls_nbr);
@@ -58,6 +54,7 @@ public class Writing extends HttpServlet {
 			rd1.forward(request, response);
 			break;
 		case 2://2가 경로 리뷰 게시판 -> 비동기를 배운 후니까 비동기 ajax통신 써보자!
+			//SetWalkingRTRVList에서 처리됨
 			break;
 
 		case 3://3이 모임게시판

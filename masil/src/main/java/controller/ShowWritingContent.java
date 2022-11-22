@@ -26,7 +26,7 @@ public class ShowWritingContent extends HttpServlet {
 		//번호에 해당하는 게시글과 댓글 정보 보내기
 		WRT_DAO WRTdao = new WRT_DAO();
 		WRT writing = WRTdao.selectWRTbyWrtNbr(wrt_nbr);
-		
+		System.out.println(writing.getWrt_cnt());
 		//댓글은 나중에!
 		request.setAttribute("comment", writing);
 		request.setAttribute("writing", writing);

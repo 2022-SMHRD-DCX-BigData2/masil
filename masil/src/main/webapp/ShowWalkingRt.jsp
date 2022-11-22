@@ -20,23 +20,20 @@
 <body>
 ${requestScope.wlk_rt_name}<br>
 ${requestScope.wlk_rt_nbr}
-
+<!-- 경로 보여주기 찍은 점마다 거리 보여주는 것도 추가하기-->
 <div id="map" style="width:100%;height:350px;"></div>  
 
 
 <!-- wlk_rt_nbr에 해당하는 경로 리뷰 보여주기 & 경로 리뷰 쓰기 -->
 <!-- 경로 리뷰 보여주기는 비동기로 만들어보기! -->
+<div id="RVList"></div>
 <a href="CreateWriting.jsp?type=2&type_nbr=${requestScope.wlk_rt_nbr}">리뷰 작성하기</a>
 
 
-
-
-<!-- 경로 보여주기 -->
 <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=e94a31acf891a4c020db55b18fc70c54"></script>
 <script type="text/javascript">
 
-	
 	var mapContainer = document.getElementById('map'), // 지도를 표시할 div  
     mapOption = { 
         center: new kakao.maps.LatLng(${requestScope.lat}, ${requestScope.lon}), // 지도의 중심좌표
@@ -47,10 +44,11 @@ ${requestScope.wlk_rt_nbr}
 	
 	var clickLine // 마우스로 클릭한 좌표로 그려질 선 객체입니다
 	var distanceOverlay; // 선의 거리정보를 표시할 커스텀오버레이 입니다
+	var LinePath = ${requestScope.path};
 	
 	clickLine = new kakao.maps.Polyline({
 	    map: map, // 선을 표시할 지도입니다 
-	    path: ${requestScope.path}, // 선을 구성하는 좌표 배열입니다
+	    path: LinePath, // 선을 구성하는 좌표 배열입니다
 	    strokeWeight: 3, // 선의 두께입니다 
 	    strokeColor: '#db4040', // 선의 색깔입니다
 	    strokeOpacity: 1, // 선의 불투명도입니다 0에서 1 사이값이며 0에 가까울수록 투명합니다
@@ -60,7 +58,9 @@ ${requestScope.wlk_rt_nbr}
 	var distanceOverlay;
 	var distance = Math.round(clickLine.getLength());
 	var content = getTimeHTML(distance);
-	showDistance(content, new kakao.maps.LatLng(${requestScope.last_lat}, ${requestScope.last_lon}));
+	showDistance(content, LinePath[LinePath.length-1]);
+	
+	
 	
 	function showDistance(content, position) {
 	    
@@ -124,6 +124,28 @@ ${requestScope.wlk_rt_nbr}
 	}
 
 
+	$(document).ready(function(){
+		$.ajax({
+			url : "SetWalkingRTRVList",
+			type : "get",
+			data : {"wlk_rt_nbr" : ${requestScope.wlk_rt_nbr}},
+			dataType : "json",
+			success : function(res){
+				console.log(res);
+				$("#RVList").html("");
+				for(var i=0 ; i<res.length ; i++){
+					$("#RVList").append(res[i].wrt_ath+"<a href=\'ShowWritingContent?wrt_nbr="+res[i].wrt_nbr+"'>"+res[i].wrt_ttl+"</a>"+res[i].wrt_time+"<br>");
+				}			
+			},
+			error : function(){
+				alert("Ajax 통신 실패!!");	
+			}
+		});
+	});
+	
+	
+	
+	
 </script>
 
 </body>

@@ -36,14 +36,8 @@ public class SetWalkingRtPath extends HttpServlet {
 		String last_lat = "";
 		String last_lon = "";
 		String result = "[";
-		int i=0;
 		for (WLK_RT wlk_RT : list) {
 			result += "new kakao.maps.LatLng("+wlk_RT.getLat_for_wlk_rt()+","+wlk_RT.getLon_for_wlk_rt()+"),";
-			if(i==list.size()-1) {
-				last_lat += wlk_RT.getLat_for_wlk_rt();
-				last_lon += wlk_RT.getLon_for_wlk_rt();
-			}
-			i++;
 		}
 		result = result.substring(0, result.length() - 1);
 		result += "]";
@@ -53,8 +47,6 @@ public class SetWalkingRtPath extends HttpServlet {
 		request.setAttribute("wlk_rt_nbr", wlk_rt_nbr);
 		request.setAttribute("lat", lat);
 		request.setAttribute("lon", lon);
-		request.setAttribute("last_lat", last_lat);
-		request.setAttribute("last_lon", last_lon);
 		RequestDispatcher rd = request.getRequestDispatcher("ShowWalkingRt.jsp");	
 		rd.forward(request, response);
 		
