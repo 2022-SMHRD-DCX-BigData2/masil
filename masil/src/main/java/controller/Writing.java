@@ -52,16 +52,11 @@ public class Writing extends HttpServlet {
 			RequestDispatcher rd1 = request.getRequestDispatcher("ShowWriting.jsp");
 			rd1.forward(request, response);
 			break;
-		case 2://2가 길 별 산책로 목록
-			b_cls = request.getParameter("b_cls");
-			String s_cls = request.getParameter("s_cls");
-			area_nbr = areaDao.matchAreaNbr(b_cls, s_cls).intValue();
-			text =  wrtDao.selectWRT(2, area_nbr);
-			request.setAttribute("type", 2);
-			request.setAttribute("type_nbr", area_nbr);
-			RequestDispatcher rd2 = request.getRequestDispatcher("ShowWalking.jsp");
-			rd2.forward(request, response);
+		case 2://2가 경로 리뷰 게시판
+			
+			
 			break;
+
 		case 3://3이 모임게시판
 			break;
 		case 4://동네 산책로 게시판
@@ -70,6 +65,16 @@ public class Writing extends HttpServlet {
 			request.setAttribute("type_nbr", area_nbr4);
 			RequestDispatcher rd4 = request.getRequestDispatcher("ShowWalking.jsp");
 			rd4.forward(request, response);
+			break;
+		case 5://5가 길 별 산책로 목록
+			b_cls = request.getParameter("b_cls");
+			String s_cls = request.getParameter("s_cls");
+			area_nbr = areaDao.matchAreaNbr(b_cls, s_cls).intValue();
+			text =  wrtDao.selectWRT(2, area_nbr);
+			//request.setAttribute("type", 2);
+			request.setAttribute("type_nbr", area_nbr);
+			RequestDispatcher rd2 = request.getRequestDispatcher("ShowWalking.jsp");
+			rd2.forward(request, response);
 			break;
 		default:
 			System.out.println("잘못된 접근입니다");		

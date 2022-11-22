@@ -18,7 +18,7 @@ $(document).ready(function(){
 			console.log(res);
 			$("#SetArea").html("");
 			for(var i=0 ; i<res.length ; i++){
-				$("#SetArea").append("<a href=\'Writing?b_cls="+res[i].b_cls+"&s_cls="+res[i].s_cls+"&wrt_type=2\'>"+res[i].b_cls+"  "+res[i].s_cls+"</a>&nbsp");
+				$("#SetArea").append("<a href=\'Writing?b_cls="+res[i].b_cls+"&s_cls="+res[i].s_cls+"&wrt_type=5\'>"+res[i].b_cls+"  "+res[i].s_cls+"</a>&nbsp");
 			}			
 		},
 		error : function(){

@@ -20,8 +20,13 @@
 </head>
 <body>
 ${requestScope.wlk_rt_name}<br>
-
+${requestScope.wlk_rt_nbr}
 <div id="map" style="width:100%;height:350px;"></div>  
+
+
+<!-- 경로 리뷰 게시판 보여주기 & 경로 리뷰 쓰기 -->
+
+
 
 <!-- 경로 보여주기 -->
 <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
