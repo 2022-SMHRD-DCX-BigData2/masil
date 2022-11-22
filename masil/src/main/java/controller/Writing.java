@@ -32,6 +32,7 @@ public class Writing extends HttpServlet {
 		//wrt_type도 넘겨받는다
 		//area를 넘겨받는 경우 -> 지역 게시판
 		//area_nbr을 넘겨받는 경우 ->산책로 게시판
+		//글쓴이 아이디도 넘겨줘야 함
 
 		
 		AREA_DAO areaDao = new AREA_DAO();

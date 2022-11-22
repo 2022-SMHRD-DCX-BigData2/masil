@@ -31,8 +31,6 @@ public class Login extends HttpServlet {
 		
 		HttpSession session = request.getSession();
 		session.setAttribute("loginedMBR",loginedMbr2);
-		
-		System.out.println(loginedMbr2.getMbr_nbr());
 
 		response.sendRedirect("Main.jsp");
 	}

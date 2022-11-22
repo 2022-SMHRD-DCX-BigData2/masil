@@ -126,6 +126,7 @@ ${requestScope.wlk_rt_nbr}
 
 	$(document).ready(function(){
 		$.ajax({
+			//이름도 받아야 함. 어떻게?
 			url : "SetWalkingRTRVList",
 			type : "get",
 			data : {"wlk_rt_nbr" : ${requestScope.wlk_rt_nbr}},

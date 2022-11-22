@@ -17,16 +17,24 @@ MBR loginedMBR = (MBR) session.getAttribute("loginedMBR");
 
 	<c:choose>
 		<c:when test="${empty loginedMBR}">
-			로그인<br>
-			<%@ include file="Login.jsp" %>
-			회원가입<br>
-			<%@ include file="Join.jsp" %>
+			로그인
+			<c:import url="Login.jsp"/>
+			회원가입
+			<c:import url="Join.jsp"/>
 		</c:when>
 	</c:choose>
+	
+	<c:choose>
+		<c:when test="${not empty loginedMBR}">
+			로그아웃
+		</c:when>
+	</c:choose>
+	
+
 
 <!-- 지역 게시판 -->
 <br>
-<%@ include file="LocalWritingList.jsp" %>
+<c:import url="LocalWritingList.jsp"/>
 <br>
 
 <!-- 로그인한 사람이 속한 동네 산책로로 이동 -->
@@ -34,7 +42,7 @@ MBR loginedMBR = (MBR) session.getAttribute("loginedMBR");
 				로그인하라고 알람 -->
 <a href="Writing?area_nbr=${loginedMBR.area_nbr_for_mbr}&wrt_type=4">동네 산책로</a>
 <br>
-<%@ include file="LocalWalkingList.jsp" %>
+<c:import url="LocalWalkingList.jsp"/>
 <br>
 
 </body>

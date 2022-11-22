@@ -21,7 +21,9 @@ public class ShowWritingContent extends HttpServlet {
 	 * @see HttpServlet#service(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		//글쓴이 아이디도 넘겨줘야 함
+		
+		
 		int wrt_nbr = Integer.parseInt(request.getParameter("wrt_nbr"));
 		//번호에 해당하는 게시글과 댓글 정보 보내기
 		WRT_DAO WRTdao = new WRT_DAO();
