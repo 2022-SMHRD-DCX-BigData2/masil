@@ -114,9 +114,15 @@
 </insert>
 
 
+<!-- 산책로 리뷰 입력 -->
+<insert id="insertWRTtoRv" parameterType="domain.WRT">
+	insert into WRT (WRT_NBR,WRT_TTL,WRT_CNT,WRT_ATH,WRT_TYPE,wlk_rt_nbr_for_wrt,WRT_TIME) values (WRT_SEQ.NEXTVAL, #{wrt_ttl},  #{wrt_cnt},#{wrt_ath},2,#{nbr_for_wrt_type},SYSDATE)
+</insert>
 
-
-
+<!-- 모임 게시판 입력 -->
+<insert id="insertWRTtoGrp" parameterType="domain.WRT">
+	insert into WRT (WRT_NBR,WRT_TTL,WRT_CNT,WRT_ATH,WRT_TYPE,grp_nbr_for_wrt,WRT_TIME) values (WRT_SEQ.NEXTVAL, #{wrt_ttl},  #{wrt_cnt},#{wrt_ath},3,#{nbr_for_wrt_type},SYSDATE)
+</insert>
 
 
 

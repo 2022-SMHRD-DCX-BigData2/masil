@@ -50,6 +50,7 @@ public class SetWalkingRtPath extends HttpServlet {
 		
 		request.setAttribute("path",result);
 		request.setAttribute("wlk_rt_name", wlk_rt_name);
+		request.setAttribute("wlk_rt_nbr", wlk_rt_nbr);
 		request.setAttribute("lat", lat);
 		request.setAttribute("lon", lon);
 		request.setAttribute("last_lat", last_lat);
