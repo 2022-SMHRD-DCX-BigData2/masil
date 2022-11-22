@@ -27,6 +27,8 @@ $(document).ready(function(){
 });
 </script>
 </head>
+
+
 <body>
 <!-- 지역별 산책로 경로 보여주기 -->
 <div id="walkingRtList"></div>

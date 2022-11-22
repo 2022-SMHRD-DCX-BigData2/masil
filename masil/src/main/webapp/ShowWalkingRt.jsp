@@ -37,14 +37,84 @@ ${requestScope.wlk_rt_name}<br>
 
 	var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
 	
+	var clickLine // 마우스로 클릭한 좌표로 그려질 선 객체입니다
+	var distanceOverlay; // 선의 거리정보를 표시할 커스텀오버레이 입니다
+	
 	clickLine = new kakao.maps.Polyline({
 	    map: map, // 선을 표시할 지도입니다 
-	    path: ${requestScope.path}, // 선을 구성하는 좌표 배열입니다 클릭한 위치를 넣어줍니다
+	    path: ${requestScope.path}, // 선을 구성하는 좌표 배열입니다
 	    strokeWeight: 3, // 선의 두께입니다 
 	    strokeColor: '#db4040', // 선의 색깔입니다
 	    strokeOpacity: 1, // 선의 불투명도입니다 0에서 1 사이값이며 0에 가까울수록 투명합니다
 	    strokeStyle: 'solid' // 선의 스타일입니다
 	});
+	
+	var distanceOverlay;
+	var distance = Math.round(clickLine.getLength());
+	var content = getTimeHTML(distance);
+	showDistance(content, new kakao.maps.LatLng(${requestScope.last_lat}, ${requestScope.last_lon}));
+	
+	function showDistance(content, position) {
+	    
+	    if (distanceOverlay) { // 커스텀오버레이가 생성된 상태이면
+	        
+	        // 커스텀 오버레이의 위치와 표시할 내용을 설정합니다
+	        distanceOverlay.setPosition(position);
+	        distanceOverlay.setContent(content);
+	        
+	    } else { // 커스텀 오버레이가 생성되지 않은 상태이면
+	        
+	        // 커스텀 오버레이를 생성하고 지도에 표시합니다
+	        distanceOverlay = new kakao.maps.CustomOverlay({
+	            map: map, // 커스텀오버레이를 표시할 지도입니다
+	            content: content,  // 커스텀오버레이에 표시할 내용입니다
+	            position: position, // 커스텀오버레이를 표시할 위치입니다.
+	            xAnchor: 0,
+	            yAnchor: 0,
+	            zIndex: 3  
+	        });      
+	    }
+	
+	}
+	    
+	function getTimeHTML(distance) {
+
+	    // 도보의 시속은 평균 4km/h 이고 도보의 분속은 67m/min입니다
+	    var walkkTime = distance / 67 | 0;
+	    var walkHour = '', walkMin = '';
+
+	    // 계산한 도보 시간이 60분 보다 크면 시간으로 표시합니다
+	    if (walkkTime > 60) {
+	        walkHour = '<span class="number">' + Math.floor(walkkTime / 60) + '</span>시간 '
+	    }
+	    walkMin = '<span class="number">' + walkkTime % 60 + '</span>분'
+
+	    // 자전거의 평균 시속은 16km/h 이고 이것을 기준으로 자전거의 분속은 267m/min입니다
+	    var bycicleTime = distance / 227 | 0;
+	    var bycicleHour = '', bycicleMin = '';
+
+	    // 계산한 자전거 시간이 60분 보다 크면 시간으로 표출합니다
+	    if (bycicleTime > 60) {
+	        bycicleHour = '<span class="number">' + Math.floor(bycicleTime / 60) + '</span>시간 '
+	    }
+	    bycicleMin = '<span class="number">' + bycicleTime % 60 + '</span>분'
+
+	    // 거리와 도보 시간, 자전거 시간을 가지고 HTML Content를 만들어 리턴합니다
+	    var content = '<ul class="dotOverlay distanceInfo">';
+	    content += '    <li>';
+	    content += '        <span class="label">총거리</span><span class="number">' + distance + '</span>m';
+	    content += '    </li>';
+	    content += '    <li>';
+	    content += '        <span class="label">도보</span>' + walkHour + walkMin;
+	    content += '    </li>';
+	    content += '    <li>';
+	    content += '        <span class="label">자전거</span>' + bycicleHour + bycicleMin;
+	    content += '    </li>';
+	    content += '</ul>'
+
+	    return content;
+	}
+
 
 </script>
 

@@ -6,7 +6,9 @@
 <meta charset="EUC-KR">
 <title>Insert title here</title>
 </head>
+
 <body>
+
 ${param.wlk_nbr}<br>
 ${param.wlk_name}<br>
 <div id="map" style="width:100%;height:350px;"></div>
@@ -46,8 +48,21 @@ var infowindow = new kakao.maps.InfoWindow({
 // 마커 위에 인포윈도우를 표시합니다. 두번째 파라미터인 marker를 넣어주지 않으면 지도 위에 표시됩니다
 infowindow.open(map, marker); 
 </script>
+
+<!--목적지가 있는 상태에서 경로 입력하기 -->
+<a href="CreateWalkingRT.jsp?wlk_nbr=${param.wlk_nbr}&wlk_name=${param.wlk_name}&lat=${param.lat}&lon=${param.lon}">경로 입력하기</a>
+
+
+
 <div id="WlkRtList"></div>
 <!-- ${param.wlk_nbr}에 해당하는 경로 보여주기 -->
+
+
+
+
+
+
+
 <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
@@ -68,6 +83,16 @@ $(document).ready(function(){
 		}
 	});
 });
+
+
+
+
+
+
+
+
+
+
 </script>
 
 </body>
