@@ -21,6 +21,20 @@ public class WRT {
 		this.wrt_ttl = wrt_ttl;
 		this.wrt_ath = wrt_ath;
 	}
+	
+	
+
+
+	public WRT(String wrt_ttl, String wrt_cnt, BigDecimal wrt_ath, BigDecimal wrt_type, BigDecimal nbr_for_wrt_type) {
+		super();
+		this.wrt_ttl = wrt_ttl;
+		this.wrt_cnt = wrt_cnt;
+		this.wrt_ath = wrt_ath;
+		this.wrt_type = wrt_type;
+		this.nbr_for_wrt_type = nbr_for_wrt_type;
+	}
+
+
 
 
 	public BigDecimal getWrt_nbr() {

@@ -15,17 +15,19 @@
 dao를 통해 db에 넣습니다.
 WRT_DAO 에 새 DAO를 만들어야 합니다.
 -->
-${param.type}
-${param.type_nbr}
+타입 ${param.type}
+<br>
+번호 ${param.type_nbr}
+<br>
 <%
-MBR loginedMBR = (MBR) session.getAttribute("loginedMember");
+MBR loginedMBR = (MBR) session.getAttribute("loginedMBR");
 %>
-${loginedMBR.mbr_nbr}
+<%=loginedMBR.getMbr_nbr()%>
 
 <form action="CreateWriting" method="post">
 <input type="hidden" name="type" value="${param.type}">
 <input type="hidden" name="type_nbr" value="${param.type_nbr}">
-<input type="hidden" name="mbr_nbr" value="${loginedMBR.mbr_nbr}">
+<input type="hidden" name="mbr_nbr" value="<%=loginedMBR.getMbr_nbr()%>">
 제목<input type="text" name="title"><br>
 <textarea name="content"></textarea>
 <input type="submit">

@@ -27,11 +27,14 @@ public class Login extends HttpServlet {
 		
 		MBR loginedMbr = new MBR(mbr_id, mbr_pw);	
 		MBR_DAO dao = new MBR_DAO();
-		loginedMbr = dao.loginMember(loginedMbr);
+		MBR loginedMbr2 = dao.loginMember(loginedMbr);
 		
-		HttpSession session = request.getSession();  
-		session.setAttribute("loginedMBR",loginedMbr);
-		response.sendRedirect("SetMain");
+		HttpSession session = request.getSession();
+		session.setAttribute("loginedMBR",loginedMbr2);
+		
+		System.out.println(loginedMbr2.getMbr_nbr());
+
+		response.sendRedirect("Main.jsp");
 	}
 
 }

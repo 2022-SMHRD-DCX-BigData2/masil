@@ -43,7 +43,47 @@ public class WRT_DAO {
 		return result;
 	}
 	
-	
+	// 글 등록하기
+	   public int insertWRT(WRT writing) {
+	      int cnt = 0;
+	      String wrt_type_string = writing.getWrt_type().toPlainString();
+	      try {
+		    	  switch(wrt_type_string) {	  
+		    	  	case "1":
+		    	  		cnt = sqlSession.insert("insertWRTtoLoc", writing);
+		    	  		break;
+		    	  	case "2":
+		    	  		cnt = sqlSession.insert("insertWRTtoRv", writing);
+		    	  		break;
+		    	  	case "3":
+		    	  		cnt = sqlSession.insert("insertWRTtoGrp", writing);
+		    	  		break;
+		    	  	default:
+		    	  		System.out.println("insertWRT에서 잘못된 접근입니다.");
+		    	  		break;	    		  
+	    	  }
+	    	           
+	         // 만약에 내가 원하는 일을 했으면 DB에 반영
+	         if(cnt >0) {
+	            System.out.println("DAO메소드에선 값을 잘 가져옴");
+	            sqlSession.commit();
+	         }else {
+	            // 만약에 원하는 일을 못하면 다시 원래대로 돌려주기
+	            sqlSession.rollback();
+	         }
+	         
+	         
+	      } catch (Exception e) {
+	         // TODO: handle exception
+	         e.printStackTrace();
+	      } finally {
+	         // 빌렸던 Connection 객체를 반납
+	         sqlSession.close();
+	      }
+	      
+	      return cnt;
+	   }
+	   
 	
 	
 

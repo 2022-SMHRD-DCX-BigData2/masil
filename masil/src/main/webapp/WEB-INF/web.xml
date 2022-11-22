@@ -29,12 +29,7 @@
   	<description></description>
   	<servlet-class>controller.Login</servlet-class>
   </servlet>
-  <servlet>
-  	<servlet-name>SetMain</servlet-name>
-  	<display-name>SetMain</display-name>
-  	<description></description>
-  	<servlet-class>controller.SetMain</servlet-class>
-  </servlet>
+
   <servlet>
   	<servlet-name>Writing</servlet-name>
   	<display-name>Writing</display-name>
@@ -115,10 +110,7 @@
   	<servlet-name>Login</servlet-name>
   	<url-pattern>/Login</url-pattern>
   </servlet-mapping>
-  <servlet-mapping>
-  	<servlet-name>SetMain</servlet-name>
-  	<url-pattern>/SetMain</url-pattern>
-  </servlet-mapping>
+
   <servlet-mapping>
   	<servlet-name>Writing</servlet-name>
   	<url-pattern>/Writing</url-pattern>

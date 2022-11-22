@@ -37,8 +37,11 @@ public class Join extends HttpServlet {
 		MBR_DAO mbrDao = new MBR_DAO();
 		mbrDao.insertMember(newMbr);
 		
+		MBR_DAO mbrDao2 = new MBR_DAO();
+		MBR loginedMbr = mbrDao2.loginMember(newMbr);
+		
 		HttpSession session = request.getSession();  
-		session.setAttribute("loginedMBR",newMbr);
+		session.setAttribute("loginedMBR",loginedMbr);
 		response.sendRedirect("Main.jsp");
 		
 		

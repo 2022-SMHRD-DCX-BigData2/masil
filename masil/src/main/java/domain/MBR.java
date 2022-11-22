@@ -31,6 +31,22 @@ public class MBR {
 		this.fav_list = fav_list;
 		this.dog_list = dog_list;
 	}
+	
+	
+	
+
+
+	public MBR(BigDecimal mbr_nbr, String mbr_type, String mbr_id, String mbr_pw, BigDecimal area_nbr_for_mbr,
+			String fav_list, String dog_list) {
+		super();
+		this.mbr_nbr = mbr_nbr;
+		this.mbr_type = mbr_type;
+		this.mbr_id = mbr_id;
+		this.mbr_pw = mbr_pw;
+		this.area_nbr_for_mbr = area_nbr_for_mbr;
+		this.fav_list = fav_list;
+		this.dog_list = dog_list;
+	}
 
 
 	public BigDecimal getMbr_nbr() {

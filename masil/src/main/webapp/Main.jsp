@@ -11,8 +11,9 @@
 
 <!-- 로그인 세션 확인 -->
 <%
-MBR loginedMBR = (MBR) session.getAttribute("loginedMember");
+MBR loginedMBR = (MBR) session.getAttribute("loginedMBR");
 %>
+
 
 	<c:choose>
 		<c:when test="${empty loginedMBR}">
@@ -21,13 +22,6 @@ MBR loginedMBR = (MBR) session.getAttribute("loginedMember");
 			회원가입<br>
 			<%@ include file="Join.jsp" %>
 		</c:when>
-		<c:otherwise>
-			<c:if test="${loginedMBR.mbr_type eq 'ADMIN'}">
-			<a href="Administrate">회원관리</a>>
-			</c:if> 
-			<a href="Logout">로그아웃</a>
-			<a href="Update.jsp">개인정보수정</a>
-		</c:otherwise>
 	</c:choose>
 
 <!-- 지역 게시판 -->

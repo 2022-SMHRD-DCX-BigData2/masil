@@ -15,7 +15,7 @@
 <!-- 게시판 타입(type/ request에서 얻어옴),
 게시판 타입별 세부 번호(type_nbr/ request에서 얻어옴),
 아래 주소 쿼리 스트링으로 들어가야 합니다 -->
-<a href="CreateWriting.jsp?type=${reqeustScope.type}&type_nbr=${requestScope.type_nbr}">글 작성하기</a>
+<a href="CreateWriting.jsp?type=${requestScope.type}&type_nbr=${requestScope.type_nbr}">글 작성하기</a>
 <!-- to Front : 로그인하지 않았으면 글 작성 페이지로 못 감 -->
 
 </body>
