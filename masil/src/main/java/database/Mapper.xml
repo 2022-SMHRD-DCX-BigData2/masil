@@ -56,9 +56,10 @@
   <result property="WRT_NBR" column="WRT_NBR"/>
   <result property="WRT_TTL" column="WRT_TTL"/>
   <result property="WRT_ATH" column="WRT_ATH"/>
+  <result property="WRT_TIME" column="WRT_TIME"/>
 </resultMap>
 <select id="selectWRT" parameterType="hashmap" resultType="domain.WRT">
- SELECT WRT_NBR,WRT_TTL,WRT_ATH FROM WRT WHERE WRT_TYPE = #{wrt_type} AND COALESCE(B_CLS_NBR_FOR_WRT,WLK_RT_NBR_FOR_WRT,GRP_NBR_FOR_WRT)=#{nbr_for_wrt_type}
+ SELECT WRT_NBR,WRT_TTL,WRT_ATH,WRT_TIME FROM WRT WHERE WRT_TYPE = #{wrt_type} AND COALESCE(B_CLS_NBR_FOR_WRT,WLK_RT_NBR_FOR_WRT,GRP_NBR_FOR_WRT)=#{nbr_for_wrt_type}
 </select>
 
 
@@ -125,7 +126,10 @@
 </insert>
 
 
-
+<!--글 번호로 글 정보 가져오기-->
+<select id="selectWRTbyWrtNbr" parameterType="int" resultType="domain.WRT">
+      SELECT  FROM WRT WHERE wrt_nbr=#{wrt_nbr}
+</select>
 
 
 

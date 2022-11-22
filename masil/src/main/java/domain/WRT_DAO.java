@@ -25,7 +25,7 @@ public class WRT_DAO {
 		     
 		     // 만약에 내가 원하는 일을 했으면 DB에 반영
 		     if(result!=null) {
-		        System.out.println("DAO메소드에선 값을 잘 가져옴");
+		        System.out.println("selectWRT DAO메소드에선 값을 잘 가져옴");
 		        sqlSession.commit();
 		     }else {
 		        // 만약에 원하는 일을 못하면 다시 원래대로 돌려주기
@@ -84,7 +84,31 @@ public class WRT_DAO {
 	      return cnt;
 	   }
 	   
-	
+	   public WRT selectWRTbyWrtNbr(int wrt_nbr){
+
+			WRT result = null;
+			  try {
+				     //               mapper.xml의 id값
+			     result = sqlSession.selectOne("selectWRTbyWrtNbr",wrt_nbr);
+			     
+			     // 만약에 내가 원하는 일을 했으면 DB에 반영
+			     if(result!=null) {
+			        System.out.println("DAO메소드에선 값을 잘 가져옴");
+			        sqlSession.commit();
+			     }else {
+			        // 만약에 원하는 일을 못하면 다시 원래대로 돌려주기
+			        sqlSession.rollback();
+			     }
+			     
+			  } catch (Exception e) {
+			     // TODO: handle exception
+			     e.printStackTrace();
+			  } finally {
+			     // 빌렸던 Connection 객체를 반납
+			     sqlSession.close();
+			  }
+			return result;
+		}
 	
 
 }

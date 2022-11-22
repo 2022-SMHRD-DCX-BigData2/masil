@@ -1,3 +1,5 @@
+<%@page import="domain.WRT"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" isELIgnored="false"%>  
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix= "c"  %>
 <!DOCTYPE html>
@@ -8,8 +10,15 @@
 </head>
 <body>
 <!-- 목록 보여줘야 함 -->
-
-
+<%
+List<WRT> writings = (List) request.getAttribute("Writing");
+for(WRT wrt : writings){ %>
+	글쓴이 : <%= wrt.getWrt_ath()%>
+	글 제목 : <a href="ShowWritingContent?wrt_nbr=<%=wrt.getWrt_nbr()%>"><%= wrt.getWrt_ttl()%></a>
+	작성 시간 : <%=wrt.getWrt_time() %>
+<%
+}
+%>
 
 
 <!-- 게시판 타입(type/ request에서 얻어옴),
