@@ -1,6 +1,8 @@
 package domain;
 
 
+import java.util.HashMap;
+
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
@@ -70,12 +72,102 @@ public class MBR_DAO {
 	}
    
    
+   public String getDogList(int mbr_nbr) {
+	   String DogList = null;
+	   
+	   try {
+		     //               mapper.xml의 id값
+		   DogList = sqlSession.selectOne("getDogList",mbr_nbr);
+	     
+	     // 만약에 내가 원하는 일을 했으면 DB에 반영
+	     if(DogList!=null) {
+	        System.out.println("getDogList DAO메소드에선 값을 잘 가져옴");
+	        sqlSession.commit();
+	     }else {
+	        // 만약에 원하는 일을 못하면 다시 원래대로 돌려주기
+	        sqlSession.rollback();
+	     }
+	     
+	     
+	  } catch (Exception e) {
+	     // TODO: handle exception
+	     e.printStackTrace();
+	  } finally {
+	     // 빌렸던 Connection 객체를 반납
+	     sqlSession.close();
+	  }
+	   
+	   
+	   return DogList;
+	      
+   }
    
+	// 댕댕이 추가하기
+   public int plusDog(String DogName,int mbr_nbr) {
+	   HashMap<String, Object> map = new HashMap<String, Object>();
+	   DogName += "|"; //구분자 추가
+	   map.put("DogName", DogName);
+	   map.put("mbr_nbr", mbr_nbr);
+
+      int cnt = 0;
+      
+      try {
+         //               mapper.xml의 id값
+         cnt = sqlSession.insert("plusDog", map);
+         
+         // 만약에 내가 원하는 일을 했으면 DB에 반영
+         if(cnt >0) {
+            System.out.println("plusDog DAO메소드에선 값을 잘 가져옴");
+            sqlSession.commit();
+         }else {
+            // 만약에 원하는 일을 못하면 다시 원래대로 돌려주기
+            sqlSession.rollback();
+         }
+         
+         
+      } catch (Exception e) {
+         // TODO: handle exception
+         e.printStackTrace();
+      } finally {
+         // 빌렸던 Connection 객체를 반납
+         sqlSession.close();
+      }
+      
+      return cnt;
+   }   
    
-   
-   
-   
-   
+	// 댕댕이 추가하기
+   public int setDogList(String DogList,int mbr_nbr) {
+	   HashMap<String, Object> map = new HashMap<String, Object>();
+	   map.put("DogList", DogList);
+	   map.put("mbr_nbr", mbr_nbr);
+
+      int cnt = 0;
+      
+      try {
+         //               mapper.xml의 id값
+         cnt = sqlSession.insert("setDogList", map);
+         
+         // 만약에 내가 원하는 일을 했으면 DB에 반영
+         if(cnt >0) {
+            System.out.println("setDogList DAO메소드에선 값을 잘 가져옴");
+            sqlSession.commit();
+         }else {
+            // 만약에 원하는 일을 못하면 다시 원래대로 돌려주기
+            sqlSession.rollback();
+         }
+         
+         
+      } catch (Exception e) {
+         // TODO: handle exception
+         e.printStackTrace();
+      } finally {
+         // 빌렸던 Connection 객체를 반납
+         sqlSession.close();
+      }
+      
+      return cnt;
+   }
    
 
 }

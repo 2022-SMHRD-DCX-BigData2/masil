@@ -131,6 +131,22 @@
       SELECT WRT_NBR,WRT_TTL,WRT_CNT,WRT_ATH,WRT_TYPE,COALESCE(B_CLS_NBR_FOR_WRT,WLK_RT_NBR_FOR_WRT,GRP_NBR_FOR_WRT),WRT_TIME FROM WRT WHERE wrt_nbr=#{wrt_nbr}
 </select>
 
+<!--회원 번호로 반려견 목록 가져오기-->
+<select id="getDogList" parameterType="int" resultType="string">
+      SELECT DOG_LIST FROM MBR WHERE MBR_NBR=#{mbr_nbr}
+</select>
+
+<!-- 회원 번호로 반려견 새로 등록 -->
+<update id="plusDog" parameterType="hashmap">
+	UPDATE MBR SET DOG_LIST=(DOG_LIST||#{DogName}) WHERE MBR_NBR=#{mbr_nbr}
+</update>
+
+<!-- 회원 번호로 반려견 목록 새로고침-->
+<update id="setDogList" parameterType="hashmap">
+	UPDATE MBR SET DOG_LIST=#{DogList} WHERE MBR_NBR=#{mbr_nbr}
+</update>
+
+
 
 
 

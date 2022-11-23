@@ -21,6 +21,7 @@ MBR loginedMBR = (MBR) session.getAttribute("loginedMBR");
 </c:if>
 <c:if test="${not empty loginedMBR}">
 	<c:import url="Logout.jsp"/>
+	<a href="MyPage.jsp">마이페이지</a>
 </c:if>
 <c:if test="${loginedMBR.mbr_type eq 'ADMIN'}">
 	<c:import url="Admin.jsp"/>

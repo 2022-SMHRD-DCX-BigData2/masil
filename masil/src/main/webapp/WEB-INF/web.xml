@@ -108,6 +108,24 @@
   	<description></description>
   	<servlet-class>controller.Logout</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>SetDogList</servlet-name>
+  	<display-name>SetDogList</display-name>
+  	<description></description>
+  	<servlet-class>controller.SetDogList</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>PlusDog</servlet-name>
+  	<display-name>PlusDog</display-name>
+  	<description></description>
+  	<servlet-class>controller.PlusDog</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>minusDog</servlet-name>
+  	<display-name>minusDog</display-name>
+  	<description></description>
+  	<servlet-class>controller.minusDog</servlet-class>
+  </servlet>
 
 
  
@@ -180,6 +198,18 @@
   <servlet-mapping>
   	<servlet-name>Logout</servlet-name>
   	<url-pattern>/Logout</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>SetDogList</servlet-name>
+  	<url-pattern>/SetDogList</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>PlusDog</servlet-name>
+  	<url-pattern>/PlusDog</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>minusDog</servlet-name>
+  	<url-pattern>/minusDog</url-pattern>
   </servlet-mapping>
 
 
