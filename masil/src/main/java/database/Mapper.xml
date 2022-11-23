@@ -148,8 +148,24 @@
 
 <!--기록 입력 -->
 <insert id="insertLog" parameterType="domain.WLK_LOG">
-	insert into WLK_LOG (MBR_NBR_FOR_WLK_LOG,WLK_RT_NBR_FOR_WLK_LOG,WLK_TIME,WLK_DOG_LIST) values (#{wlk_nbr_for_wlk_log},#{wlk_rt_nbr_for_wlk_log},SYSDATE,#{wlk_dog_list})
+	insert into WLK_LOG (MBR_NBR_FOR_WLK_LOG,WLK_RT_NBR_FOR_WLK_LOG,WLK_TIME,WLK_DOG_LIST) values (#{mbr_nbr_for_wlk_log},#{wlk_rt_nbr_for_wlk_log},SYSDATE,#{wlk_dog_list})
 </insert>
+
+
+<!-- 지역 번호로 큰 분류 지역 찾기 -->
+<select id="getLogs" resultType="domain.WLK_LOG">
+      SELECT MBR_NBR_FOR_WLK_LOG,WLK_RT_NBR_FOR_WLK_LOG,WLK_TIME,WLK_DOG_LIST FROM WLK_LOG WHERE MBR_NBR_FOR_WLK_LOG=#{mbr_nbr}
+</select>
+
+
+
+
+
+
+
+
+
+
 
 
 

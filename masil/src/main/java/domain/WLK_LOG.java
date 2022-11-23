@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 import java.sql.Timestamp;
 
 public class WLK_LOG {
-	BigDecimal wlk_nbr_for_wlk_log;
+	BigDecimal mbr_nbr_for_wlk_log;
 	BigDecimal wlk_rt_nbr_for_wlk_log;
 	java.sql.Timestamp wlk_time;
 	String wlk_dog_list;
@@ -12,34 +12,34 @@ public class WLK_LOG {
 	
 	
 	
-	public WLK_LOG(BigDecimal wlk_nbr_for_wlk_log, BigDecimal wlk_rt_nbr_for_wlk_log, String wlk_dog_list) {
+	public WLK_LOG(BigDecimal mbr_nbr_for_wlk_log, BigDecimal wlk_rt_nbr_for_wlk_log, String wlk_dog_list) {
 		super();
-		this.wlk_nbr_for_wlk_log = wlk_nbr_for_wlk_log;
+		this.mbr_nbr_for_wlk_log = mbr_nbr_for_wlk_log;
 		this.wlk_rt_nbr_for_wlk_log = wlk_rt_nbr_for_wlk_log;
 		this.wlk_dog_list = wlk_dog_list;
 	}
 
-	public WLK_LOG(BigDecimal wlk_nbr_for_wlk_log, BigDecimal wlk_rt_nbr_for_wlk_log, Timestamp wlk_time,
+	public WLK_LOG(BigDecimal mbr_nbr_for_wlk_log, BigDecimal wlk_rt_nbr_for_wlk_log, Timestamp wlk_time,
 			String wlk_dog_list) {
 		super();
-		this.wlk_nbr_for_wlk_log = wlk_nbr_for_wlk_log;
+		this.mbr_nbr_for_wlk_log = mbr_nbr_for_wlk_log;
 		this.wlk_rt_nbr_for_wlk_log = wlk_rt_nbr_for_wlk_log;
 		this.wlk_time = wlk_time;
 		this.wlk_dog_list = wlk_dog_list;
 	}
 
-	public BigDecimal getWlk_nbr_for_wlk_log() {
-		return wlk_nbr_for_wlk_log;
+	public BigDecimal getMbr_nbr_for_wlk_log() {
+		return mbr_nbr_for_wlk_log;
 	}
 
-	public void setWlk_nbr_for_wlk_log(BigDecimal wlk_nbr_for_wlk_log) {
-		this.wlk_nbr_for_wlk_log = wlk_nbr_for_wlk_log;
+	public void setMbr_nbr_for_wlk_log(BigDecimal mbr_nbr_for_wlk_log) {
+		this.mbr_nbr_for_wlk_log = mbr_nbr_for_wlk_log;
 	}
 
 	public BigDecimal getWlk_rt_nbr_for_wlk_log() {
 		return wlk_rt_nbr_for_wlk_log;
 	}
-
+	
 	public void setWlk_rt_nbr_for_wlk_log(BigDecimal wlk_rt_nbr_for_wlk_log) {
 		this.wlk_rt_nbr_for_wlk_log = wlk_rt_nbr_for_wlk_log;
 	}
