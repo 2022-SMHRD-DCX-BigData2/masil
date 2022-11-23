@@ -64,8 +64,8 @@ $(document).ready(function () {
 
 <div id="DogList"></div>
 
-
-
+<!-- 버튼 누르면 기록 보여주기 -->
+<a href="ShowRecord.jsp">기록 조회</a>
 
 
 

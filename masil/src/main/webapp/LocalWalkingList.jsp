@@ -29,8 +29,16 @@ $(document).ready(function(){
 </script>
 </head>
 <body>
-<!-- 사는 지역 -->
+
+
+<a href="Writing?area_nbr=${loginedMBR.area_nbr_for_mbr}&wrt_type=4">동네 산책로</a>
+
+
 산책로 지역
 <div id="SetArea"></div>
+
+
+
+
 </body>
 </html>

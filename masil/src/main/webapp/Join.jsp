@@ -4,10 +4,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="signup.css">
+<title>Document</title>
 <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
@@ -71,24 +75,34 @@ function changeSelect(){
 		}
 	});	
 }
-	
-	
-
 </script>
 </head>
 
 <body>
-<form action="Join" method="post">
-ID <input type="text" name="mbr_id">
-PW <input type="text" name="mbr_pw">
-<!-- 사는 지역 -->
-<select name="b_cls" id="selectbox" onchange="changeSelect()">
-</select>
-<select id="selectNextbox">
-</select>
-<input type="submit">
-</form>
+
+    <form action="Join" method="POST" class="joinForm" onsubmit="DoJoinForm__submit(this);">
+                                                                                                
+        <h2>회원가입</h2>
+        <div class="textForm">
+        <input name="mbr_id" type="text" class="id" placeholder="아이디">
+        </input>
+        </div>
+        <div class="textForm">
+        <input name="mbr_pw" type="text" class="pw" placeholder="비밀번호">
+        </div>
+        <div class="textForm">
+        <select id="selectbox" name="b_cls"  class="area" placeholder="지역" onchange="changeSelect()"></select>
+        <select id="selectNextbox" name="area" class="area2" placeholder="지역"></select>
+        </div>
+        <input type="submit" class="btn" value="J O I N"/>
+    </form>
+
+
+
+
 </body>
-
-
 </html>
+
+
+
+

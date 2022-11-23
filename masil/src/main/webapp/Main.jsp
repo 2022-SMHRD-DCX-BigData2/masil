@@ -1,47 +1,78 @@
 <%@page import="domain.MBR"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" isELIgnored="false"%>  
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix= "c"  %>
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html>
-<head>
-<meta charset="UTF-8">
-<title>PathWay에 오신 것을 환영합니다<title>
-</head>
-<body>
-<!-- 로그인 세션 확인 -->
+	<head>
+		<title>Directive by HTML5 UP</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="css\index.css" />
+	</head>
+	<body class="is-preload">
+	
+	
+	
+	<!-- 로그인 세션 확인 -->
 <%
 MBR loginedMBR = (MBR) session.getAttribute("loginedMBR");
 %>
 
-
-
-<c:if test="${empty loginedMBR}">
-	<c:import url="Login.jsp"/>
-	<c:import url="Join.jsp"/>
-</c:if>
-<c:if test="${not empty loginedMBR}">
-	<c:import url="Logout.jsp"/>
-	<a href="MyPage.jsp">마이페이지</a>
-</c:if>
 <c:if test="${loginedMBR.mbr_type eq 'ADMIN'}">
 	<c:import url="Admin.jsp"/>
 </c:if>
 
+			<div id="main">
 
-<!-- 지역 게시판 -->
-<br>
-<c:import url="LocalWritingList.jsp"/>
-<br>
+				<header class="major container medium">
+					<h2>We conduct experiments that
+					<br />
+					may or may not seriously
+					<br />
+					break the universe</h2>
+				</header>
 
-<!-- 로그인한 사람이 속한 동네 산책로로 이동 -->
-<!-- to Front : 로그인 하지 않은 사람이 지역 게시판을 누르면
-				로그인하라고 알람 -->
-<a href="Writing?area_nbr=${loginedMBR.area_nbr_for_mbr}&wrt_type=4">동네 산책로</a>
-<br>
-<c:import url="LocalWalkingList.jsp"/>
-<br>
+				<div class="box alt container">
+					<section class="feature left"><!-- 지역 자유게시판으로 -->
+						<a href="LocalWalkingList.jsp" class="image icon solid fal fa-walking"><img src="img\bg1.jpg" alt="" /></a>
+						<div class="content">
+							<h3>산책로</h3>
+							<p>Vitae natoque dictum etiam semper magnis enim feugiat amet curabitur tempor orci penatibus. Tellus erat mauris ipsum fermentum etiam vivamus eget. Nunc nibh morbi quis fusce lacus.</p>
+						</div>
+					</section>
+					<section class="feature right"><!--지역별 산책로-->
+						<a href="LocalWritingList.jsp" class="image icon solid far fa-users"><img src="img\bg2.jpg" alt="" /></a>
+						<div class="content">
+							<h3>자유게시판</h3>
+							<p>Vitae natoque dictum etiam semper magnis enim feugiat amet curabitur tempor orci penatibus. Tellus erat mauris ipsum fermentum etiam vivamus eget. Nunc nibh morbi quis fusce lacus.</p>
+						</div>
+					</section>
+					<section class="feature left">
+						<a href="MyPage.jsp" class="image icon solid fas fa-edit"><img src="img\bg3.jpg" alt="" /></a>
+						<div class="content">
+							<h3>마이페이지</h3>
+							<p>Vitae natoque dictum etiam semper magnis enim feugiat amet curabitur tempor orci penatibus. Tellus erat mauris ipsum fermentum etiam vivamus eget. Nunc nibh morbi quis fusce lacus.</p>
+						</div>
+					</section>
+				</div>
 
+				<footer class="major container medium" style="bottom: 10px;">
+					<h3>Get shady with science</h3>
+					<p>Vitae natoque dictum etiam semper magnis enim feugiat amet curabitur tempor orci penatibus. Tellus erat mauris ipsum fermentum etiam vivamus.</p>
+					
+					<c:if test="${empty loginedMBR}">
+						<a href="Login.jsp"><input type="submit" class="button" value="JOIN CREW"></a>
+					</c:if>
+					<c:if test="${not empty loginedMBR}">
+						<a href="Logout"><input type="submit" class="button" value="LOGOUT"></a>
+					</c:if>
+				</footer>
 
-
-</body>
+			</div>
+			<script src="js\jquery.min.js"></script>
+			<script src="js\browser.min.js"></script>
+			<script src="js\breakpoints.min.js"></script>
+			<script src="js\util.js"></script>
+			<script src="js\main.js"></script>
+    </body>
 </html>
