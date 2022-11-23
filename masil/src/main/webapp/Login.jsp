@@ -5,21 +5,21 @@
 <html>
 <head>
 	<title>Animated Login Form</title>
-	<link rel="stylesheet" type="text/css" href="css/Login.css">
+	<link rel="stylesheet" type="text/css" href="./LoginForm/css/Login.css">
 	<link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
 	<script src="https://kit.fontawesome.com/a81368914c.js"></script>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 </head>
 <body>
-	<img class="wave" src="img/wave.png">
+	<img class="wave" src="./LoginForm/img/wave.png">
 	<div class="container">
 		<div class="img">
-			<img src="img\logo.png" id="logo">
+			<img src="./LoginForm/img\logo.png" id="logo">
 		</div>
 		<div class="login-content">
 			<form action="Login" method="post">
-				<img src="img/pro2.png">
+				<img src="./LoginForm/img/pro2.png">
 				<h2 class="title">Welcome</h2>
            		<div class="input-div one">
            		   <div class="i">
@@ -39,11 +39,11 @@
            		    	<input type="password" class="input" name="mbr_pw">
             	   </div>
             	</div>
-            	<a href="./SignUp/signup.html">회원가입</a>
-            	<a href="index.html"><input type="submit" class="btn" value="SignUp"></a>
+            	<a href="Join.jsp">회원가입</a>
+            	<input type="submit" class="btn" value="SignUp">
             </form>
         </div>
     </div>
-    <script type="text/javascript" src="js/Login.js"></script>
+    <script type="text/javascript" src="./LoginForm/js/Login.js"></script>
 </body>
 </html>

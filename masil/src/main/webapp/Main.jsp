@@ -7,7 +7,7 @@
 		<title>Directive by HTML5 UP</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="css\index.css" />
+		<link rel="stylesheet" href="./LoginForm/css/index.css" />
 	</head>
 	<body class="is-preload">
 	
@@ -34,21 +34,21 @@ MBR loginedMBR = (MBR) session.getAttribute("loginedMBR");
 
 				<div class="box alt container">
 					<section class="feature left"><!-- 지역 자유게시판으로 -->
-						<a href="LocalWalkingList.jsp" class="image icon solid fal fa-walking"><img src="img\bg1.jpg" alt="" /></a>
+						<a href="LocalWalkingList.jsp" class="image icon solid fal fa-walking"><img src="./LoginForm/img\bg1.jpg" alt="" /></a>
 						<div class="content">
 							<h3>산책로</h3>
 							<p>Vitae natoque dictum etiam semper magnis enim feugiat amet curabitur tempor orci penatibus. Tellus erat mauris ipsum fermentum etiam vivamus eget. Nunc nibh morbi quis fusce lacus.</p>
 						</div>
 					</section>
 					<section class="feature right"><!--지역별 산책로-->
-						<a href="LocalWritingList.jsp" class="image icon solid far fa-users"><img src="img\bg2.jpg" alt="" /></a>
+						<a href="Writing?wrt_type=1&area=전국" class="image icon solid far fa-users"><img src="./LoginForm/img\bg2.jpg" alt="" /></a>
 						<div class="content">
 							<h3>자유게시판</h3>
 							<p>Vitae natoque dictum etiam semper magnis enim feugiat amet curabitur tempor orci penatibus. Tellus erat mauris ipsum fermentum etiam vivamus eget. Nunc nibh morbi quis fusce lacus.</p>
 						</div>
 					</section>
 					<section class="feature left">
-						<a href="MyPage.jsp" class="image icon solid fas fa-edit"><img src="img\bg3.jpg" alt="" /></a>
+						<a href="MyPage.jsp" class="image icon solid fas fa-edit"><img src="./LoginForm/img\bg3.jpg" alt="" /></a>
 						<div class="content">
 							<h3>마이페이지</h3>
 							<p>Vitae natoque dictum etiam semper magnis enim feugiat amet curabitur tempor orci penatibus. Tellus erat mauris ipsum fermentum etiam vivamus eget. Nunc nibh morbi quis fusce lacus.</p>
@@ -69,10 +69,10 @@ MBR loginedMBR = (MBR) session.getAttribute("loginedMBR");
 				</footer>
 
 			</div>
-			<script src="js\jquery.min.js"></script>
-			<script src="js\browser.min.js"></script>
-			<script src="js\breakpoints.min.js"></script>
-			<script src="js\util.js"></script>
-			<script src="js\main.js"></script>
+			<script src="./LoginForm/js\jquery.min.js"></script>
+			<script src="./LoginForm/js\browser.min.js"></script>
+			<script src="./LoginForm/js\breakpoints.min.js"></script>
+			<script src="./LoginForm/js\util.js"></script>
+			<script src="./LoginForm/js\main.js"></script>
     </body>
 </html>

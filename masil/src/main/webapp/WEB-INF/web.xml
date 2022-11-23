@@ -132,6 +132,12 @@
   	<description></description>
   	<servlet-class>controller.Record</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>ShowRecord</servlet-name>
+  	<display-name>ShowRecord</display-name>
+  	<description></description>
+  	<servlet-class>controller.ShowRecord</servlet-class>
+  </servlet>
 
 
  
@@ -220,6 +226,10 @@
   <servlet-mapping>
   	<servlet-name>Record</servlet-name>
   	<url-pattern>/Record</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ShowRecord</servlet-name>
+  	<url-pattern>/ShowRecord</url-pattern>
   </servlet-mapping>
 
 

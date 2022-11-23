@@ -9,6 +9,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+
 <!-- 목록 보여줘야 함 -->
 <%
 List<WRT> writings = (List) request.getAttribute("Writing");

@@ -43,7 +43,7 @@ public class Writing extends HttpServlet {
 		int wrt_type = Integer.parseInt(request.getParameter("wrt_type"));
 		switch(wrt_type) {
 		case 1://1이 자유게시판
-			//광주시 순천시에 해당하는 큰 지역 번호를 가져옴
+			//광주시 순천시에 해당하는 큰 지역 번호를 가져옴->취소됨! 전체 자유게시판으로!
 			b_cls = request.getParameter("area");
 			int b_cls_nbr = areaDao.matchBcls_nbr_fromSB(b_cls).intValue();
 			text =  wrtDao.selectWRT(1, b_cls_nbr);
