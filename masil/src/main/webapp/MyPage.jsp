@@ -16,15 +16,21 @@ $(document).ready(function(){
 		dataType : "json",
 		success : function(res){
 			$("#DogList").html("");
-			for(var i=0 ; i<res.length ; i++){
-				var text = res[i];
-				text += "<form action='minusDog' method='post'>";
-				text += "<input type='hidden' name='mbr_nbr' value=\'"+${sessionScope.loginedMBR.mbr_nbr}+"\'>"
-				text += "<input type='hidden' name='dogNmae' vlaue=\'"+res[i]+"\' >";
-				text += "<input type='submit' value='x'></form>"
-				$("#DogList").append(text);
+			
+			if(res!="댕댕이가 없습니다"){
+				for(var i=0 ; i<res.length ; i++){
+					var text = res[i];
+					text += "<form action='minusDog' method='post'>";
+					text += "<input type='hidden' name='mbr_nbr' value=\'"+${sessionScope.loginedMBR.mbr_nbr}+"\'>"
+					text += "<input type='hidden' name='dogNmae' vlaue=\'"+res[i]+"\' >";
+					text += "<input type='submit' value='x'></form>"
+					$("#DogList").append(text);
+				}
+			}else{
+				$("#DogList").append(res+"<br>");
 			}
 			$("#DogList").append("댕댕이 추가하기 <button name='plusDog'> + </button>");
+
 		},
 
 		error : function(){

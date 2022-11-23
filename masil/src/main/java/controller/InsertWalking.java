@@ -35,7 +35,7 @@ public class InsertWalking extends HttpServlet {
 		if(wlk_nbr!=null) {
 			System.out.println("잘 됨!");
 			//wlk_nbr에 해당하는 목적지의 경로를 생성해야 함
-			response.sendRedirect("CreateWalkingRT.jsp?wlk_nbr="+wlk_nbr);
+			response.sendRedirect("CreateWalkingRT.jsp?wlk_nbr="+wlk_nbr+"&lat="+lat_for_wlk+"&lon="+lon_for_wlk);
 			
 		}else {
 			System.out.println("잘 안 됨!");

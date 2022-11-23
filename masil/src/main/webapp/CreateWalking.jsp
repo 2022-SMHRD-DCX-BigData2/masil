@@ -22,7 +22,8 @@ request.setAttribute에 area_name,area_nbr,isChecked 가지고 다시 옴-->
 		목적지를 입력해 주세요
 	</c:when>
 	<c:when test="${requestScope.isChecked==false}">
-		중복된 목적지입니다. 이 목적지의 경로를 먼저 조회합니다.
+		중복된 목적지입니다.
+		
 	</c:when>
 	<c:otherwise>
 		<div id="map" style="width:30%;height:300px;"></div>

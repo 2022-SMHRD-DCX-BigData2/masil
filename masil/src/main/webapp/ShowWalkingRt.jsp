@@ -23,6 +23,15 @@ ${requestScope.wlk_rt_nbr}
 <!-- 경로 보여주기 찍은 점마다 거리 보여주는 것도 추가하기-->
 <div id="map" style="width:100%;height:350px;"></div>  
 
+<button name="nowLoc">현재 위치 확인하기</button>
+
+<div id="record">
+<button name="startRecord">인증시작</button><br>
+</div>
+
+<!-- 댕댕이 목록(체크박스) 비동기 통신으로 보여주기 -->
+
+
 
 <!-- wlk_rt_nbr에 해당하는 경로 리뷰 보여주기 & 경로 리뷰 쓰기 -->
 <!-- 경로 리뷰 보여주기는 비동기로 만들어보기! -->
@@ -143,6 +152,171 @@ ${requestScope.wlk_rt_nbr}
 			}
 		});
 	});
+	
+	
+	$(document).ready(function () {
+		  $(document).on("click", "button[name='nowLoc']", function () {
+			// HTML5의 geolocation으로 사용할 수 있는지 확인합니다 
+			  if (navigator.geolocation) {
+			      
+			      // GeoLocation을 이용해서 접속 위치를 얻어옵니다
+			      navigator.geolocation.getCurrentPosition(function(position) {
+			          
+			          var lat = position.coords.latitude, // 위도
+			              lon = position.coords.longitude; // 경도
+			          
+			          var locPosition = new kakao.maps.LatLng(lat, lon), // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다
+			              message = '<div style="padding:5px;">여기에 계신가요?!</div>'; // 인포윈도우에 표시될 내용입니다
+			          
+			          // 마커와 인포윈도우를 표시합니다
+			          displayMarker(locPosition, message);
+			              
+			        });
+			      
+			  } else { // HTML5의 GeoLocation을 사용할 수 없을때 마커 표시 위치와 인포윈도우 내용을 설정합니다
+			      
+			      var locPosition = new kakao.maps.LatLng(33.450701, 126.570667),    
+			          message = 'geolocation을 사용할수 없어요..'
+			          
+			      displayMarker(locPosition, message);
+			  }
+
+		    
+		  });
+		});
+	
+
+	// 지도에 마커와 인포윈도우를 표시하는 함수입니다
+	function displayMarker(locPosition, message) {
+
+	    // 마커를 생성합니다
+	    var marker = new kakao.maps.Marker({  
+	        map: map, 
+	        position: locPosition
+	    }); 
+	    
+	    var iwContent = message, // 인포윈도우에 표시할 내용
+	        iwRemoveable = true;
+
+	    // 인포윈도우를 생성합니다
+	    var infowindow = new kakao.maps.InfoWindow({
+	        content : iwContent,
+	        removable : iwRemoveable
+	    });
+	    
+	    // 인포윈도우를 마커위에 표시합니다 
+	    infowindow.open(map, marker);
+	    
+	    // 지도 중심좌표를 접속위치로 변경합니다
+	    map.setCenter(locPosition);      
+	}    
+	
+	
+	
+	$(document).ready(function () {
+		  $(document).on("click", "button[name='startRecord']", function () {
+			// HTML5의 geolocation으로 사용할 수 있는지 확인합니다 
+			  if (navigator.geolocation) {
+			      
+			      // GeoLocation을 이용해서 접속 위치를 얻어옵니다
+			      navigator.geolocation.getCurrentPosition(function(position) {
+			          
+			          var lat = position.coords.latitude, // 위도
+			              lon = position.coords.longitude; // 경도
+			          
+			          var locPosition = new kakao.maps.LatLng(lat, lon), // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다
+			              message = '<div style="padding:5px;">여기에 계신가요?!</div>'; // 인포윈도우에 표시될 내용입니다
+			          
+			              //시작 위치랑 가까운지 점검
+			              //가까우면 인증 완료 버튼으로 변경
+			              //시작 위치랑 멀면 그대로
+			              
+			              //polyLine의 getLength활용해서 수정해보자!
+			              var myDistance = Math.abs(LinePath[0]["Ma"]-lat)+Math.abs(LinePath[0]["La"]-lon);
+			              console.log(myDistance);
+			              if(myDistance<1){
+			            	  console.log("인증성공");
+			            	  $("button[name='startRecord']").hide();
+			            	  $("#record").append("<button name='endRecord'>인증완료</button><br>")
+			            	  
+			              }else{
+			            	  console.log("인증실패");
+			              }
+								
+			              
+			          // 마커와 인포윈도우를 표시합니다
+			          displayMarker(locPosition, message);
+			              
+			        });
+			      
+			  } else { // HTML5의 GeoLocation을 사용할 수 없을때 마커 표시 위치와 인포윈도우 내용을 설정합니다
+			      
+			      var locPosition = new kakao.maps.LatLng(33.450701, 126.570667),    
+			          message = 'geolocation을 사용할수 없어요..'
+			          
+			      displayMarker(locPosition, message);
+			  }
+
+		    
+		  });
+		});
+	
+	
+	$(document).ready(function () {
+		  $(document).on("click", "button[name='endRecord']", function () {
+			// HTML5의 geolocation으로 사용할 수 있는지 확인합니다 
+			  if (navigator.geolocation) {
+			      
+			      // GeoLocation을 이용해서 접속 위치를 얻어옵니다
+			      navigator.geolocation.getCurrentPosition(function(position) {
+			          
+			          var lat = position.coords.latitude, // 위도
+			              lon = position.coords.longitude; // 경도
+			          
+			          var locPosition = new kakao.maps.LatLng(lat, lon), // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다
+			              message = '<div style="padding:5px;">여기에 계신가요?!</div>'; // 인포윈도우에 표시될 내용입니다
+			          
+			              //시작 위치랑 가까운지 점검
+			              //가까우면 인증 완료 버튼으로 변경
+			              //시작 위치랑 멀면 그대로
+			              
+			              //polyLine의 getLength활용해서 수정해보자!
+			              var myDistance = Math.abs(LinePath[LinePath.length-1]["Ma"]-lat)+Math.abs(LinePath[LinePath.length-1]["La"]-lon);
+			              console.log(myDistance);
+			              if(myDistance<1){
+			            	  console.log("인증성공");
+			            	  $("button[name='endRecord']").hide();
+			            	  $("#record").append("인증완료했습니다.")
+			            	  //ajax로 산책로 번호, 회원 번호 보내기
+			            	  //체크박스에 클릭된 댕댕이 이름들도 보내기			            	  
+			            	  
+			            	  
+			            	  
+			            	  
+			            	  
+			              }else{
+			            	  console.log("인증실패");
+			              }
+								
+			              
+			          // 마커와 인포윈도우를 표시합니다
+			          displayMarker(locPosition, message);
+			              
+			        });
+			      
+			  } else { // HTML5의 GeoLocation을 사용할 수 없을때 마커 표시 위치와 인포윈도우 내용을 설정합니다
+			      
+			      var locPosition = new kakao.maps.LatLng(33.450701, 126.570667),    
+			          message = 'geolocation을 사용할수 없어요..'
+			          
+			      displayMarker(locPosition, message);
+			  }
+
+		    
+		  });
+		});
+	
+	
 	
 	
 	
