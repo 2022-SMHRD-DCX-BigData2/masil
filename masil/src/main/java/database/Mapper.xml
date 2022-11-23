@@ -146,7 +146,10 @@
 	UPDATE MBR SET DOG_LIST=#{DogList} WHERE MBR_NBR=#{mbr_nbr}
 </update>
 
-
+<!--기록 입력 -->
+<insert id="insertLog" parameterType="domain.WLK_LOG">
+	insert into WLK_LOG (MBR_NBR_FOR_WLK_LOG,WLK_RT_NBR_FOR_WLK_LOG,WLK_TIME,WLK_DOG_LIST) values (#{wlk_nbr_for_wlk_log},#{wlk_rt_nbr_for_wlk_log},SYSDATE,#{wlk_dog_list})
+</insert>
 
 
 

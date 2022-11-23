@@ -28,9 +28,8 @@ ${requestScope.wlk_rt_nbr}
 <div id="record">
 <button name="startRecord">인증시작</button><br>
 </div>
-
 <!-- 댕댕이 목록(체크박스) 비동기 통신으로 보여주기 -->
-
+<div id="dogCheckbox"></div>
 
 
 <!-- wlk_rt_nbr에 해당하는 경로 리뷰 보여주기 & 경로 리뷰 쓰기 -->
@@ -209,10 +208,45 @@ ${requestScope.wlk_rt_nbr}
 	    
 	    // 지도 중심좌표를 접속위치로 변경합니다
 	    map.setCenter(locPosition);      
-	}    
+	}
+	
+	
+	//댕댕이 목록
+	let dogList=[];
+	$(document).ready(function(){
+		$.ajax({
+			url : "SetDogList",
+			type : "post",
+			data : {"mbr_nbr" :${sessionScope.loginedMBR.mbr_nbr} },
+			dataType : "json",
+			async:false,
+			success : function(res){
+				$("#dogCheckbox").html("");
+				//이거 체크박스로 바꾸기
+				if(res!="댕댕이가 없습니다"){
+					$("#dogCheckbox").append("같이 하는 댕댕이<br>");
+					for(var i=0 ; i<res.length ; i++){
+						var text = "";
+						text += res[i];
+						text += "<input type='checkbox' id=\'"+res[i]+"\' >";
+						$("#dogCheckbox").append(text);
+						dogList.push(res[i]);
+					}
+				}else{
+					$("#dogCheckbox").append(res+"<br>");
+				}
+
+			},
+
+			error : function(){
+				alert("Ajax 통신 실패!!");	
+			}
+		});
+	});
 	
 	
 	
+	//인증시작 버튼(누르면 사라짐)
 	$(document).ready(function () {
 		  $(document).on("click", "button[name='startRecord']", function () {
 			// HTML5의 geolocation으로 사용할 수 있는지 확인합니다 
@@ -237,7 +271,8 @@ ${requestScope.wlk_rt_nbr}
 			              if(myDistance<1){
 			            	  console.log("인증성공");
 			            	  $("button[name='startRecord']").hide();
-			            	  $("#record").append("<button name='endRecord'>인증완료</button><br>")
+			            	  $("#record").append("<button name='endRecord'>인증완료</button><br>");
+ 
 			            	  
 			              }else{
 			            	  console.log("인증실패");
@@ -261,7 +296,8 @@ ${requestScope.wlk_rt_nbr}
 		  });
 		});
 	
-	
+	//인증완료 버튼
+	let checkedDogList = [];
 	$(document).ready(function () {
 		  $(document).on("click", "button[name='endRecord']", function () {
 			// HTML5의 geolocation으로 사용할 수 있는지 확인합니다 
@@ -284,21 +320,33 @@ ${requestScope.wlk_rt_nbr}
 			              var myDistance = Math.abs(LinePath[LinePath.length-1]["Ma"]-lat)+Math.abs(LinePath[LinePath.length-1]["La"]-lon);
 			              console.log(myDistance);
 			              if(myDistance<1){
-			            	  console.log("인증성공");
-			            	  $("button[name='endRecord']").hide();
-			            	  $("#record").append("인증완료했습니다.")
+			            	  $("button[name='endRecord']").hide();	  
 			            	  //ajax로 산책로 번호, 회원 번호 보내기
-			            	  //체크박스에 클릭된 댕댕이 이름들도 보내기			            	  
-			            	  
-			            	  
-			            	  
-			            	  
-			            	  
+			            	  //체크박스에 클릭된 댕댕이 이름들도 보내기		            	  
+								for(var i=0 ; i<dogList.length ; i++){
+									if($("#"+dogList[i]).is(":checked") == true){
+										checkedDogList.push(dogList[i]);
+									}
+								}
+								console.log(checkedDogList)
+								$.ajax({
+					    			url: "Record",
+					    			data: {
+					    				"mbr_nbr":${sessionScope.loginedMBR.mbr_nbr},
+					    				"wlk_rt_nbr":${requestScope.wlk_rt_nbr},
+					    				"dogList":JSON.stringify(checkedDogList)
+					    			},
+					    			type: "POST",
+					    			success: function(response) {
+					    				$("#record").append("인증완료했습니다.")
+					    			},
+					    			error: function(xhr) {
+					    				$("#record").append("인증실패했습니다.")
+					    			},
+					    		});	
 			              }else{
-			            	  console.log("인증실패");
+			            	  $("#record").append("거리가 맞지 않아 인증실패했습니다.")
 			              }
-								
-			              
 			          // 마커와 인포윈도우를 표시합니다
 			          displayMarker(locPosition, message);
 			              
@@ -308,17 +356,13 @@ ${requestScope.wlk_rt_nbr}
 			      
 			      var locPosition = new kakao.maps.LatLng(33.450701, 126.570667),    
 			          message = 'geolocation을 사용할수 없어요..'
-			          
 			      displayMarker(locPosition, message);
 			  }
 
 		    
 		  });
 		});
-	
-	
-	
-	
+
 	
 	
 </script>

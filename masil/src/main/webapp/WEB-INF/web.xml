@@ -126,6 +126,12 @@
   	<description></description>
   	<servlet-class>controller.minusDog</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>Record</servlet-name>
+  	<display-name>Record</display-name>
+  	<description></description>
+  	<servlet-class>controller.Record</servlet-class>
+  </servlet>
 
 
  
@@ -210,6 +216,10 @@
   <servlet-mapping>
   	<servlet-name>minusDog</servlet-name>
   	<url-pattern>/minusDog</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>Record</servlet-name>
+  	<url-pattern>/Record</url-pattern>
   </servlet-mapping>
 
 
