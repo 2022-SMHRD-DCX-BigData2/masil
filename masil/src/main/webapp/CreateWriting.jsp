@@ -26,7 +26,8 @@ WRT_DAO 에 새 DAO를 만들어야 합니다.
 <%
 MBR loginedMBR = (MBR) session.getAttribute("loginedMBR");
 %>
-
+<!-- Header --> 
+<%@ include file="header.jsp" %>
 
 
 <form action="CreateWriting" method="post">

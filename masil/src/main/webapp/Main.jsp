@@ -32,14 +32,14 @@ MBR loginedMBR = (MBR) session.getAttribute("loginedMBR");
 				</header>
 
 				<div class="box alt container">
-					<section class="feature left"><!-- 지역 자유게시판으로 -->
+					<section class="feature left">
 						<a href="LocalWalkingList.jsp" class="image icon solid fal fa-walking"><img src="./LoginForm/img\bg1.jpg" alt="" /></a>
 						<div class="content">
 							<h3>산책로</h3>
 							<p>Vitae natoque dictum etiam semper magnis enim feugiat amet curabitur tempor orci penatibus. Tellus erat mauris ipsum fermentum etiam vivamus eget. Nunc nibh morbi quis fusce lacus.</p>
 						</div>
 					</section>
-					<section class="feature right"><!--지역별 산책로-->
+					<section class="feature right">
 						<a href="Writing?wrt_type=1&area=전국" class="image icon solid far fa-users"><img src="./LoginForm/img\bg2.jpg" alt="" /></a>
 						<div class="content">
 							<h3>자유게시판</h3>

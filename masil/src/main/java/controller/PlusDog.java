@@ -22,14 +22,17 @@ public class PlusDog extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		int mbr_nbr = Integer.parseInt(request.getParameter("mbr_nbr"));
 		String DogName = request.getParameter("DogName");
-		MBR_DAO dao = new MBR_DAO();
-		int result = dao.plusDog(DogName, mbr_nbr);
-		if(result>0) {
+		if(DogName==null) {
 			response.sendRedirect("MyPage.jsp");
 		}else {
-			System.out.println("plusDog가 잘 되지 않음!");
+			MBR_DAO dao = new MBR_DAO();
+			int result = dao.plusDog(DogName, mbr_nbr);
+			if(result>0) {
+				response.sendRedirect("MyPage.jsp");
+			}else {
+				System.out.println("plusDog가 잘 되지 않음!");
+			}
 		}
-		
 	}
 
 }

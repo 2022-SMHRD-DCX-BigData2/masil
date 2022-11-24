@@ -15,19 +15,9 @@
     <div id="wrapper">
 
         <!-- Header --> 
-        <%@ include file="header.html" %>
+        <%@ include file="header.jsp" %>
 
-        <!-- Menu -->
-            <section id="menu">
 
-                <!-- Search -->
-                    <section>
-                        <form class="search" method="get" action="#">
-                            <input type="text" name="query" placeholder="Search" />
-                        </form>
-                    </section>
-
-            </section>
 
             <div id="board-search" style="margin-top: 110px;">
                 <hr>

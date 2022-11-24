@@ -4,70 +4,102 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
-<title>Insert title here</title>
-<script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
-<script type="text/javascript">
-$(document).ready(function(){
-	$.ajax({
-		url : "SetDogList",
-		type : "post",
-		data : {"mbr_nbr" :${sessionScope.loginedMBR.mbr_nbr} },
-		dataType : "json",
-		success : function(res){
-			$("#DogList").html("");
-			
-			if(res!="댕댕이가 없습니다"){
-				for(var i=0 ; i<res.length ; i++){
-					var text = res[i];
-					text += "<form action='minusDog' method='post'>";
-					text += "<input type='hidden' name='mbr_nbr' value=\'"+${sessionScope.loginedMBR.mbr_nbr}+"\'>"
-					text += "<input type='hidden' name='dogNmae' vlaue=\'"+res[i]+"\' >";
-					text += "<input type='submit' value='x'></form>"
-					$("#DogList").append(text);
-				}
-			}else{
-				$("#DogList").append(res+"<br>");
-			}
-			$("#DogList").append("댕댕이 추가하기 <button name='plusDog'> + </button>");
-
-		},
-
-		error : function(){
-			alert("Ajax 통신 실패!!");	
-		}
-	});
-});
-
-$(document).ready(function () {
-	$(document).on("click","button[name='plusDog']",function(){
-		//PlusDog에서는 다시 마이페이지로 리다리엑트하기
-		text = "<form action='PlusDog' method='post'>";
-		text += "<input type='hidden' name='mbr_nbr' value=\'"+${sessionScope.loginedMBR.mbr_nbr}+"\'>";
-		text += "댕댕이 이름 <input type='text' name='DogName'>";
-		text += "<input type='submit'></form>";
-		$("#DogList").append(text);	
-	});
-});
-
-</script>
-
-
-
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://kit.fontawesome.com/a81368914c.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"/>
+<link href="https://fonts.googleapis.com/css2?family=Cutive+Mono&family=Poppins:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="Mypage.css">
+<title>My Page</title>
+<script src="Mypage.js"></script>
 </head>
 <body>
 
-<form action="#" method="post">
-비밀번호 변경<input type="text" name="PW">
-<input type="submit">
-</form>
 
-<div id="DogList"></div>
+<!-- Header --> 
+<%@ include file="header.jsp" %>
 
-<!-- 버튼 누르면 기록 보여주기 -->
-<a href="ShowRecord?mbr_nbr=${sessionScope.loginedMBR.mbr_nbr}">기록 조회</a>
+    <div class="container">
+        <div class="card">
+            <div class="header">
+                <a href="FavList.jsp">
+                <div class="hamburger-menu">
+                    <div class="center"></div>
+                </div>
+                </a>
+                <a href="DogList.jsp" class="mail">
+                    <i class="fa fa-paw" aria-hidden="true"></i>
+                </a>
+                <div class="main">
+                    <div class="image">
+                    </div>
+                    <div class="image2"></div>
+                    <h3 class="name">아이유</h3>
+                    <h3 class="sub-name">자두</h3>
+                </div>
+            </div>
+            <div class="content">
+                <div class="left">
+                    <div class="absolute-container">
+                        <h3 class="title">About</h3>
+                        <p class="text">Lorem ipsum is simply text of the printing and types industry.</p>
+                    </div>
+                    <div class="icons-container">
+                        <a href="#" class="icon">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="#" class="icon">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="icon">
+                            <i class="fab fa-google-plus-g"></i>
+                        </a>
+                        <a href="#" class="icon">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </div>
+                    <div class="buttons-wrap">
+                        <div class="follow-wrap">
+                            <a href="ChangeInfo.jsp" class="follow">정보수정</a>
+                        </div>
+                        <div class="share-wrap">
+                            <a href="ShowRecord?mbr_nbr=${sessionScope.loginedMBR.mbr_nbr}" class="share">산책조회</a>
+                        </div>
+                    </div>
+                </div>
 
+                <div class="right">
+                    <div>
+                        <h3 class="number">91</h3>
+                        <h5 class="number-title">posts</h5>
+                    </div>
+                    <div>
+                        <h3 class="number">2.4k</h3>
+                        <h5 class="number-title">following</h5>
+                    </div>
+                    <div>
+                        <h3 class="number">4.7k</h3>
+                        <h5 class="number-title">followers</h5>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+    
 
 
 </body>
 </html>
+
+
+
+
+
+    
+
+
+
+
