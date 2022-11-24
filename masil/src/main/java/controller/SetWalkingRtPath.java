@@ -27,28 +27,20 @@ public class SetWalkingRtPath extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		int wlk_rt_nbr = Integer.parseInt(request.getParameter("wlk_rt_nbr"));
-		String wlk_rt_name = request.getParameter("wlk_rt_name");
-		String lat = request.getParameter("lat");
-		String lon = request.getParameter("lon");
-
 		WLK_RT_DAO dao = new WLK_RT_DAO();
 		List<WLK_RT> list = dao.WalkingRtPathByRtNbr(wlk_rt_nbr);
-		String last_lat = "";
-		String last_lon = "";
-		String result = "[";
-		for (WLK_RT wlk_RT : list) {
-			result += "new kakao.maps.LatLng("+wlk_RT.getLat_for_wlk_rt()+","+wlk_RT.getLon_for_wlk_rt()+"),";
-		}
-		result = result.substring(0, result.length() - 1);
-		result += "]";
+		Gson gson = new Gson();
+		String json = gson.toJson(list);	
+		response.setCharacterEncoding("UTF-8");
+		//보내는 통로인 출력 스트림 
 		
-		request.setAttribute("path",result);
-		request.setAttribute("wlk_rt_name", wlk_rt_name);
-		request.setAttribute("wlk_rt_nbr", wlk_rt_nbr);
-		request.setAttribute("lat", lat);
-		request.setAttribute("lon", lon);
-		RequestDispatcher rd = request.getRequestDispatcher("ShowWalkingRt.jsp");	
-		rd.forward(request, response);
+		PrintWriter out = response.getWriter();
+		
+		//결과값을 전송
+		out.print(json);
+		
+
+
 		
 	}
 

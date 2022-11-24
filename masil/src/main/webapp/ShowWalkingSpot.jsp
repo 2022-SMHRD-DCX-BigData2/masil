@@ -62,13 +62,13 @@ $(document).ready(function(){
 	$.ajax({
 		url : "SetWalkingRt",
 		type : "get",
-		data : {"wlk_nbr" :${param.wlk_nbr} },
+		data : {"wlk_nbr" :${param.wlk_nbr}},
 		dataType : "json",
 		success : function(res){
 			console.log(res);
 			$("#WlkRtList").html("");
 			for(var i=0 ; i<res.length ; i++){
-				$("#WlkRtList").append("<a href=\'SetWalkingRtPath?wlk_rt_nbr="+res[i].wlk_rt_nbr+"&lat="+${param.lat}+"&lon="+${param.lon}+"&wlk_rt_name="+res[i].wlk_rt_name+"'>"+res[i].wlk_rt_name+"'</a><br>");
+				$("#WlkRtList").append("<a href=\'ShowWalkingRt.jsp?wlk_rt_nbr="+res[i].wlk_rt_nbr+"\'>"+res[i].wlk_rt_name+"'</a><br>");
 			}			
 		},
 		error : function(){
