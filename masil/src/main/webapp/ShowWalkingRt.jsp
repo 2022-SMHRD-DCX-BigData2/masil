@@ -21,7 +21,6 @@
 
 <body>
 
-
 <!-- 경로 보여주기 찍은 점마다 거리 보여주는 것도 추가하기-->
 <div id="map" style="width:100%;height:350px;"></div>  
 
@@ -393,10 +392,7 @@ if(favList==null){
 							
 							
 							
-							
-							
-							
-							
+
 							
 							
 
@@ -430,6 +426,7 @@ if(favList==null){
 	    			type: "POST",
 	    			success: function(response) {
 	    				console.log("ajax 즐겨찾기 추가 성공");
+	    				window.location.reload();
 	    			},
 	    			error: function(xhr) {
 	    				console.log("ajax 즐겨찾기 추가 실패");
@@ -451,6 +448,7 @@ if(favList==null){
 	    			type: "POST",
 	    			success: function(response) {
 	    				console.log("ajax 즐겨찾기 삭제 성공");
+	    				window.location.reload();
 	    			},
 	    			error: function(xhr) {
 	    				console.log("ajax 즐겨찾기 삭제 실패");

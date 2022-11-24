@@ -60,7 +60,7 @@ public class minusDog extends HttpServlet {
 		}
 		
 		if(result>0) {
-			response.sendRedirect("MyPage.jsp");
+			response.sendRedirect("DogList.jsp");
 		}else {
 			System.out.println("댕댕이가 목록에서 잘 제거되지 않았습니다.");
 		}

@@ -24,9 +24,10 @@ public class PlusFavList extends HttpServlet {
 		MBR_DAO dao = new MBR_DAO();
 		int result = dao.plusFavList(str_wlk_rt_nbr,mbr_nbr);
 		if(result>0) {
-			response.sendRedirect("Main.jsp");
+			System.out.println("PlusFavList가 잘 됨!");
+			//ajax통신으로 온 거라서 redirect안 됨!
 		}else {
-			System.out.println("PlusFavList가 잘 되지 않음!");
+			System.out.println("PlusFavList가 잘 안 됨!");
 		}
 	}
 

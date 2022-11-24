@@ -28,7 +28,7 @@ public class PlusDog extends HttpServlet {
 			MBR_DAO dao = new MBR_DAO();
 			int result = dao.plusDog(DogName, mbr_nbr);
 			if(result>0) {
-				response.sendRedirect("MyPage.jsp");
+				response.sendRedirect("DogList.jsp");
 			}else {
 				System.out.println("plusDog가 잘 되지 않음!");
 			}

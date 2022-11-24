@@ -55,9 +55,9 @@ public class MinusFavList extends HttpServlet {
 		}
 		
 		if(result>0) {
-			response.sendRedirect("MyPage.jsp");
+			System.out.println("MinusFavList가 잘 됨.");
 		}else {
-			System.out.println("즐겨찾기 목록에서 제거가 잘 되지 않았습니다.");
+			System.out.println("MinusFavList가 잘 안 됨.");
 		}
 	}
 
