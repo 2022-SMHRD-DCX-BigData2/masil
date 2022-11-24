@@ -179,5 +179,10 @@
       SELECT MBR_ID FROM MBR WHERE MBR_NBR=#{mbr_nbr}
 </select>
 
+<!--산책로 경로 번호로 산책로 이름 가져오기-->
+<select id="getWlkRTName" parameterType="int" resultType="string">
+      SELECT WLK_RT_NAME FROM MTH_WLK_RT_NAME WHERE WLK_RT_NBR=#{wlk_rt_nbr}
+</select>
+
 
 </mapper>

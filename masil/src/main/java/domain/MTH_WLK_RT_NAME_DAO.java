@@ -94,4 +94,36 @@ public class MTH_WLK_RT_NAME_DAO {
 			return result;
 		}
 		
+	   public String getWlkRTName(int wlk_rt_nbr) {
+		   String getWlkRTName = null;
+		   
+		   try {
+			     //               mapper.xml의 id값
+			   getWlkRTName = sqlSession.selectOne("getWlkRTName",wlk_rt_nbr);
+		     
+		     // 만약에 내가 원하는 일을 했으면 DB에 반영
+		     if(getWlkRTName!=null) {
+		        System.out.println("getWlkRTName DAO메소드에선 값을 잘 가져옴");
+		        sqlSession.commit();
+		     }else {
+		        // 만약에 원하는 일을 못하면 다시 원래대로 돌려주기
+		        sqlSession.rollback();
+		     }
+		     
+		     
+		  } catch (Exception e) {
+		     // TODO: handle exception
+		     e.printStackTrace();
+		  } finally {
+		     // 빌렸던 Connection 객체를 반납
+		     sqlSession.close();
+		  }
+		   
+		   
+		   return getWlkRTName;
+		      
+	   }
+		
+		
+		
 }

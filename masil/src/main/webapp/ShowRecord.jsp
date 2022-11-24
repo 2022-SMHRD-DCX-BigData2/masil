@@ -46,16 +46,7 @@
              <div class="absolute-container">
                         <h3 class="title">나의 기록</h3>
                         <p class="text" >
-<%
-List<WLK_LOG> logs = (List) session.getAttribute("logs");
-for(WLK_LOG log : logs){ %>
-	글쓴이 : <%=log.getMbr_nbr_for_wlk_log() %>
-	같이 간 반려견 : <%=log.getWlk_dog_list()%>
-	산책 시간 : <%=log.getWlk_time() %>
-<%
-}
-%>
-             
+                        	<div id="logs"></div>
                         </p>
                     </div>
                 </div>
@@ -63,14 +54,53 @@ for(WLK_LOG log : logs){ %>
         </div>
     </div>
 
+<script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+<script type="text/javascript">
+
+<%
+List<WLK_LOG> logs = (List) session.getAttribute("logs");
+for(WLK_LOG log : logs){ %>
+	var wlk_rt_name = GetWlkRTName(<%=log.getWlk_rt_nbr_for_wlk_log()%>);
+	var dog_list = "<%=log.getWlk_dog_list()%>";
+	var wlk_time = "<%=log.getWlk_time() %>";
+	var text = "";
+	text += "다녀간 산책로 : ";
+	text += wlk_rt_name;
+	text += "<br>";
+	
+	if(dog_list.length!=0){
+		text += "함께한 댕댕이 : "
+		text += dog_list;
+		text += "<br>";
+	}
+	
+	text += "완료한 시기 : ";
+	text += wlk_time;
+	text += "<br>";
+	text += "<br>";
+	$("#logs").append(text);
+<%
+}
+%>
+function GetWlkRTName(wlk_rt_nbr) {
+	var wlk_rt_name;
+	$.ajax({
+		url: "GetWlkRTName",
+		data: {"wlk_rt_nbr":wlk_rt_nbr},
+		async : false,
+		dataType : "text",
+		type: "POST",
+		success: function(res) {
+			wlk_rt_name=res;
+		},
+		error: function(xhr) {
+		}
+	});
+	return wlk_rt_name;
+}
 
 
-
-
-
-
-
-
+</script>
 
 
 </body>

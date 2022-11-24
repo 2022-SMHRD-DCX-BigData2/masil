@@ -55,6 +55,7 @@ $(document).ready(function () {
 		text += "<input type='hidden' name='mbr_nbr' value=\'"+${sessionScope.loginedMBR.mbr_nbr}+"\'>";
 		text += "댕댕이 이름 <input type='text' name='DogName'>";
 		text += "<input type='submit'></form>";
+		//공백 입력 못하게 막기
 		$("#DogList").append(text);	
 	});
 });
