@@ -92,7 +92,7 @@ function changeSelect(){
         </div>
         <div class="textForm">
         <select id="selectbox" name="b_cls"  class="area" placeholder="지역" onchange="changeSelect()"></select>
-        <select id="selectNextbox" name="area" class="area2" placeholder="지역"></select>
+        <select id="selectNextbox" name="s_cls" class="area2" placeholder="지역"></select>
         </div>
         <input type="submit" class="btn" value="J O I N"/>
     </form>

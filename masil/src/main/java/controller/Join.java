@@ -29,6 +29,8 @@ public class Join extends HttpServlet {
 		String mbr_pw = request.getParameter("mbr_pw");
 		String b_cls = request.getParameter("b_cls");
 		String s_cls = request.getParameter("s_cls");
+		System.out.println(b_cls+s_cls);
+		
 		
 		AREA_DAO areaDao = new AREA_DAO();
 		BigDecimal area_nbr_for_mbr = areaDao.matchAreaNbr(b_cls, s_cls);
