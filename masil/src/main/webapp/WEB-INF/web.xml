@@ -150,6 +150,12 @@
   	<description></description>
   	<servlet-class>controller.MinusFavList</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>GetId</servlet-name>
+  	<display-name>GetId</display-name>
+  	<description></description>
+  	<servlet-class>controller.GetId</servlet-class>
+  </servlet>
 
 
  
@@ -250,6 +256,10 @@
   <servlet-mapping>
   	<servlet-name>MinusFavList</servlet-name>
   	<url-pattern>/MinusFavList</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>GetId</servlet-name>
+  	<url-pattern>/GetId</url-pattern>
   </servlet-mapping>
 
 
