@@ -1,0 +1,217 @@
+/* 댓글기능 CSS 시작 */
+
+.reply_wrap{
+    margin: 0;
+    padding: 0;
+    width: 1000px;
+    margin: 100px auto;
+}
+
+#form-commentInfo{
+    width: 100%;
+}
+
+#comment-count{
+    margin-bottom: 10px; 
+}
+
+#comment-input{
+    width: 50%;
+    height: 3.3em;
+}
+
+#submit{
+    background-color: #38d39f;
+    width: 5.5em;
+    height: 3.3em;;
+    font-size: 15px;
+    font-weight: bold;
+    color: aliceblue;
+    border: 0;
+    border-radius: 20px;
+}
+
+/* #voteUp, #voteDown{
+    width: 3.5em;
+    height: 1.9em;
+    background-color: aqua;    
+} */
+
+#comments{
+    margin-top: 10px;
+}
+
+.eachComment{   
+    width :50%; 
+    margin: 10px;  
+    padding: 0.5em; 
+    border-bottom: 1px solid #c1bcba;
+}
+
+.eachComment .name{
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 0.3em;
+    display: flex;
+    justify-content: space-between;
+}
+
+.eachComment .inputValue{
+    font-size: 1.2em;
+    font-style: italic;   
+}
+
+.eachComment .time{
+    font-size: 0.7em;
+    color: #c1bcba;
+    font-style: oblique;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    
+}
+
+.eachComment .voteDiv{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.eachComment .deleteComment{
+    color: black;
+}
+
+#form-commentInfo #comment-input[type="text"]{
+    width: 90%;
+}
+
+
+
+
+/* 글쓰기 페이지 CSS */
+
+html{
+    font-size: 10px;
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+.board_wrap{
+    margin: 0;
+    padding: 0;
+    width: 1000px;
+    margin: 100px auto;
+}
+
+.board_title{
+    margin-bottom: 30px;
+    font-size: 10px;
+}
+
+.board_title strong{
+    font-size: 3em;
+}
+
+.board_title p{
+    margin-top: 5px;
+    font-size: 1.4rem;
+}
+
+.bt_wrap{
+    margin-top: 30px;
+    text-align: center;
+    font-size: 0;
+}
+
+.bt_wrap a{
+    display: inline-block;
+    min-width: 80px;
+    margin-left: 10px;
+    padding: 10px;
+    border: 1px solid #000;
+    border-radius: 2px;
+    font-size: 1.4rem;
+}
+
+.br_wrap a:first-child{
+    margin-left: 0;
+}
+
+.bt_wrap a.on{
+    background: #000;
+    color: #fff;
+}
+
+.board_write{
+    border-top: 2px solid #000;
+}
+
+.board_write .title{
+    margin: -1%;
+}
+
+.board_write .title,
+.board_write .info{
+    padding: 15px;
+}
+
+.board_write .info{
+    border-top: 1px dashed #ddd;
+    border-bottom: 1px solid #000;
+    font-size: 0;
+}
+
+.board_write.title dl{
+    font-size: 0;
+}
+
+.board_write.info dl{
+    display: inline-block;
+    width: 50%;
+    vertical-align: middle;
+}
+
+.board_write .title dt,
+.board_write .title dd,
+.board_write .info dt,
+.board_write .info dd{
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 1.4rem;
+}
+
+.board_write .title dt,
+.board_write .info dt{
+    width: 100px;
+}
+
+.board_write .title dd{
+    width: calc(100%-100px);
+}
+
+.board_write .title input[type="text"],
+.board_write .info input[type="text"],
+.board_write .info input[type="password"]{
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.board_write .title input[type="text"]{
+    width: 400%;
+}
+
+
+.board_write .cont{
+    border-bottom: 1px solid #000;
+}
+
+.board_write .cont textarea{
+    display: block;
+    width: 100%;
+    height: 300px;
+    padding: 15px;
+    box-sizing: border-box;
+    border: 0;
+    resize: vertical;
+}

@@ -157,12 +157,22 @@
       SELECT MBR_NBR_FOR_WLK_LOG,WLK_RT_NBR_FOR_WLK_LOG,WLK_TIME,WLK_DOG_LIST FROM WLK_LOG WHERE MBR_NBR_FOR_WLK_LOG=#{mbr_nbr}
 </select>
 
+<!-- 회원 번호로 즐겨찾기 새로 등록 -->
+<update id="plusFavList" parameterType="hashmap">
+	UPDATE MBR SET FAV_LIST=(FAV_LIST||#{str_wlk_rt_nbr}) WHERE MBR_NBR=#{mbr_nbr}
+</update>
 
 
+<!--회원 번호로 즐겨찾기 목록 가져오기-->
+<select id="getFavList" parameterType="int" resultType="string">
+      SELECT FAV_LIST FROM MBR WHERE MBR_NBR=#{mbr_nbr}
+</select>
 
 
-
-
+<!-- 회원 번호로 즐겨찾기 목록 새로고침-->
+<update id="setFavList" parameterType="hashmap">
+	UPDATE MBR SET FAV_LIST=#{FavList} WHERE MBR_NBR=#{mbr_nbr}
+</update>
 
 
 

@@ -138,6 +138,18 @@
   	<description></description>
   	<servlet-class>controller.ShowRecord</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>PlusFavList</servlet-name>
+  	<display-name>PlusFavList</display-name>
+  	<description></description>
+  	<servlet-class>controller.PlusFavList</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>MinusFavList</servlet-name>
+  	<display-name>MinusFavList</display-name>
+  	<description></description>
+  	<servlet-class>controller.MinusFavList</servlet-class>
+  </servlet>
 
 
  
@@ -230,6 +242,14 @@
   <servlet-mapping>
   	<servlet-name>ShowRecord</servlet-name>
   	<url-pattern>/ShowRecord</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>PlusFavList</servlet-name>
+  	<url-pattern>/PlusFavList</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>MinusFavList</servlet-name>
+  	<url-pattern>/MinusFavList</url-pattern>
   </servlet-mapping>
 
 

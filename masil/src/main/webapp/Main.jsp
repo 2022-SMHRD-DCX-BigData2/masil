@@ -11,9 +11,8 @@
 	</head>
 	<body class="is-preload">
 	
-	
-	
-	<!-- 로그인 세션 확인 -->
+
+<!-- 로그인 세션 확인 -->
 <%
 MBR loginedMBR = (MBR) session.getAttribute("loginedMBR");
 %>

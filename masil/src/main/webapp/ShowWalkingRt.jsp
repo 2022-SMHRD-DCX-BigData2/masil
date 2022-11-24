@@ -1,3 +1,4 @@
+<%@page import="domain.MBR"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" isELIgnored="false"%>  
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix= "c"  %>
 <!DOCTYPE html>
@@ -30,6 +31,24 @@ ${requestScope.wlk_rt_nbr}
 </div>
 <!-- 댕댕이 목록(체크박스) 비동기 통신으로 보여주기 -->
 <div id="dogCheckbox"></div>
+
+<!-- 즐겨찾기 -->
+<%
+int wlk_rt_nbr = (int) request.getAttribute("wlk_rt_nbr");
+String str_wlk_rt_nbr = Integer.toString(wlk_rt_nbr);
+MBR loginedMBR = (MBR) session.getAttribute("loginedMBR");
+String favList = loginedMBR.getFav_list();
+if(favList==null){
+	out.print("<button name='PlusFavList'>즐겨찾기에 추가하기</button>");
+}else{
+	if(favList.contains(str_wlk_rt_nbr)){
+		out.print("<button name='MinusFavList'>즐겨찾기에서 삭제하기</button>");
+	}else{
+		out.print("<button name='PlusFavList'>즐겨찾기에 추가하기</button>");
+	}
+}
+%>
+
 
 
 <!-- wlk_rt_nbr에 해당하는 경로 리뷰 보여주기 & 경로 리뷰 쓰기 -->
@@ -362,10 +381,51 @@ ${requestScope.wlk_rt_nbr}
 		    
 		  });
 		});
+	
+	
+	
+	//즐겨찾기 추가 버튼
+	$(document).ready(function () {
+		  $(document).on("click", "button[name='PlusFavList']", function () {
+			// HTML5의 geolocation으로 사용할 수 있는지 확인합니다 
+				$.ajax({
+	    			url: "PlusFavList",
+	    			data: {
+	    				"mbr_nbr":${sessionScope.loginedMBR.mbr_nbr},
+	    				"wlk_rt_nbr":${requestScope.wlk_rt_nbr}
+	    			},
+	    			type: "POST",
+	    			success: function(response) {
+	    				console.log("ajax 즐겨찾기 추가 성공");
+	    			},
+	    			error: function(xhr) {
+	    				console.log("ajax 즐겨찾기 추가 실패");
+	    			}
+	    		});	
+		  });
+		});
+	
+	//즐겨찾기 삭제 버튼
+	$(document).ready(function () {
+		  $(document).on("click", "button[name='MinusFavList']", function () {
+			// HTML5의 geolocation으로 사용할 수 있는지 확인합니다 
+				$.ajax({
+	    			url: "MinusFavList",
+	    			data: {
+	    				"mbr_nbr":${sessionScope.loginedMBR.mbr_nbr},
+	    				"wlk_rt_nbr":${requestScope.wlk_rt_nbr}
+	    			},
+	    			type: "POST",
+	    			success: function(response) {
+	    				console.log("ajax 즐겨찾기 삭제 성공");
+	    			},
+	    			error: function(xhr) {
+	    				console.log("ajax 즐겨찾기 삭제 실패");
+	    			}
+	    		});	
+		  });
+		});
 
-	
-	
 </script>
-
 </body>
 </html>
