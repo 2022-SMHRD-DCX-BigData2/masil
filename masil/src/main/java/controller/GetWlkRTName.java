@@ -23,9 +23,9 @@ public class GetWlkRTName extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		request.setCharacterEncoding("UTF-8");
-		int mbr_nbr = Integer.parseInt(request.getParameter("wlk_rt_nbr"));
+		int wlk_rt_nbr = Integer.parseInt(request.getParameter("wlk_rt_nbr"));
 		MTH_WLK_RT_NAME_DAO dao = new MTH_WLK_RT_NAME_DAO();
-		String wlk_rt_name = dao.getWlkRTName(mbr_nbr);
+		String wlk_rt_name = dao.getWlkRTName(wlk_rt_nbr);
 		response.setCharacterEncoding("UTF-8");
 		//보내는 통로인 출력 스트림 
 		PrintWriter out = response.getWriter();
