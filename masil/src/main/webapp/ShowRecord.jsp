@@ -63,10 +63,13 @@ for(WLK_LOG log : logs){ %>
 	var wlk_rt_name = GetWlkRTName(<%=log.getWlk_rt_nbr_for_wlk_log()%>);
 	var dog_list = "<%=log.getWlk_dog_list()%>";
 	var wlk_time = "<%=log.getWlk_time() %>";
+	var wlk_rt_nbr = "<%=log.getWlk_rt_nbr_for_wlk_log()%>";
 	var text = "";
-	text += "다녀간 산책로 : ";
+	text += "다녀간 산책로 : <a href=\'ShowWalkingRt.jsp?wlk_rt_nbr=";
+	text += wlk_rt_nbr;
+	text += "'>";
 	text += wlk_rt_name;
-	text += "<br>";
+	text += "</a><br>";
 	
 	if(dog_list.length!=0){
 		text += "함께한 댕댕이 : "
