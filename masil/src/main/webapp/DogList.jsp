@@ -53,12 +53,23 @@ $(document).ready(function () {
 		//PlusDog에서는 다시 마이페이지로 리다리엑트하기
 		text = "<form action='PlusDog' method='post'>";
 		text += "<input type='hidden' name='mbr_nbr' value=\'"+${sessionScope.loginedMBR.mbr_nbr}+"\'>";
-		text += "댕댕이 이름 <input type='text' name='DogName'>";
+		text += "댕댕이 이름 <input type='text' name='DogName' onchange='noSpaceForm(this)' >";
 		text += "<input type='submit'></form>";
 		//공백 입력 못하게 막기
 		$("#DogList").append(text);	
 	});
 });
+
+function noSpaceForm(obj){                        
+    if(obj.value.trim() == '') // 공백 체크
+    {              
+        alert("해당 항목에는 공백을 사용할 수 없습니다.\n\n공백 제거됩니다.");
+        obj.focus();
+        obj.value = obj.value.replace(' ','');  // 공백 제거
+        return false;
+    }
+}
+
 </script>
 </head>
 <body>

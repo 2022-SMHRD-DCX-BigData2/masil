@@ -24,8 +24,8 @@ public class PlusDog extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		int mbr_nbr = Integer.parseInt(request.getParameter("mbr_nbr"));
 		String DogName = request.getParameter("DogName");
-		if(DogName==null) {
-			response.sendRedirect("MyPage.jsp");
+		if(DogName=="") {
+			response.sendRedirect("DogList.jsp");
 		}else {
 			MBR_DAO dao = new MBR_DAO();
 			int result = dao.plusDog(DogName, mbr_nbr);
