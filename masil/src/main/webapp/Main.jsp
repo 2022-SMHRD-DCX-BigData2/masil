@@ -40,7 +40,7 @@ MBR loginedMBR = (MBR) session.getAttribute("loginedMBR");
 						</div>
 					</section>
 					<section class="feature right">
-						<a href="Writing?wrt_type=1&area=전국" class="image icon solid far fa-users"><img src="./LoginForm/img\bg2.jpg" alt="" /></a>
+						<a href="Writing?wrt_type=1&type_nbr=0" class="image icon solid far fa-users"><img src="./LoginForm/img\bg2.jpg" alt="" /></a>
 						<div class="content">
 							<h3>자유게시판</h3>
 							<p>Vitae natoque dictum etiam semper magnis enim feugiat amet curabitur tempor orci penatibus. Tellus erat mauris ipsum fermentum etiam vivamus eget. Nunc nibh morbi quis fusce lacus.</p>

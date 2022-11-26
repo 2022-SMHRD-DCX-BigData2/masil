@@ -1,10 +1,10 @@
 /* 댓글기능 CSS 시작 */
 
 .reply_wrap{
-    margin: 0;
+    margin-left: 22.8%;
     padding: 0;
-    width: 1000px;
-    margin: 100px auto;
+    width: 55%;
+    
 }
 
 #form-commentInfo{
@@ -21,6 +21,9 @@
 }
 
 #submit{
+	position: absolute;
+	bottom:1.5%;
+	right : 22%;
     background-color: #38d39f;
     width: 5.5em;
     height: 3.3em;;
@@ -42,7 +45,7 @@
 }
 
 .eachComment{   
-    width :50%; 
+    width :95%; 
     margin: 10px;  
     padding: 0.5em; 
     border-bottom: 1px solid #c1bcba;
@@ -124,7 +127,7 @@ a{
     font-size: 0;
 }
 
-.bt_wrap a{
+.bt_wrap button{
     display: inline-block;
     min-width: 80px;
     margin-left: 10px;

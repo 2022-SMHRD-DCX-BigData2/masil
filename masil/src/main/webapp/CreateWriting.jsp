@@ -72,8 +72,8 @@ MBR loginedMBR = (MBR) session.getAttribute("loginedMBR");
             </div>
             
             <div class="bt_wrap">
-                <input type="submit" class="on" value="등록">
-                <input type="reset" class="on" value="취소">
+                <button type="submit" class="on" >등록</button>
+                <button type="reset" class="on">취소</button>
             </div>
         </div>
     </div>

@@ -70,10 +70,12 @@ WRT writing = (WRT) request.getAttribute("writing");
 
 <div class="reply_wrap">
     <div id="form-commentInfo">
+    <form action="insertCMT" method="post">
         <div id="comment-count">댓글 <span id="count">0</span></div>
         <input id="cmt_id" type="hidden" value="<%=loginedMBR.getMbr_id()%>">
         <input id="comment-input" type="text" placeholder="댓글을 입력해 주세요.">
         <button id="submit">등록</button>
+    </form>
     </div>
     <div id=comments>
     </div>

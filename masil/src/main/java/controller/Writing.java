@@ -39,13 +39,14 @@ public class Writing extends HttpServlet {
 		WRT_DAO wrtDao = new WRT_DAO();
 		List<WRT> text = null;
 		String b_cls = null;
+		int b_cls_nbr;
 		int area_nbr = 0;
 		int wrt_type = Integer.parseInt(request.getParameter("wrt_type"));
 		switch(wrt_type) {
 		case 1://1이 자유게시판
 			//광주시 순천시에 해당하는 큰 지역 번호를 가져옴->취소됨! 전체 자유게시판으로!
-			b_cls = request.getParameter("area");
-			int b_cls_nbr = areaDao.matchBcls_nbr_fromSB(b_cls).intValue();
+			b_cls_nbr = Integer.parseInt(request.getParameter("type_nbr"));
+			//b_cls_nbr = areaDao.matchBcls_nbr_fromSB(b_cls).intValue();
 			text =  wrtDao.selectWRT(1, b_cls_nbr);
 			int type = 1;
 			request.setAttribute("type", type);

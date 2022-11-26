@@ -26,6 +26,7 @@
 <%
 List<WRT> writings = (List) request.getAttribute("Writing");
 for(WRT wrt : writings){ %>
+	var type
 	var id = GetId(<%= wrt.getWrt_ath()%>);
 	var wrt_nbr = "<%=wrt.getWrt_nbr()%>";
 	var wrt_ttl = "<%= wrt.getWrt_ttl()%>";

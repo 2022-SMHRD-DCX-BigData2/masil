@@ -2,6 +2,7 @@ package controller;
 
 import java.io.IOException;
 import java.math.BigDecimal;
+import java.net.URLEncoder;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -39,7 +40,13 @@ public class CreateWriting extends HttpServlet {
 		int result = dao.insertWRT(writing);
 		if(result>0) {
 			System.out.println("글 등록 성공함");
-			//성공 페이지로
+			if(type.equals("1")) {
+				if(type_nbr.equals("0")) {
+					response.sendRedirect("Writing?wrt_type="+type+"&type_nbr="+type_nbr);
+				}
+			}else if(type.equals("2")) {
+				response.sendRedirect("ShowWalkingRt.jsp?wlk_rt_nbr="+type_nbr);
+			}			
 		}else {
 			//실패 페이지로
 			System.out.println("글 등록 실패함");
