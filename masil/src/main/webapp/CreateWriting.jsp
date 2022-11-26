@@ -38,7 +38,17 @@ MBR loginedMBR = (MBR) session.getAttribute("loginedMBR");
     <div class="board_wrap">
         
         <div class="board_title">
-            <strong>자유게시판</strong>
+        	<c:choose>
+	        	<c:when test="${param.type eq '1'}">
+	        		<strong>자유게시판</strong>
+	        	</c:when>
+	        	<c:when test="${param.type eq '2'}">
+	        		<strong>산책로 리뷰</strong>
+	        	</c:when>
+	        	<c:otherwise>
+	        		<strong>모임 게시판</strong>
+	        	</c:otherwise>
+            </c:choose>
             <p>산책로 관련하여 자유롭게 의견을 나눠주세요!</p>
         </div>
 
