@@ -72,9 +72,10 @@ WRT writing = (WRT) request.getAttribute("writing");
     <div id="form-commentInfo">
     <form action="insertCMT" method="post">
         <div id="comment-count">댓글 <span id="count">0</span></div>
-        <input id="cmt_id" type="hidden" value="<%=loginedMBR.getMbr_id()%>">
-        <input id="comment-input" type="text" placeholder="댓글을 입력해 주세요.">
-        <button id="submit">등록</button>
+        <input id="wrt_nbr" name="wrt_nbr" type="hidden" value="<%=writing.getWrt_nbr() %>">
+        <input id="cmt_ath" name="cmt_ath" type="hidden" value="${sessionScope.loginedMBR.mbr_nbr}">
+        <input id="comment-input" name="cmt_cnt" type="text" placeholder="댓글을 입력해 주세요.">
+        <button name="inputCMT" id="submit">등록</button>
     </form>
     </div>
     <div id=comments>
@@ -87,7 +88,6 @@ WRT writing = (WRT) request.getAttribute("writing");
 
 var id = GetId(<%=writing.getWrt_ath() %>);
 $("#wrt_id").append(id);
-
 
 
 function GetId(mbr_nbr) {
@@ -106,6 +106,53 @@ function GetId(mbr_nbr) {
 	});
 	return mbr_id;
 }
+
+
+$(document).ready(function () {
+	  $(document).on("click", "button[name='inputCMT']", function () {
+			$.ajax({
+				url : "insertCMT",
+				type : "post",
+				data : {
+					wrt_nbr : $("#wrt_nbr").val(),
+					cmt_ath : $("#cmt_ath").val(),
+					cmt_cnt : $("#comment-input").val()
+				},
+				success : function(res){
+					console.log("Ajax 통신 성공!!");
+				},
+				error : function(){
+					console.log("Ajax 통신 실패!!");	
+				}
+			});
+	  });
+	});
+	
+//이전 댓글 보여주기
+$(document).ready(function () {
+	const rootDiv = document.querySelector("#comments");
+	const commentList = document.createElement('div');
+	
+		$.ajax({
+			url : "setCMT",
+			type : "post",
+			dataType : "json",
+			success : function(res){
+				console.log("Ajax 통신 성공!!");
+				commentList.className = "eachComment";
+				commentList.appendChild(userName);
+				commentList.appendChild(inputValue);
+				commentList.appendChild(showTime);
+				rootDiv.prepend(commentList);
+			},
+			error : function(){
+				console.log("Ajax 통신 실패!!");	
+			}
+		});
+
+	});
+
+
 </script>
 
 </body>

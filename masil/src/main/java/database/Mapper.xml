@@ -184,5 +184,8 @@
       SELECT WLK_RT_NAME FROM MTH_WLK_RT_NAME WHERE WLK_RT_NBR=#{wlk_rt_nbr}
 </select>
 
-
+<!--댓글 입력 (sequence로 번호 매김)-->
+<insert id="insertCMT" parameterType="domain.CMT">
+      insert into CMT values (cmt_seq.nextval,#{wrt_nbr_for_cmt},#{cmt_ath},#{cmt_cnt})
+</insert>
 </mapper>
