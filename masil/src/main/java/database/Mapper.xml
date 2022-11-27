@@ -111,18 +111,18 @@
 
 <!-- 지역 자유게시판 입력 -->
 <insert id="insertWRTtoLoc" parameterType="domain.WRT">
-	insert into WRT (WRT_NBR,WRT_TTL,WRT_CNT,WRT_ATH,WRT_TYPE,B_CLS_NBR_FOR_WRT,WRT_TIME) values (WRT_SEQ.NEXTVAL, #{wrt_ttl},  #{wrt_cnt},#{wrt_ath},1,#{nbr_for_wrt_type},SYSDATE)
+	insert into WRT (WRT_NBR,WRT_TTL,WRT_CNT,WRT_ATH,WRT_TYPE,B_CLS_NBR_FOR_WRT,WRT_TIME) values (WRT_SEQ.NEXTVAL, #{wrt_ttl},  #{wrt_cnt},#{wrt_ath},1,#{nbr_for_wrt_type},current_date)
 </insert>
 
 
 <!-- 산책로 리뷰 입력 -->
 <insert id="insertWRTtoRv" parameterType="domain.WRT">
-	insert into WRT (WRT_NBR,WRT_TTL,WRT_CNT,WRT_ATH,WRT_TYPE,wlk_rt_nbr_for_wrt,WRT_TIME) values (WRT_SEQ.NEXTVAL, #{wrt_ttl},  #{wrt_cnt},#{wrt_ath},2,#{nbr_for_wrt_type},SYSDATE)
+	insert into WRT (WRT_NBR,WRT_TTL,WRT_CNT,WRT_ATH,WRT_TYPE,wlk_rt_nbr_for_wrt,WRT_TIME) values (WRT_SEQ.NEXTVAL, #{wrt_ttl},  #{wrt_cnt},#{wrt_ath},2,#{nbr_for_wrt_type},current_date)
 </insert>
 
 <!-- 모임 게시판 입력 -->
 <insert id="insertWRTtoGrp" parameterType="domain.WRT">
-	insert into WRT (WRT_NBR,WRT_TTL,WRT_CNT,WRT_ATH,WRT_TYPE,grp_nbr_for_wrt,WRT_TIME) values (WRT_SEQ.NEXTVAL, #{wrt_ttl},  #{wrt_cnt},#{wrt_ath},3,#{nbr_for_wrt_type},SYSDATE)
+	insert into WRT (WRT_NBR,WRT_TTL,WRT_CNT,WRT_ATH,WRT_TYPE,grp_nbr_for_wrt,WRT_TIME) values (WRT_SEQ.NEXTVAL, #{wrt_ttl},  #{wrt_cnt},#{wrt_ath},3,#{nbr_for_wrt_type},current_date)
 </insert>
 
 
@@ -148,7 +148,7 @@
 
 <!--기록 입력 -->
 <insert id="insertLog" parameterType="domain.WLK_LOG">
-	insert into WLK_LOG (MBR_NBR_FOR_WLK_LOG,WLK_RT_NBR_FOR_WLK_LOG,WLK_TIME,WLK_DOG_LIST) values (#{mbr_nbr_for_wlk_log},#{wlk_rt_nbr_for_wlk_log},SYSDATE,#{wlk_dog_list})
+	insert into WLK_LOG (MBR_NBR_FOR_WLK_LOG,WLK_RT_NBR_FOR_WLK_LOG,WLK_TIME,WLK_DOG_LIST) values (#{mbr_nbr_for_wlk_log},#{wlk_rt_nbr_for_wlk_log},current_date,#{wlk_dog_list})
 </insert>
 
 
@@ -186,7 +186,7 @@
 
 <!--댓글 입력 (sequence로 번호 매김)-->
 <insert id="insertCMT" parameterType="domain.CMT">
-      insert into CMT values (cmt_seq.nextval,#{wrt_nbr_for_cmt},#{cmt_ath},#{cmt_cnt},sysdate)
+      insert into CMT values (cmt_seq.nextval,#{wrt_nbr_for_cmt},#{cmt_ath},#{cmt_cnt},current_date)
 </insert>
 
 <!--글 번호로 댓글 가져오기-->
