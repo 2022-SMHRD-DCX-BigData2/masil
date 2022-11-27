@@ -65,8 +65,8 @@ WRT writing = (WRT) request.getAttribute("writing");
                     <div style="height:250px;"><%=writing.getWrt_cnt() %></div>
                 </div>
                 <c:if test="${sessionScope.loginedMBR.mbr_nbr eq requestScope.writing.wrt_ath}">
-                <button class="updateWRT">수정</button>
-                <button class="deleteWRT">삭제</button>
+                <button class="on">수정</button>
+                <button class="on">삭제</button>
                 </c:if>
             </div>
         </div>
