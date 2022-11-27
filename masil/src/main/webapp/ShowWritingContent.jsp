@@ -44,6 +44,7 @@ WRT writing = (WRT) request.getAttribute("writing");
 	        	</c:otherwise>
             </c:choose>
             <p>산책로 관련하여 자유롭게 의견을 나눠주세요!</p>
+            
         </div>
 
         <div class="board_write_wrap">
@@ -63,6 +64,10 @@ WRT writing = (WRT) request.getAttribute("writing");
                 <div class="cont" >
                     <div style="height:250px;"><%=writing.getWrt_cnt() %></div>
                 </div>
+                <c:if test="${sessionScope.loginedMBR.mbr_nbr eq requestScope.writing.wrt_ath}">
+                <button class="updateWRT">수정</button>
+                <button class="deleteWRT">삭제</button>
+                </c:if>
             </div>
         </div>
     </div>

@@ -87,8 +87,23 @@
     height:3em;
 }
 
+.deleteWRT{
+	position:relative;
+	top:20px;
+	left:45%;
+    color: black;
+    width: 4em;
+    height: 3em;
+}
 
-
+.updateWRT{
+	position:relative;
+	top:20px;
+	left:45%;
+    color: black;
+    width: 4em;
+    height: 3em;
+}
 
 
 /* 글쓰기 페이지 CSS */
