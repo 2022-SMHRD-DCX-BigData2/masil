@@ -24,7 +24,7 @@ MBR loginedMBR = (MBR) session.getAttribute("loginedMBR");
 <%@ include file="header.jsp" %>
 
 
-<form action="#" method="post">
+<form action="UpdateWRT" method="post">
 
 
     <div class="board_wrap">
@@ -64,6 +64,9 @@ MBR loginedMBR = (MBR) session.getAttribute("loginedMBR");
             </div>
             
             <div class="bt_wrap">
+            	<input type="hidden" name="wrt_nbr" value="${requestScope.wrt_nbr}">
+            	<input type="hidden" name="type" value="${requestScope.type}">
+	            <input type="hidden" name="type_nbr" value="${requestScope.type_nbr}">
                 <button type="submit" class="on" >수정</button>
                 <button type="reset" class="on">취소</button>
             </div>
