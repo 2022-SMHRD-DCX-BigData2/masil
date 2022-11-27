@@ -66,14 +66,21 @@ WRT writing = (WRT) request.getAttribute("writing");
                 </div>
                 <c:if test="${sessionScope.loginedMBR.mbr_nbr eq requestScope.writing.wrt_ath}">
                 <div class="bt_wrap">
-	                <button class="on" id="updateWRT">수정</button>
 	                <button class="on" id="deleteWRT">삭제</button>
+	                <form action="SetUpdateWRT" method="post">
+	                	<input type="hidden" name="wrt_ttl" value="<%=writing.getWrt_ttl()%>">
+	                	<input type="hidden" name="wrt_cnt" value="<%=writing.getWrt_cnt()%>">
+	                	<input type="hidden" name="type" value="${param.type}">
+	                	<input type="hidden" name="type_nbr" value="${param.type_nbr}">
+	                	<input type="hidden" name="wrt_nbr" value="${param.wrt_nbr}">
+		                <button class="on" id="updateWRT">수정</button>
+	                </form>
                 </div>
                 </c:if>
             </div>
         </div>
     </div>
-</form>
+
 
 <div class="reply_wrap">
     <div id="form-commentInfo">
@@ -94,7 +101,6 @@ WRT writing = (WRT) request.getAttribute("writing");
 
 <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
 <script type="text/javascript">
-
 var id = GetId(<%=writing.getWrt_ath() %>);
 $("#wrt_id").append(id);
 
@@ -167,6 +173,7 @@ $(document).ready(function () {
 
 	});
 
+//댓글 삭제
 $(document).ready(function () {
 	  $(document).on("click", "button[class='deleteComment']", function () {
 	    $.ajax({
@@ -192,10 +199,10 @@ $(document).ready(function () {
 	  });
 	});
 	
-	
+//게시글 삭제
 $(document).ready(function () {
 	  $(document).on("click", "button[id='deleteWRT']", function () {
-		  console.log("삭제버튼 클릭함");
+		  console.log("글삭제버튼 클릭함");
 	    $.ajax({
 			url : "DeleteWRT",
 			type : "post",
@@ -220,8 +227,8 @@ $(document).ready(function () {
 	  });
 	});
 	
-	
-	
+
+
 </script>
 
 </body>

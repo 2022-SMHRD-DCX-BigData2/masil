@@ -24,26 +24,24 @@ MBR loginedMBR = (MBR) session.getAttribute("loginedMBR");
 <%@ include file="header.jsp" %>
 
 
-<form action="CreateWriting" method="post">
-<input type="hidden" name="type" value="${param.type}">
-<input type="hidden" name="type_nbr" value="${param.type_nbr}">
-<input type="hidden" name="mbr_nbr" value="<%=loginedMBR.getMbr_nbr()%>">
+<form action="#" method="post">
+
 
     <div class="board_wrap">
         
         <div class="board_title">
         	<c:choose>
-	        	<c:when test="${param.type eq '1'}">
+	        	<c:when test="${requestScope.type eq '1'}">
 	        		<strong>자유게시판</strong>
 	        	</c:when>
-	        	<c:when test="${param.type eq '2'}">
+	        	<c:when test="${requestScope.type eq '2'}">
 	        		<strong>산책로 리뷰</strong>
 	        	</c:when>
 	        	<c:otherwise>
 	        		<strong>모임 게시판</strong>
 	        	</c:otherwise>
             </c:choose>
-            <p>산책로 관련하여 자유롭게 의견을 나눠주세요!</p>
+            <p>글을 수정합니다.</p>
         </div>
 
         <div class="board_write_wrap">
@@ -51,7 +49,7 @@ MBR loginedMBR = (MBR) session.getAttribute("loginedMBR");
                 <div class="title">
                     <dl>
                         <dt>&nbsp&nbsp제목</dt>
-                        <dd><input type="text" name="title" placeholder="제목입력"></dd>
+                        <dd>${requestScope.wrt_ttl}</dd>
                     </dl>
                 </div>
                 <div class="info">
@@ -61,12 +59,12 @@ MBR loginedMBR = (MBR) session.getAttribute("loginedMBR");
                     </dl>
                 </div>
                 <div class="cont">
-                    <textarea placeholder="내용입력" name="content"></textarea>
+                    <textarea name="content">${requestScope.wrt_cnt}</textarea>
                 </div>
             </div>
             
             <div class="bt_wrap">
-                <button type="submit" class="on" >등록</button>
+                <button type="submit" class="on" >수정</button>
                 <button type="reset" class="on">취소</button>
             </div>
         </div>
@@ -76,8 +74,3 @@ MBR loginedMBR = (MBR) session.getAttribute("loginedMBR");
 
 </body>
 </html>
-
-
-
-
-

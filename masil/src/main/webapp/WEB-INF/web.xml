@@ -186,6 +186,12 @@
   	<description></description>
   	<servlet-class>controller.DeleteWRT</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>SetUpdateWRT</servlet-name>
+  	<display-name>SetUpdateWRT</display-name>
+  	<description></description>
+  	<servlet-class>controller.SetUpdateWRT</servlet-class>
+  </servlet>
 
 
  
@@ -310,6 +316,10 @@
   <servlet-mapping>
   	<servlet-name>DeleteWRT</servlet-name>
   	<url-pattern>/DeleteWRT</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>SetUpdateWRT</servlet-name>
+  	<url-pattern>/SetUpdateWRT</url-pattern>
   </servlet-mapping>
 
 
