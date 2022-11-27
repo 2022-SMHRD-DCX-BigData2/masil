@@ -204,4 +204,11 @@
 	DELETE FROM WRT WHERE WRT_NBR = #{wrt_nbr}
 </delete>
 
+<!--글 번호로 글 내용 고치기-->
+<update id="UpdateWRT" parameterType="hashmap">
+	UPDATE WRT SET WRT_CNT=#{wrt_cnt} WHERE WRT_NBR=#{wrt_nbr}
+</update>
+
+
+
 </mapper>
