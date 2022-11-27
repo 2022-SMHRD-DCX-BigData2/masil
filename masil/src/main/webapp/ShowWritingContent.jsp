@@ -164,12 +164,20 @@ $(document).ready(function () {
 	    $.ajax({
 			url : "DeleteCMT",
 			type : "post",
-			data : {cmt_id : $(this).attr( 'id' )},
+			data : {
+				wrt_type : ${param.type},
+				wrt_nbr : ${param.wrt_nbr},
+				cmt_id : $(this).attr( 'id' )
+				
+			},
 			success : function(res){
 				console.log("DeleteCMT Ajax 통신 성공!!");
+				window.location.reload();
+				
 			},
 			error:function(){
 				console.log("DeleteCMT Ajax 통신 실패!!");
+				window.location.reload();
 			}
 	    });
 
