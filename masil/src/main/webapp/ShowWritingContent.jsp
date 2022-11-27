@@ -76,14 +76,14 @@ WRT writing = (WRT) request.getAttribute("writing");
         <input id="cmt_ath" name="cmt_ath" type="hidden" value="${sessionScope.loginedMBR.mbr_nbr}">
         <input type="hidden" name="wrt_type" value="${param.type}">
         <input id="comment-input" name="cmt_cnt" type="text" placeholder="댓글을 입력해 주세요.">
-        <button name="inputCMT" type="button" id="submit">등록</button>
+        <button name="inputCMT" id="submit">등록</button>
     </form>
     </div>
     <div id=comments>
     </div>
 </div>
 
-<script src="reply.js"></script>
+
 <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
 <script type="text/javascript">
 
@@ -125,16 +125,24 @@ $(document).ready(function () {
 				    var inputValue = document.createElement('span');
 				    var showTime = document.createElement('div');
 					var commentList = document.createElement('div');
-					var delBtn = document.createElement('button');
-					delBtn.className ="deleteComment";
-					delBtn.id = res[i].cmt_nbr;
-					delBtn.innerHTML="삭제";
+					
+					console.log(res[i].cmt_ath)
 					commentList.className = "eachComment";
 				    userName.className="name";
 				    inputValue.className="inputValue";
 				    showTime.className="time";
 				    userName.innerHTML = res[i].cmt_id;
-				    userName.appendChild(delBtn);  
+				    
+				    var delBtn = document.createElement('button');
+					//아이디가 동일한 경우에만 삭제 버튼 보이게 하기
+					if(res[i].cmt_ath==${sessionScope.loginedMBR.mbr_nbr}){
+						delBtn.className ="deleteComment";
+						delBtn.id = res[i].cmt_nbr;
+						delBtn.innerHTML="삭제";
+						userName.appendChild(delBtn);
+					}
+
+	
 				    inputValue.innerText = res[i].cmt_cnt;
 				    showTime.innerHTML = res[i].cmt_time;
 				    
@@ -145,13 +153,28 @@ $(document).ready(function () {
 				}
 			},
 			error : function(){
-				console.log("setCMT Ajax 통신 실패!!");	
+				$(this).attr( 'id' )
 			}
 		});
 
 	});
 
+$(document).ready(function () {
+	  $(document).on("click", "button[class='deleteComment']", function () {
+	    $.ajax({
+			url : "DeleteCMT",
+			type : "post",
+			data : {cmt_id : $(this).attr( 'id' )},
+			success : function(res){
+				console.log("DeleteCMT Ajax 통신 성공!!");
+			},
+			error:function(){
+				console.log("DeleteCMT Ajax 통신 실패!!");
+			}
+	    });
 
+	  });
+	});
 </script>
 
 </body>
