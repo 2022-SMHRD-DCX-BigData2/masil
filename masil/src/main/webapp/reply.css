@@ -8,6 +8,7 @@
 }
 
 #form-commentInfo{
+	
     width: 100%;
 }
 
@@ -16,14 +17,16 @@
 }
 
 #comment-input{
-    width: 50%;
+	position: absolute;
+	left : 24%;
+	width: 47%;
     height: 3.3em;
 }
 
 #submit{
-	position: absolute;
-	bottom:1.5%;
-	right : 22%;
+	position:relative;
+	top:0.5em;
+	left : 90%;
     background-color: #38d39f;
     width: 5.5em;
     height: 3.3em;;
@@ -41,7 +44,7 @@
 } */
 
 #comments{
-    margin-top: 10px;
+    margin-top: 6%;
 }
 
 .eachComment{   
@@ -80,11 +83,10 @@
 
 .eachComment .deleteComment{
     color: black;
+    width:4em;
+    height:3em;
 }
 
-#form-commentInfo #comment-input[type="text"]{
-    width: 90%;
-}
 
 
 

@@ -71,11 +71,12 @@ WRT writing = (WRT) request.getAttribute("writing");
 <div class="reply_wrap">
     <div id="form-commentInfo">
     <form action="insertCMT" method="post">
-        <div id="comment-count">댓글 <span id="count">0</span></div>
+        <div id="comment-count">댓글 <span id="count"></span></div>
         <input id="wrt_nbr" name="wrt_nbr" type="hidden" value="<%=writing.getWrt_nbr() %>">
         <input id="cmt_ath" name="cmt_ath" type="hidden" value="${sessionScope.loginedMBR.mbr_nbr}">
+        <input type="hidden" name="wrt_type" value="${param.type}">
         <input id="comment-input" name="cmt_cnt" type="text" placeholder="댓글을 입력해 주세요.">
-        <button name="inputCMT" id="submit">등록</button>
+        <button name="inputCMT" type="button" id="submit">등록</button>
     </form>
     </div>
     <div id=comments>
@@ -108,26 +109,6 @@ function GetId(mbr_nbr) {
 }
 
 
-$(document).ready(function () {
-	  $(document).on("click", "button[name='inputCMT']", function () {
-			$.ajax({
-				url : "insertCMT",
-				type : "post",
-				data : {
-					wrt_nbr : $("#wrt_nbr").val(),
-					cmt_ath : $("#cmt_ath").val(),
-					cmt_cnt : $("#comment-input").val()
-				},
-				success : function(res){
-					console.log("insertCMT Ajax 통신 성공!!");
-				},
-				error : function(){
-					console.log("insertCMT Ajax 통신 실패!!");	
-				}
-			});
-	  });
-	});
-	
 //이전 댓글 보여주기
 $(document).ready(function () {
 		$.ajax({
@@ -137,7 +118,8 @@ $(document).ready(function () {
 			dataType : "json",
 			success : function(res){
 				console.log("setCMT Ajax 통신 성공!!");
-				for(var i=1;i<res.length;i++){
+				$("#count").append(res.length)
+				for(var i=0;i<res.length;i++){
 					var rootDiv = document.querySelector("#comments");
 					var userName = document.createElement('div');
 				    var inputValue = document.createElement('span');
@@ -145,6 +127,7 @@ $(document).ready(function () {
 					var commentList = document.createElement('div');
 					var delBtn = document.createElement('button');
 					delBtn.className ="deleteComment";
+					delBtn.id = res[i].cmt_nbr;
 					delBtn.innerHTML="삭제";
 					commentList.className = "eachComment";
 				    userName.className="name";
@@ -154,7 +137,7 @@ $(document).ready(function () {
 				    userName.appendChild(delBtn);  
 				    inputValue.innerText = res[i].cmt_cnt;
 				    showTime.innerHTML = res[i].cmt_time;
-					
+				    
 					commentList.appendChild(userName);
 					commentList.appendChild(inputValue);
 					commentList.appendChild(showTime);
