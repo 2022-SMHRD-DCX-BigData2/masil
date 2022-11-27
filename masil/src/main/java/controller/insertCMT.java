@@ -28,13 +28,14 @@ public class insertCMT extends HttpServlet {
 		String cmt_ath = request.getParameter("cmt_ath");
 		String cmt_cnt = request.getParameter("cmt_cnt");
 		String wrt_type = request.getParameter("wrt_type");
+		String type_nbr = request.getParameter("type_nbr");
 		CMT cmt = new CMT(new BigDecimal(wrt_nbr),new BigDecimal(cmt_ath),cmt_cnt);
 		CMT_DAO dao = new CMT_DAO();
 		int result = dao.insertCMT(cmt);
 		if(result>0) {
 			System.out.println("댓글 등록 성공");
 			//response.sendRedirect(request.getHeader("referer"));
-			response.sendRedirect("ShowWritingContent?type="+wrt_type+"&wrt_nbr="+wrt_nbr);
+			response.sendRedirect("ShowWritingContent?type="+wrt_type+"&type_nbr="+type_nbr+"&wrt_nbr="+wrt_nbr);
 		}else {
 			System.out.println("댓글 등록 실패");
 		}

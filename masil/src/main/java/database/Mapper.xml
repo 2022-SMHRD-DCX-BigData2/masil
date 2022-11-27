@@ -199,4 +199,9 @@
 	DELETE FROM CMT WHERE CMT_NBR = #{cmt_nbr}
 </delete>
 
+<!-- 게시글 삭제 -->
+<delete id="DeleteWRT" parameterType="int">
+	DELETE FROM WRT WHERE WRT_NBR = #{wrt_nbr}
+</delete>
+
 </mapper>

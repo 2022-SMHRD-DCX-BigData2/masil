@@ -180,6 +180,12 @@
   	<description></description>
   	<servlet-class>controller.DeleteCMT</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>DeleteWRT</servlet-name>
+  	<display-name>DeleteWRT</display-name>
+  	<description></description>
+  	<servlet-class>controller.DeleteWRT</servlet-class>
+  </servlet>
 
 
  
@@ -300,6 +306,10 @@
   <servlet-mapping>
   	<servlet-name>DeleteCMT</servlet-name>
   	<url-pattern>/DeleteCMT</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>DeleteWRT</servlet-name>
+  	<url-pattern>/DeleteWRT</url-pattern>
   </servlet-mapping>
 
 

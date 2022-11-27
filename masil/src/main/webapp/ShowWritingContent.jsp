@@ -65,8 +65,10 @@ WRT writing = (WRT) request.getAttribute("writing");
                     <div style="height:250px;"><%=writing.getWrt_cnt() %></div>
                 </div>
                 <c:if test="${sessionScope.loginedMBR.mbr_nbr eq requestScope.writing.wrt_ath}">
-                <button class="on">수정</button>
-                <button class="on">삭제</button>
+                <div class="bt_wrap">
+	                <button class="on" id="updateWRT">수정</button>
+	                <button class="on" id="deleteWRT">삭제</button>
+                </div>
                 </c:if>
             </div>
         </div>
@@ -79,6 +81,7 @@ WRT writing = (WRT) request.getAttribute("writing");
         <div id="comment-count">댓글 <span id="count"></span></div>
         <input id="wrt_nbr" name="wrt_nbr" type="hidden" value="<%=writing.getWrt_nbr() %>">
         <input id="cmt_ath" name="cmt_ath" type="hidden" value="${sessionScope.loginedMBR.mbr_nbr}">
+        <input type="hidden" name="type_nbr" value="${param.type_nbr}">
         <input type="hidden" name="wrt_type" value="${param.type}">
         <input id="comment-input" name="cmt_cnt" type="text" placeholder="댓글을 입력해 주세요.">
         <button name="inputCMT" id="submit">등록</button>
@@ -188,6 +191,37 @@ $(document).ready(function () {
 
 	  });
 	});
+	
+	
+$(document).ready(function () {
+	  $(document).on("click", "button[id='deleteWRT']", function () {
+		  console.log("삭제버튼 클릭함");
+	    $.ajax({
+			url : "DeleteWRT",
+			type : "post",
+			data : {
+				type : ${param.type},
+				type_nbr : ${param.type_nbr},
+				wrt_nbr : ${param.wrt_nbr}	
+			},
+			success : function(res){
+				console.log("DeleteWRT Ajax 통신 성공!!");
+				var beforePage = "Writing?wrt_type=";
+				beforePage += ${param.type};
+				beforePage += "&type_nbr="
+				beforePage += ${param.type_nbr};
+				location.href=beforePage;				
+			},
+			error:function(){
+				console.log("DeleteWRT Ajax 통신 실패!!");
+			}
+	    });
+
+	  });
+	});
+	
+	
+	
 </script>
 
 </body>
