@@ -186,6 +186,14 @@
 
 <!--댓글 입력 (sequence로 번호 매김)-->
 <insert id="insertCMT" parameterType="domain.CMT">
-      insert into CMT values (cmt_seq.nextval,#{wrt_nbr_for_cmt},#{cmt_ath},#{cmt_cnt})
+      insert into CMT values (cmt_seq.nextval,#{wrt_nbr_for_cmt},#{cmt_ath},#{cmt_cnt},sysdate)
 </insert>
+
+<!--글 번호로 댓글 가져오기-->
+<select id="getCMTList" parameterType="int" resultType="domain.CMT">
+      SELECT cmt_nbr,wrt_nbr_for_cmt,cmt_ath,cmt_cnt,cmt_time FROM cmt WHERE WRT_NBR_FOR_CMT=#{wrt_nbr}
+</select>
+
+
+
 </mapper>

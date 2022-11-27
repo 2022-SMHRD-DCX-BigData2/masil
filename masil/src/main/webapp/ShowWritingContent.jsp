@@ -119,10 +119,10 @@ $(document).ready(function () {
 					cmt_cnt : $("#comment-input").val()
 				},
 				success : function(res){
-					console.log("Ajax 통신 성공!!");
+					console.log("insertCMT Ajax 통신 성공!!");
 				},
 				error : function(){
-					console.log("Ajax 통신 실패!!");	
+					console.log("insertCMT Ajax 통신 실패!!");	
 				}
 			});
 	  });
@@ -130,23 +130,39 @@ $(document).ready(function () {
 	
 //이전 댓글 보여주기
 $(document).ready(function () {
-	const rootDiv = document.querySelector("#comments");
-	const commentList = document.createElement('div');
-	
 		$.ajax({
 			url : "setCMT",
 			type : "post",
+			data : {wrt_nbr : $("#wrt_nbr").val()},
 			dataType : "json",
 			success : function(res){
-				console.log("Ajax 통신 성공!!");
-				commentList.className = "eachComment";
-				commentList.appendChild(userName);
-				commentList.appendChild(inputValue);
-				commentList.appendChild(showTime);
-				rootDiv.prepend(commentList);
+				console.log("setCMT Ajax 통신 성공!!");
+				for(var i=1;i<res.length;i++){
+					var rootDiv = document.querySelector("#comments");
+					var userName = document.createElement('div');
+				    var inputValue = document.createElement('span');
+				    var showTime = document.createElement('div');
+					var commentList = document.createElement('div');
+					var delBtn = document.createElement('button');
+					delBtn.className ="deleteComment";
+					delBtn.innerHTML="삭제";
+					commentList.className = "eachComment";
+				    userName.className="name";
+				    inputValue.className="inputValue";
+				    showTime.className="time";
+				    userName.innerHTML = res[i].cmt_id;
+				    userName.appendChild(delBtn);  
+				    inputValue.innerText = res[i].cmt_cnt;
+				    showTime.innerHTML = res[i].cmt_time;
+					
+					commentList.appendChild(userName);
+					commentList.appendChild(inputValue);
+					commentList.appendChild(showTime);
+					rootDiv.prepend(commentList);
+				}
 			},
 			error : function(){
-				console.log("Ajax 통신 실패!!");	
+				console.log("setCMT Ajax 통신 실패!!");	
 			}
 		});
 

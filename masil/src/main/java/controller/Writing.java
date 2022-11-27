@@ -48,8 +48,8 @@ public class Writing extends HttpServlet {
 			b_cls_nbr = Integer.parseInt(request.getParameter("type_nbr"));
 			//b_cls_nbr = areaDao.matchBcls_nbr_fromSB(b_cls).intValue();
 			text =  wrtDao.selectWRT(1, b_cls_nbr);
-			int type = 1;
-			request.setAttribute("type", type);
+			String str_type = "1";
+			request.setAttribute("str_type", str_type);
 			request.setAttribute("type_nbr", b_cls_nbr);
 			request.setAttribute("Writing", text);
 			RequestDispatcher rd1 = request.getRequestDispatcher("ShowWriting.jsp");

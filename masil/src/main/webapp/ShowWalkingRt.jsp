@@ -177,7 +177,7 @@ if(favList==null){
 							console.log(res);
 							$("#RVList").html("");
 							for(var i=0 ; i<res.length ; i++){
-								$("#RVList").append(res[i].wrt_ath+"<a href=\'ShowWritingContent?wrt_nbr="+res[i].wrt_nbr+"'>"+res[i].wrt_ttl+"</a>"+res[i].wrt_time+"<br>");
+								$("#RVList").append(res[i].wrt_ath+"<a href=\'ShowWritingContent?type=2&wrt_nbr="+res[i].wrt_nbr+"'>"+res[i].wrt_ttl+"</a>"+res[i].wrt_time+"<br>");
 							}			
 						},
 						error : function(){

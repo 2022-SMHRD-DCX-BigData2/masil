@@ -168,6 +168,12 @@
   	<description></description>
   	<servlet-class>controller.insertCMT</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>setCMT</servlet-name>
+  	<display-name>setCMT</display-name>
+  	<description></description>
+  	<servlet-class>controller.setCMT</servlet-class>
+  </servlet>
 
 
  
@@ -280,6 +286,10 @@
   <servlet-mapping>
   	<servlet-name>insertCMT</servlet-name>
   	<url-pattern>/insertCMT</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>setCMT</servlet-name>
+  	<url-pattern>/setCMT</url-pattern>
   </servlet-mapping>
 
 

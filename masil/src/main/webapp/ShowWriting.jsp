@@ -33,7 +33,9 @@ for(WRT wrt : writings){ %>
 	var wrt_time = "<%=wrt.getWrt_time()%>";
 	var text = "";
 	text += id;
-	text += "글 제목 : <a href='ShowWritingContent?wrt_nbr=";
+	text += "글 제목 : <a href='ShowWritingContent?&type=";
+	text += ${requestScope.str_type};
+	text += "&wrt_nbr=";
 	text += wrt_nbr+"'>"+wrt_ttl+"</a>"
 	text += "작성 시간"+wrt_time+"<br>"
 	$("#writing").append(text);

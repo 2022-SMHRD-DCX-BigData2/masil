@@ -34,6 +34,7 @@ public class insertCMT extends HttpServlet {
 		int result = dao.insertCMT(cmt);
 		if(result>0) {
 			System.out.println("댓글 등록 성공");
+			//response.sendRedirect(request.getHeader("referer"));
 			response.sendRedirect("ShowWritingContent?wrt_nbr="+wrt_nbr);
 		}else {
 			System.out.println("댓글 등록 실패");
