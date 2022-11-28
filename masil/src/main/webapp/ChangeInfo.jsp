@@ -9,8 +9,16 @@
 <body>
 
 <form action="#" method="post">
+
 비밀번호 변경<input type="text" name="PW">
 <input type="submit">
+
+
+
+
+
+
+
 </form>
 
 </body>

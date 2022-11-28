@@ -1,14 +1,13 @@
 /* 댓글기능 CSS 시작 */
 
 .reply_wrap{
-    margin-left: 22.8%;
+    margin: 0;
     padding: 0;
-    width: 55%;
-    
+    width: 1000px;
+    margin: 100px auto;
 }
 
 #form-commentInfo{
-	
     width: 100%;
 }
 
@@ -17,15 +16,11 @@
 }
 
 #comment-input{
-	position: absolute;
-	left : 24%;
-	width: 47%;
+    width: 50%;
     height: 3.3em;
 }
 
 #submit{
-	position:relative;
-	left : 90%;
     background-color: #38d39f;
     width: 5.5em;
     height: 3.3em;;
@@ -43,11 +38,11 @@
 } */
 
 #comments{
-    margin-top: 6%;
+    margin-top: 10px;
 }
 
 .eachComment{   
-    width :95%; 
+    width :50%; 
     margin: 10px;  
     padding: 0.5em; 
     border-bottom: 1px solid #c1bcba;
@@ -82,27 +77,13 @@
 
 .eachComment .deleteComment{
     color: black;
-    width:4em;
-    height:3em;
 }
 
-.deleteWRT{
-	position:relative;
-	top:20px;
-	left:45%;
-    color: black;
-    width: 4em;
-    height: 3em;
+#form-commentInfo #comment-input[type="text"]{
+    width: 90%;
 }
 
-.updateWRT{
-	position:relative;
-	top:20px;
-	left:45%;
-    color: black;
-    width: 4em;
-    height: 3em;
-}
+
 
 
 /* 글쓰기 페이지 CSS */
@@ -143,7 +124,7 @@ a{
     font-size: 0;
 }
 
-.bt_wrap button{
+.bt_wrap a{
     display: inline-block;
     min-width: 80px;
     margin-left: 10px;

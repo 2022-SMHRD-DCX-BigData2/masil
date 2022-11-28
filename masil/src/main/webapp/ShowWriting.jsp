@@ -6,23 +6,69 @@
 <html>
 <head>
 <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="TemplateMo">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" type="text/css" href="./CSS/fb_bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="./CSS/fb_font-awesome.css">  
+    <link rel="stylesheet" href="./CSS/free_board.css">
+    <link rel="stylesheet" href="./CSS/fb_owl-carousel.css">
+    <link rel="stylesheet" href="./CSS/fl_css.css">
+    
 <title>Insert title here</title>
-
-
 </head>
 <body>
-<div id="writing"></div>
+<!-- Header --> 
+<%@ include file="header.jsp" %>
+
+<div class="left-image-decor" ></div>
+<div class="right-image-decor" ></div>
+ <div class="board_wrap">
+        <div class="board_title">
+            <strong>자유게시판</strong>
+            <p>자유롭게 의견을 나눠주세요!</p>
+        </div>
+        <div class="board_list_wrap">
+            <div class="board_list">
+                <div class="top">
+                    <div class="num">작성시간</div>
+                    <div class="title">제목</div>
+                    <div class="writer">글쓴이</div>
+                </div>
+            </div>
+            <div class="board_page">
+                <a href="#" class="bt first"><<</a>
+                <a href="#" class="bt prev"><</a>
+                <a href="#" class="num on">1</a>
+                <a href="#" class="num">2</a>
+                <a href="#" class="num">3</a>
+                <a href="#" class="num">4</a>
+                <a href="#" class="num">5</a>
+                <a href="#" class="bt next">></a>
+                <a href="#" class="bt last">>></a>
+            </div>
+        </div>
+    </div>
+        <div class="bt_wrap" >
+            <a href="CreateWriting.jsp?type=${requestScope.type}&type_nbr=${requestScope.type_nbr}" class="on">등록</a>
+        </div>
 
 
-
-<!-- 게시판 타입(type/ request에서 얻어옴),
-게시판 타입별 세부 번호(type_nbr/ request에서 얻어옴),
-아래 주소 쿼리 스트링으로 들어가야 합니다 -->
-<a href="CreateWriting.jsp?type=${requestScope.type}&type_nbr=${requestScope.type_nbr}">글 작성하기</a>
-<!-- to Front : 로그인하지 않았으면 글 작성 페이지로 못 감 -->
+<!-- Bootstrap -->
+<!-- <script src="./assets/js/fb_popper.js"></script> -->
+<!-- <script src="./assets/js/fb_bootstrap.min.js"></script> -->
+<!-- Plugins -->
+<script src="./assets/js/fb_owl-carousel.js"></script>
+<script src="./assets/js/fb_scrollreveal.min.js"></script>
+<script src="./assets/js/fb_waypoints.min.js"></script>
+<script src="./assets/js/fb_jquery.counterup.min.js"></script>
+<script src="./assets/js/fb_imgfix.min.js"></script>
+<!-- Global Init -->
+<script src="./assets/js/fb_custom.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
 <script type="text/javascript">
-
 <%
 List<WRT> writings = (List) request.getAttribute("Writing");
 for(WRT wrt : writings){ %>
@@ -32,20 +78,25 @@ for(WRT wrt : writings){ %>
 	var wrt_ttl = "<%= wrt.getWrt_ttl()%>";
 	var wrt_time = "<%=wrt.getWrt_time()%>";
 	var text = "";
-	text += id;
-	text += "글 제목 : <a href='ShowWritingContent?&type=";
-	text += '${requestScope.type}';
-	text += "&type_nbr=";
-	text += '${requestScope.type_nbr}';
-	text += "&wrt_nbr=";
-	text += wrt_nbr+"'>"+wrt_ttl+"</a>"
-	text += "작성 시간"+wrt_time+"<br>"
-	$("#writing").append(text);
+	
+	wrt_time = wrt_time.substr(2,8);
+	
+	var link = "";
+	link += "ShowWritingContent?&type=";
+	link += '${requestScope.type}';
+	link += "&type_nbr=";
+	link += '${requestScope.type_nbr}';
+	link += "&wrt_nbr=";
+	link += wrt_nbr
+	text += "<div>"
+	text += "<div class='num'>"+wrt_time+"</div>";
+	text += "<div class='title'><a href='"+link+"'>"+wrt_ttl+"</a></div>";
+	text += "<div class='writer'>"+id+"</div>"
+	text += "</div>"
+	$(".top").after(text);
 <%
 }
 %>
-
-
 function GetId(mbr_nbr) {
 	var mbr_id;
 	$.ajax({
