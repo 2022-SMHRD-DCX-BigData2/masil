@@ -16,7 +16,7 @@ String favList = loginedMBR.getFav_list();
 %>
 
 
-<%@ include file="header.jsp" %>
+
 	<body class="is-preload">
 	<div id="wrapper">
 				<!-- Main -->

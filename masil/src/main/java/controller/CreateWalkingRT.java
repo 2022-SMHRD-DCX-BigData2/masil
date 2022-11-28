@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 
@@ -51,6 +52,9 @@ public class CreateWalkingRT extends HttpServlet {
 		//WLK_RT에 WLK_RT_NBR과 그 순서 위도, 경도를 집어넣음
 		WLK_RT_DAO wlkRtDao = new WLK_RT_DAO();
 		int result2= wlkRtDao.insertWlk_rt(wlk_rt_nbr, Lats_string, Lons_string);
+		PrintWriter out = response.getWriter();
+		out.print(wlk_rt_nbr);
+		
 		if(result2>0) {
 			//경로 리스트로 이동
 		}

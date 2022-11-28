@@ -21,7 +21,6 @@
 </head>
 <body>
 <!-- Header --> 
-<%@ include file="header.jsp" %>
 
 <div class="left-image-decor" ></div>
 <div class="right-image-decor" ></div>

@@ -14,9 +14,6 @@
  <!-- Wrapper -->
     <div id="wrapper">
 
-        <!-- Header --> 
-        <%@ include file="header.jsp" %>
-
 
 
             <div id="board-search" style="margin-top: 110px;">

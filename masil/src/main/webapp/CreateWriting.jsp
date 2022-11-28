@@ -20,9 +20,6 @@
 <%
 MBR loginedMBR = (MBR) session.getAttribute("loginedMBR");
 %>
-<!-- Header --> 
-<%@ include file="header.jsp" %>
-
 
 <form action="CreateWriting" method="post">
 <input type="hidden" name="type" value="${param.type}">

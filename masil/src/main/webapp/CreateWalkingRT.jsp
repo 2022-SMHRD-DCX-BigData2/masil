@@ -350,9 +350,13 @@ function checkPath(){
 			"Lat":Lat,
 			"Lon":Lon		
 		},
+		dataType:'text',
 		async : false,
 		success : function(res){
 			alert("CreateWalkingRT Ajax 통신 성공!!");
+			var next = "ShowWalkingRt.jsp?wlk_rt_nbr="
+			location.href = next+res;
+			
 		},
 		error : function(){
 			alert("CreateWalkingRT Ajax 통신 실패!!");	

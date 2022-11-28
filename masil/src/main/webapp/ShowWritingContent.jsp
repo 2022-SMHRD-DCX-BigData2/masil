@@ -19,7 +19,6 @@
 </head>
 <body>
 <!-- Header --> 
-<%@ include file="header.jsp" %>
 
 
 <%
