@@ -44,8 +44,8 @@
             </div>
             
             <div class="bt_wrap">
-                <a href="#" class="on" onclick="checkPath()">등록</a>
-                <a href="#">취소</a>
+                <button class="on" onclick="checkPath()">등록</button>
+                <button type="reset">취소</button>
             </div>
         </div>
     </div>
