@@ -26,7 +26,9 @@ public class CreateWalkingRT extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 	
 		String wlk_rt_name = request.getParameter("wlk_rt_name");
+		System.out.println(wlk_rt_name);
 		String wlk_nbr_string = request.getParameter("wlk_nbr");
+		System.out.println(wlk_nbr_string);
 		String Lat = request.getParameter("Lat");
 		String Lon = request.getParameter("Lon");
 		

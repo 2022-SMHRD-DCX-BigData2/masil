@@ -4,6 +4,13 @@
 <html>
 <head>
 <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://kit.fontawesome.com/a81368914c.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Cutive+Mono&family=Poppins:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="screen" href="./CSS/path_list_write.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <title>Insert title here</title>
 <style>
 .dot {overflow:hidden;float:left;width:12px;height:12px;background: url('https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/mini_circle.png');}    
@@ -19,15 +26,30 @@
 <body>
 
 
-${param.wlk_nbr}
+<div class="board_wrap">
+        <div class="board_title">
+            <strong>산책로 등록</strong>
+        </div>
+        <div class="board_write_wrap">
+            <div class="board_write">
+                <div class="title">
+                    <dl>
+                        <dt>경로 이름</dt>
+                        <dd><input type="text" id="wlk_rt_name" placeholder="이름입력"></dd>
+                    </dl>
+                </div>
+                <div class="cont">
+                    <div id="map" style="width:100%;height:350px;"></div>  
+                </div>
+            </div>
+            
+            <div class="bt_wrap">
+                <a href="#" class="on" onclick="checkPath()">등록</a>
+                <a href="#">취소</a>
+            </div>
+        </div>
+    </div>
 
-
-<div id="map" style="width:100%;height:350px;"></div>  
-<p>
-    <em>지도를 마우스로 클릭하면 선 그리기가 시작되고<br>오른쪽 마우스를 클릭하면 선 그리기가 종료됩니다</em>
-</p>
-<button id="path" onclick="checkPath()">좌표 확인하기</button>
-<div id="showPath"></div>
 
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=e94a31acf891a4c020db55b18fc70c54"></script>
 <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
@@ -310,28 +332,39 @@ function getTimeHTML(distance) {
 
 function checkPath(){
 	var path = clickLine.getPath();
+	var wlk_rt_name = $("#wlk_rt_name").val();
+	var wlk_nbr = ${param.wlk_nbr};
+	var Lat ="";
 	for(var i = 0; i<path.length;i++){
-		$("#showPath").append(path[i]["Ma"]+"<br>");
-		$("#showPath").append(path[i]["La"]+"<br>");
+		Lat += path[i]["Ma"]+"|";
 	}
-	var text= "<form action='CreateWalkingRT' method='post'> <input type='hidden' name='wlk_nbr' value = \'"+${param.wlk_nbr}+"\'> <input type='hidden' name = 'Lat' value = \'";
-	for(i = 0; i<path.length;i++){
-		text += path[i]["Ma"]+"|";
+	var Lon="";
+	for(var i = 0; i<path.length;i++){
+		Lon += path[i]["La"]+"|";
 	}
-	text += "\'>";
-	text += "<input type='hidden' name = 'Lon' value = \'";
-	for(i = 0; i<path.length;i++){
-		text += path[i]["La"]+"|";
-	}
-	text += "\'>";
-	text += "경로 이름<input type='text' name='wlk_rt_name'>";
-	text += "<input type='submit' value='경로 생성하기'></form>";
+	$.ajax({
+		url : "CreateWalkingRT",
+		type : "post",
+		data : {"wlk_rt_name" :wlk_rt_name,
+			"wlk_nbr":wlk_nbr,
+			"Lat":Lat,
+			"Lon":Lon		
+		},
+		async : false,
+		success : function(res){
+			alert("CreateWalkingRT Ajax 통신 성공!!");
+		},
+		error : function(){
+			alert("CreateWalkingRT Ajax 통신 실패!!");	
+		}
+	});
 	
-	$("#showPath").append(text);
-	console.log(path);
+	
+	
+	
+	
+	
 }
-
-
 
     
 </script>
