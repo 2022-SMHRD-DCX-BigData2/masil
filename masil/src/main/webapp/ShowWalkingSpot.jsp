@@ -1,3 +1,4 @@
+<%@page import="domain.MBR"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" isELIgnored="false"%>  
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix= "c"  %>
 <!DOCTYPE html>
@@ -9,6 +10,12 @@
 <link rel="stylesheet" href="./CSS/path_list.css" />
 </head>
 <body>
+<%
+MBR loginedMBR = (MBR) session.getAttribute("loginedMBR");
+String favList = loginedMBR.getFav_list();
+%>
+
+
 <%@ include file="header.jsp" %>
 	<body class="is-preload">
 	<div id="wrapper">
@@ -96,12 +103,17 @@ $(document).ready(function(){
 		data : {"wlk_nbr" :${param.wlk_nbr}},
 		dataType : "json",
 		success : function(res){
-			console.log(res);
 			$("#WlkRtList").html("");
+			var favList="<%=favList%>";
 			for(var i=0 ; i<res.length ; i++){
 				var text = "<tr>";
 				text += "<td id='mark'>";
-				text += "<button class='btn-like'>⭐</button>";
+				var rt_nbr = res[i].wlk_rt_nbr;
+				if(favList.indexOf(rt_nbr)==-1){
+					text += "<button class='btn-like notdone' id='"+rt_nbr+"'>⭐</button>";
+				}else{
+					text += "<button class='btn-like done' id='"+rt_nbr+"'>⭐</button>";
+				}
 				text += "</td>";
 				text += "<td>";
 				text += "<a href=\'ShowWalkingRt.jsp?wlk_rt_nbr="+res[i].wlk_rt_nbr+"\'>"+res[i].wlk_rt_name+"</a>";
@@ -115,10 +127,54 @@ $(document).ready(function(){
 	});
 });
 
-$(document).on("click",".btn-like",function() {
-	    $(this).toggleClass("done");
-	});
 
+$(document).ready(function () {
+	$(document).on("click",".notdone",function() {
+		var wrt_nbr = $(this).attr("id");
+	    $.ajax({
+			url: "PlusFavList",
+			data: {
+				"mbr_nbr":${sessionScope.loginedMBR.mbr_nbr},
+				"wlk_rt_nbr":wrt_nbr
+			},
+			type: "POST",
+			async: false,
+			success: function(response) {
+				console.log("ajax 즐겨찾기 추가 성공");
+				window.location.reload();
+				$(this).removeClass("notdone");
+				$(this).addClass("done");
+			},
+			error: function(xhr) {
+				console.log("ajax 즐겨찾기 추가 실패");
+			}
+		});	
+	});
+});
+
+$(document).ready(function () {
+	$(document).on("click",".done",function() {
+		var wrt_nbr = $(this).attr("id");
+	    $.ajax({
+			url: "MinusFavList",
+			data: {
+				"mbr_nbr":${sessionScope.loginedMBR.mbr_nbr},
+				"wlk_rt_nbr":wrt_nbr
+			},
+			type: "POST",
+			async: false,
+			success: function(response) {
+				console.log("ajax 즐겨찾기 삭제 성공");
+				$(this).removeClass("done");
+				$(this).addClass("notdone");
+				window.location.reload();
+			},
+			error: function(xhr) {
+				console.log("ajax 즐겨찾기 삭제 실패");
+			}
+		});	
+	});
+});
 
 </script>
 

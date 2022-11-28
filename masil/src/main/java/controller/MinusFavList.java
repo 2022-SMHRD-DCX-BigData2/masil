@@ -27,6 +27,9 @@ public class MinusFavList extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		int mbr_nbr = Integer.parseInt(request.getParameter("mbr_nbr"));
 		String str_wlk_rt_nbr = request.getParameter("wlk_rt_nbr");
+		System.out.println("테스트");
+		System.out.println(str_wlk_rt_nbr);
+		
 		MBR_DAO dao1 = new MBR_DAO();
 		String temp1 = dao1.getFavList(mbr_nbr);
 		String[] temp2 = temp1.split("\\|");
