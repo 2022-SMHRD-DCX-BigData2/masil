@@ -9,13 +9,13 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="https://kit.fontawesome.com/a81368914c.js"></script>
-<script src="Mypage.js"></script>
-<link rel="stylesheet" href="Mypage.css">
+<script src="PetReg.js"></script>
+<link rel="stylesheet" href="PetReg.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"/>
 <link href="https://fonts.googleapis.com/css2?family=Cutive+Mono&family=Poppins:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
 <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
-
 <script type="text/javascript">
+
 $(document).ready(function(){
 	$.ajax({
 		url : "SetDogList",
@@ -73,7 +73,6 @@ function noSpaceForm(obj){
 </script>
 </head>
 <body>
-<%@ include file="header.jsp" %>
     <div class="container">
         <div class="card">
             <div class="header">
@@ -97,8 +96,12 @@ function noSpaceForm(obj){
             <div class="content">
                 <div class="left">
              <div class="absolute-container">
-                        <h3 class="title">나의 강아지</h3>
+                        <h3 class="title">나의반려견</h3>
                         <p class="text" id="DogList"></p>
+                        
+                        
+                        
+                        
                     </div>
                 </div>
             </div>
