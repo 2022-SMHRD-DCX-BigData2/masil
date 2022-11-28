@@ -3,15 +3,54 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="utf-8">
 <title>Insert title here</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+<link rel="stylesheet" href="./CSS/path_list.css" />
 </head>
-
 <body>
+<%@ include file="header.jsp" %>
+	<body class="is-preload">
+	<div id="wrapper">
+				<!-- Main -->
+					<div id="main">
+						<!-- Post -->
+							<article class="post">
+								<header>
+									<div class="title">
+										<h2><a href="#">${param.wlk_name}</a></h2>
+										<p>즐거운 산책 되세요!</p>
+									</div>
+									<div class="meta">
+										<!--<time class="published" datetime="2015-11-01">November 1, 2015</time> -->
+										<a href="CreateWalkingRT.jsp?wlk_nbr=${param.wlk_nbr}&wlk_name=${param.wlk_name}&lat=${param.lat}&lon=${param.lon}" class="author"><span class="name">산책로 등록 하러가기</span><img src="images/avatar.jpg" alt="" /></a>
+									</div>
+								</header>
+                            <!-- 카카오API -->
+                                <div id="map" style="width:100%;height:350px;"></div>
+                                    <div class="container">
+                                        <table class="board-table">
+                                            <thead>
+                                            <tr>
+                                                <th name="즐겨찾기"></th>
+                                                <th>경로</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody id="WlkRtList">
+                                            </tbody>
+                                        </table>
+                                    </div>
+							</article>
+					</div>
+			</div>
 
-${param.wlk_nbr}<br>
-${param.wlk_name}<br>
 <div id="map" style="width:100%;height:350px;"></div>
+<script src="./js/jquery.min.js"></script>
+<script src="./js/mark.js"></script>
+<script src="./js/browser.min.js"></script>
+<script src="./js/breakpoints.min.js"></script>
+<script src="./js/util.js"></script>
+<script src="./js/main.js"></script>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=e94a31acf891a4c020db55b18fc70c54"></script>
 <script>
 var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
@@ -47,17 +86,9 @@ var infowindow = new kakao.maps.InfoWindow({
   
 // 마커 위에 인포윈도우를 표시합니다. 두번째 파라미터인 marker를 넣어주지 않으면 지도 위에 표시됩니다
 infowindow.open(map, marker); 
-</script>
-
-<!--목적지가 있는 상태에서 경로 입력하기 -->
-<a href="CreateWalkingRT.jsp?wlk_nbr=${param.wlk_nbr}&wlk_name=${param.wlk_name}&lat=${param.lat}&lon=${param.lon}">경로 입력하기</a>
 
 
 
-<div id="WlkRtList"></div>
-<!-- ${param.wlk_nbr}에 해당하는 경로 보여주기 -->
-<script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
-<script type="text/javascript">
 $(document).ready(function(){
 	$.ajax({
 		url : "SetWalkingRt",
@@ -68,7 +99,14 @@ $(document).ready(function(){
 			console.log(res);
 			$("#WlkRtList").html("");
 			for(var i=0 ; i<res.length ; i++){
-				$("#WlkRtList").append("<a href=\'ShowWalkingRt.jsp?wlk_rt_nbr="+res[i].wlk_rt_nbr+"\'>"+res[i].wlk_rt_name+"</a><br>");
+				var text = "<tr>";
+				text += "<td id='mark'>";
+				text += "<button class='btn-like'>⭐</button>";
+				text += "</td>";
+				text += "<td>";
+				text += "<a href=\'ShowWalkingRt.jsp?wlk_rt_nbr="+res[i].wlk_rt_nbr+"\'>"+res[i].wlk_rt_name+"</a>";
+				text += "</td></tr>";
+				$("#WlkRtList").append(text);
 			}			
 		},
 		error : function(){
@@ -77,13 +115,9 @@ $(document).ready(function(){
 	});
 });
 
-
-
-
-
-
-
-
+$(document).on("click",".btn-like",function() {
+	    $(this).toggleClass("done");
+	});
 
 
 </script>
