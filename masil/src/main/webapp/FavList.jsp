@@ -6,12 +6,55 @@
 <html>
 <head>
 <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="Favorites.css">
 <title>Insert title here</title>
 </head>
+<%@ include file="header.jsp"%>
 <body>
-즐겨찾기 목록입니다
-<div id="favList"></div>
+    <div class="board_wrap">
+        <div class="board_title">
+            <strong>즐겨찾기</strong>
+            <p>즐겨찾기 목록을 확인하세요</p>
+        </div>
+        <div class="board_list_wrap">
+            <div class="board_list" id="favList">
+                <div class="top">
+                    <div class="btn">표시</div>
+                    <!--  <div class="title">목적지이름</div>-->
+                    <div class="title" >산책로이름</div>
+                </div>
+                <!--
+                <div>
+                    <input type="button" class="btn" value="⭐">
+                    <div class="title"><a href="view.html">산책목적로1</a></div>
+                    <div class="writer">경로1</div>
+                </div>
+               	-->
+            </div>
+            <!-- <div class="board_page">
+                <a href="#" class="bt first"><<</a>
+                <a href="#" class="bt prev"><</a>
+                <a href="#" class="num on">1</a>
+                <a href="#" class="num">2</a>
+                <a href="#" class="num">3</a>
+                <a href="#" class="num">4</a>
+                <a href="#" class="num">5</a>
+                <a href="#" class="bt next">></a>
+                <a href="#" class="bt last">>></a>
+            </div> -->
+            <!--  
+            <div class="bt_wrap">
+                <a href="write.html" class="on">등록</a>
+                <a href="write.html" class="on">취소</a>
+                -->
+                <!--<a href="#">수정</a>-->
+            </div>
 
+        </div>
+    </div>
+
+ <script src="1.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
 <script type="text/javascript">
 
@@ -24,11 +67,12 @@ if(strFavList!=null){
 		%>
 		var temp = GetWlkRTName(<%=string%>)
 		var text = "";
-		text += "<a href=\'ShowWalkingRt.jsp?wlk_rt_nbr=";
+		text +="<div><input type='button' class='btn' value='⭐'>";
+		//text +="<div class='title'></div>";
+		text += "<div class='title'><a href=\'ShowWalkingRt.jsp?wlk_rt_nbr=";
 		text += "<%=string%>\'>";
 		text += temp;
-		text += "</a><br>"
-		console.log(text)
+		text += "</a></div>";
 		$("#favList").append(text);
 		<%
 	}
