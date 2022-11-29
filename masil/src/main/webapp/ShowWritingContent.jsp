@@ -19,7 +19,7 @@
 </head>
 <body>
 <!-- Header --> 
-
+<%@ include file="header.jsp" %>
 
 <%
 MBR loginedMBR = (MBR) session.getAttribute("loginedMBR");

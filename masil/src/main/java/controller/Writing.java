@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import domain.AREA;
 import domain.AREA_DAO;
 import domain.MBR;
 import domain.WRT;
@@ -41,6 +42,7 @@ public class Writing extends HttpServlet {
 		String b_cls = null;
 		int b_cls_nbr;
 		int area_nbr = 0;
+		AREA area = null;
 		int wrt_type = Integer.parseInt(request.getParameter("wrt_type"));
 		switch(wrt_type) {
 		case 1://1이 자유게시판
@@ -62,10 +64,13 @@ public class Writing extends HttpServlet {
 		case 3://3이 모임게시판
 			break;
 		case 4://동네 산책로
-			int area_nbr4 = Integer.parseInt(request.getParameter("area_nbr"));
+			int area_nbr4 = Integer.parseInt(request.getParameter("area_nbr"));		
+			area = areaDao.matchAreaName(area_nbr4);
+			String b_temp = area.getB_cls();
+			String s_temp = area.getS_cls();
 			request.setAttribute("type", 2);
 			request.setAttribute("type_nbr", area_nbr4);
-			RequestDispatcher rd4 = request.getRequestDispatcher("ShowWalking.jsp");
+			RequestDispatcher rd4 = request.getRequestDispatcher("ShowWalking.jsp?b_cls="+b_temp+"&s_cls="+s_temp);
 			rd4.forward(request, response);
 			break;
 		case 5://5가 길 별 산책로 목록
@@ -73,7 +78,7 @@ public class Writing extends HttpServlet {
 			String s_cls = request.getParameter("s_cls");
 			area_nbr = areaDao.matchAreaNbr(b_cls, s_cls).intValue();
 			text =  wrtDao.selectWRT(2, area_nbr);
-			//request.setAttribute("type", 2);
+			request.setAttribute("type", 2);
 			request.setAttribute("type_nbr", area_nbr);
 			RequestDispatcher rd2 = request.getRequestDispatcher("ShowWalking.jsp");
 			rd2.forward(request, response);

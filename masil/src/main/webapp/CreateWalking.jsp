@@ -15,7 +15,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+<%@ include file="header.jsp" %>
 <!-- 목적지 이름이 중복되는가 확인해야 함 중복이 안 되면
 request.setAttribute에 area_name,area_nbr,isChecked 가지고 다시 옴-->
 

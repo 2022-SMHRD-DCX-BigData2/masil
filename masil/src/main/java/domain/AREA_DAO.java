@@ -149,7 +149,7 @@ public class AREA_DAO {
 		return result;
 	}
 	
-	
+	// 큰 분류 지역 이름으로 큰 분류 지역 번호
 	public BigDecimal matchBcls_nbr_fromSB(String area) {
 		
 		BigDecimal result = null;
@@ -175,6 +175,34 @@ public class AREA_DAO {
 	  }
 		return result;
 	}
+	
+	
+	
+	public AREA matchAreaName(int area_nbr) {
+	
+			 AREA result = null;
+			
+			try {
+			     //               mapper.xml의 id값
+		     result = sqlSession.selectOne("matchAreaName",area_nbr);
+		   //모가문제야 왜 값이 안나와 ㅠ.ㅠ
+		     // 만약에 내가 원하는 일을 했으면 DB에 반영
+		     if(result!=null) {
+		        System.out.println("DAO메소드에선 값을 잘 가져옴");
+		        sqlSession.commit();
+		     }else {
+		        // 만약에 원하는 일을 못하면 다시 원래대로 돌려주기
+		        sqlSession.rollback();
+		     }
+		  } catch (Exception e) {
+		     // TODO: handle exception
+		     e.printStackTrace();
+		  } finally {
+		     // 빌렸던 Connection 객체를 반납
+		     sqlSession.close();
+		  }
+			return result;
+		}
 	
 }
 

@@ -210,5 +210,16 @@
 </update>
 
 
+<select id="matchAreaName" parameterType="int" resultType="domain.AREA">
+      SELECT B.B_CLS, A.S_CLS FROM AREA A JOIN B_CLS_AREA B ON B.B_CLS_NBR=A.B_CLS_NBR WHERE AREA_NBR=#{area_nbr}
+</select>
+
+
+
+
+
+
+
+
 
 </mapper>

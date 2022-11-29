@@ -24,7 +24,7 @@
 </style>
 </head>
 <body>
-
+<%@ include file="header.jsp" %>
 
 <div class="board_wrap">
         <div class="board_title">
@@ -45,7 +45,7 @@
             
             <div class="bt_wrap">
                 <button class="on" onclick="checkPath()">등록</button>
-                <button type="reset">취소</button>
+                <!-- <button type="reset">취소</button> -->
             </div>
         </div>
     </div>

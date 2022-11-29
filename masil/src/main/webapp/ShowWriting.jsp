@@ -21,7 +21,7 @@
 </head>
 <body>
 <!-- Header --> 
-
+<%@ include file="header.jsp" %>
 <div class="left-image-decor" ></div>
 <div class="right-image-decor" ></div>
  <div class="board_wrap">
@@ -37,6 +37,7 @@
                     <div class="writer">글쓴이</div>
                 </div>
             </div>
+            <!-- 
             <div class="board_page">
                 <a href="#" class="bt first"><<</a>
                 <a href="#" class="bt prev"><</a>
@@ -48,6 +49,7 @@
                 <a href="#" class="bt next">></a>
                 <a href="#" class="bt last">>></a>
             </div>
+             -->
         </div>
     </div>
         <div class="bt_wrap" >

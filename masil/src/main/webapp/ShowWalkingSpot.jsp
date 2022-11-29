@@ -14,7 +14,7 @@
 MBR loginedMBR = (MBR) session.getAttribute("loginedMBR");
 String favList = loginedMBR.getFav_list();
 %>
-
+<%@ include file="header.jsp" %>
 
 
 	<body class="is-preload">
