@@ -5,8 +5,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="utf-8">
 <title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script src="https://netdna.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="./pd_css/path_detail.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 <style>
 .dot {overflow:hidden;float:left;width:12px;height:12px;background: url('https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/mini_circle.png');}    
 .dotOverlay {position:relative;bottom:10px;border-radius:6px;border: 1px solid #ccc;border-bottom:2px solid #ddd;float:left;font-size:12px;padding:5px;background:#fff;}
@@ -19,19 +23,20 @@
 </style>
 </head>
 
-<body>
+<body style="background-color: #f4f4f4; ">
 
-<!-- 경로 보여주기 찍은 점마다 거리 보여주는 것도 추가하기-->
-<div id="map" style="width:100%;height:350px;"></div>  
 
-<button name="nowLoc">현재 위치 확인하기</button>
 
-<div id="record">
-<button name="startRecord">인증시작</button><br>
-</div>
-<!-- 댕댕이 목록(체크박스) 비동기 통신으로 보여주기 -->
-<div id="dogCheckbox"></div>
 
+
+
+
+	<!-- 상단메뉴 -->
+
+    <div class="container confirm" style="margin-top: 48px;">
+		<div class="card" style="width: 69.3rem;">
+			<div class="card-body text-center">
+				<div id="mark">			
 <!-- 즐겨찾기 -->
 <%
 int wlk_rt_nbr = Integer.parseInt(request.getParameter("wlk_rt_nbr"));
@@ -39,25 +44,103 @@ String str_wlk_rt_nbr = Integer.toString(wlk_rt_nbr);
 MBR loginedMBR = (MBR) session.getAttribute("loginedMBR");
 String favList = loginedMBR.getFav_list();
 if(favList==null){
-	out.print("<button name='PlusFavList'>즐겨찾기에 추가하기</button>");
+	out.print("<button class='btn-like notdone' id='"+str_wlk_rt_nbr+"'>⭐</button>");
 }else{
 	if(favList.contains(str_wlk_rt_nbr)){
-		out.print("<button name='MinusFavList'>즐겨찾기에서 삭제하기</button>");
+		out.print("<button class='btn-like done' id='"+str_wlk_rt_nbr+"'>⭐</button>");
 	}else{
-		out.print("<button name='PlusFavList'>즐겨찾기에 추가하기</button>");
+		out.print("<button class='btn-like notdone' id='"+str_wlk_rt_nbr+"'>⭐</button>");
 	}
 }
 %>
+				</div>
+				
+				<div id="map" style="width:100%;height:350px;"></div>
+
+				<br>
+				<div>
+					<!-- 강아지, 인증버튼 -->
+					<button name="nowLoc">현재 위치 확인하기</button>
+					<br><br>
+					<div id="record">
+					<button name="startRecord">인증시작</button><br>
+					</div>
+					<br>
+					<!-- 댕댕이 목록(체크박스) 비동기 통신으로 보여주기 -->
+					<div id="dogCheckbox"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	
+	<div class="container board">
+		<div class="job-box">
+			<div class="job-box-filter">
+				<button id="show" onclick="location.href='CreateWriting.jsp?type=2&type_nbr=${param.wlk_rt_nbr}'">리뷰등록</button>
+				<!--  
+				<div class="background">
+					<div class="window">
+						<div class="popup">
+							<h1 class="rating_heading">산책로를 평가해 주세요!</h1>
+							<div class="star_rating ">
+											<p>산책로는 어떠셨나요?</p>
+											<button class="star">&#9734;</button>
+											<button class="star">&#9734;</button>
+											<button class="star">&#9734;</button>
+											<button class="star">&#9734;</button>
+											<button class="star">&#9734;</button>
+											<p class="current_rating">0 of 5</p>
+											<input id="comment-input" type="text" placeholder="간단한 후기 부탁드립니다!">
+							</div>
+			
+							<button id="close" onclick="clearInput()"><a href="#" style="color:white;">등록</a></button>
+						</div>
+				-->
+					</div>
+				</div>
+				
+			</div>
+			<section class="notice">
+         
+        <!-- board list area -->
+          <div id="board-list">
+              <div class="container">
+                  <table class="board-table">
+                      <thead>
+                      <tr>
+                          <th scope="col" class="th-num">작성자</th>
+                          <th scope="col" class="th-title">리뷰이름</th>
+                          <th scope="col" class="th-date">등록일</th>
+                      </tr>
+                      </thead>
+                      <tbody class="tb" id="RVList">
+                      </tbody>
+                  </table>
+              </div>
+          </div>
+		</section>
 
 
 
-<!-- wlk_rt_nbr에 해당하는 경로 리뷰 보여주기 & 경로 리뷰 쓰기 -->
-<!-- 경로 리뷰 보여주기는 비동기로 만들어보기! -->
-<div id="RVList"></div>
-<a href="CreateWriting.jsp?type=2&type_nbr=${param.wlk_rt_nbr}">리뷰 작성하기</a>
+
+
+
+
+
+
+
+
+
+
 
 
 <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
+<script src="./pd_js/path_detail.js"></script>
+<script src="//code.jquery.com/jquery.min.js"></script>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=e94a31acf891a4c020db55b18fc70c54"></script>
 <script type="text/javascript">
 	
@@ -165,10 +248,9 @@ if(favList==null){
 				    return content;
 				}
 
-
+				//리뷰 리스트
 				$(document).ready(function(){
 					$.ajax({
-						//이름도 받아야 함. 어떻게?
 						url : "SetWalkingRTRVList",
 						type : "get",
 						data : {"wlk_rt_nbr" : ${param.wlk_rt_nbr}},
@@ -177,7 +259,23 @@ if(favList==null){
 							console.log(res);
 							$("#RVList").html("");
 							for(var i=0 ; i<res.length ; i++){
-								$("#RVList").append(res[i].wrt_ath+"<a href=\'ShowWritingContent?type=2&wrt_nbr="+res[i].wrt_nbr+"'>"+res[i].wrt_ttl+"</a>"+res[i].wrt_time+"<br>");
+								var text = "";
+								text += "<tr>";
+								text += "<td>";
+								text += GetId(res[i].wrt_ath);
+								text += "</td>"
+								text += "<th>";
+								text += "<a href=\'ShowWritingContent?type=2&wrt_nbr=";
+								text += res[i].wrt_nbr;
+								text += "'>";
+								text += res[i].wrt_ttl;
+								text += "</a>";
+								text += "</th>";
+								text += "<td>";
+								text += res[i].wrt_time;
+								text += "</td>"
+								text += "</tr>";
+								$("#RVList").append(text);
 							}			
 						},
 						error : function(){
@@ -185,6 +283,27 @@ if(favList==null){
 						}
 					});
 				});
+				
+				
+				
+				function GetId(mbr_nbr) {
+					var mbr_id;
+					$.ajax({
+						url: "GetId",
+						data: {"mbr_nbr":mbr_nbr},
+						async : false,
+						dataType : "text",
+						type: "POST",
+						success: function(res) {
+								mbr_id=res;
+						},
+						error: function(xhr) {
+						}
+					});
+					return mbr_id;
+				}	
+				
+				
 				
 				
 				$(document).ready(function () {
@@ -413,50 +532,64 @@ if(favList==null){
 
 	
 	
-	//즐겨찾기 추가 버튼
-	$(document).ready(function () {
-		  $(document).on("click", "button[name='PlusFavList']", function () {
-			// HTML5의 geolocation으로 사용할 수 있는지 확인합니다 
-				$.ajax({
-	    			url: "PlusFavList",
-	    			data: {
-	    				"mbr_nbr":${sessionScope.loginedMBR.mbr_nbr},
-	    				"wlk_rt_nbr":${param.wlk_rt_nbr}
-	    			},
-	    			type: "POST",
-	    			success: function(response) {
-	    				console.log("ajax 즐겨찾기 추가 성공");
-	    				window.location.reload();
-	    			},
-	    			error: function(xhr) {
-	    				console.log("ajax 즐겨찾기 추가 실패");
-	    			}
-	    		});	
-		  });
-		});
-	
-	//즐겨찾기 삭제 버튼
-	$(document).ready(function () {
-		  $(document).on("click", "button[name='MinusFavList']", function () {
-			// HTML5의 geolocation으로 사용할 수 있는지 확인합니다 
-				$.ajax({
-	    			url: "MinusFavList",
-	    			data: {
-	    				"mbr_nbr":${sessionScope.loginedMBR.mbr_nbr},
-	    				"wlk_rt_nbr":${param.wlk_rt_nbr}
-	    			},
-	    			type: "POST",
-	    			success: function(response) {
-	    				console.log("ajax 즐겨찾기 삭제 성공");
-	    				window.location.reload();
-	    			},
-	    			error: function(xhr) {
-	    				console.log("ajax 즐겨찾기 삭제 실패");
-	    			}
-	    		});	
-		  });
-		});
 
+
+	$(document).ready(function () {
+		$(document).on("click",".notdone",function() {
+			var wrt_nbr = $(this).attr("id");
+		    $.ajax({
+				url: "PlusFavList",
+				data: {
+					"mbr_nbr":${sessionScope.loginedMBR.mbr_nbr},
+					"wlk_rt_nbr":wrt_nbr
+				},
+				type: "POST",
+				async: false,
+				success: function(response) {
+					console.log("ajax 즐겨찾기 추가 성공");
+					window.location.reload();
+					$(this).removeClass("notdone");
+					$(this).addClass("done");
+				},
+				error: function(xhr) {
+					console.log("ajax 즐겨찾기 추가 실패");
+				}
+			});	
+		});
+	});
+
+	$(document).ready(function () {
+		$(document).on("click",".done",function() {
+			var wrt_nbr = $(this).attr("id");
+		    $.ajax({
+				url: "MinusFavList",
+				data: {
+					"mbr_nbr":${sessionScope.loginedMBR.mbr_nbr},
+					"wlk_rt_nbr":wrt_nbr
+				},
+				type: "POST",
+				async: false,
+				success: function(response) {
+					console.log("ajax 즐겨찾기 삭제 성공");
+					$(this).removeClass("done");
+					$(this).addClass("notdone");
+					window.location.reload();
+				},
+				error: function(xhr) {
+					console.log("ajax 즐겨찾기 삭제 실패");
+				}
+			});	
+		});
+	});
+
+	
+	
+	
+	
+	
+	
+	
+	
 </script>
 </body>
 </html>
