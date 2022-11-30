@@ -10,8 +10,9 @@
 <link rel="stylesheet" href="Favorites.css">
 <title>Insert title here</title>
 </head>
-<%@ include file="header.jsp"%>
+
 <body>
+<%@ include file="header.jsp"%>
     <div class="board_wrap">
         <div class="board_title">
             <strong>즐겨찾기</strong>
@@ -67,7 +68,7 @@ if(strFavList!=null){
 		%>
 		var temp = GetWlkRTName(<%=string%>)
 		var text = "";
-		text +="<div><button class='btn-like done' id='"+<%=string%>+"'>⭐</button>";
+		text +="<div><button class='btn-like done' id='"+<%=string%>+"' style='background: white; border: 0;'>⭐</button>";
 		//text +="<div class='title'></div>";
 		text += "<div class='title'><a href=\'ShowWalkingRt.jsp?wlk_rt_nbr=";
 		text += "<%=string%>\'>";

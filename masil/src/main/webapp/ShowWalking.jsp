@@ -109,10 +109,10 @@ $(document).ready(function(){
 });
 </script>
 </head>
-<%@ include file="header.jsp" %>
 
 
 <body class="is-preload">
+<%@ include file="header.jsp" %>
 
 		<!-- Wrapper -->
 			<div id="wrapper">
@@ -150,7 +150,6 @@ $(document).ready(function(){
 								<!-- 지역별 산책로 경로 보여주기 -->
 								<div id="walkingRtList"></div>
 							</div>
-							<img src="./dstn_img/Passing by-rafiki.png" class="img">
 						</article>
 					</div>
 

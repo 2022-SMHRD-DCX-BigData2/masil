@@ -15,18 +15,17 @@
  <div class="header_wrap">
         <nav class="navbar2">
             <div class="navbar_logo">
-                <a href="#">PATH WAY</a>
+                <a href="Main.jsp">PATH WAY</a>
             </div>
         </nav>
 
         <nav class="navbar">
 
             <ul class="navbar_menu">
-                <li><a href="" class="cm">Home</a></li>
-                <li><a href="" class="cm">Gallery</a></li>
-                <li><a href="" class="cm">Wedding</a></li>
-                <li><a href="" class="cm">FAQ</a></li>
-                <li><a href="" class="cm">Bookings</a></li>
+                <li><a href="" class="cm">PATH</a></li>
+                <li><a href="" class="cm">FREE_BOARD</a></li>
+                <li><a href="" class="cm">MYPAGE</a></li>
+
             </ul>
         </nav>
     </div>
