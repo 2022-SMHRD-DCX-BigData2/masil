@@ -34,12 +34,12 @@ a {
 }
 
 .board_title strong {
-    font-size: 1.6rem;
+    font-size: 2rem;
 }
 
 .board_title p {
-    margin-top: 5px;
-    font-size: 17px;
+    margin-top: 12px;
+    font-size: 20px;
 }
 
 .bt_wrap {
@@ -74,19 +74,18 @@ a {
 
 .board_list > div {
     border-bottom: 1px solid #ddd;
-    font-size: 0;
+    padding: 1rem;
+    text-align: center;
 }
 
 .board_list > div.top {
     border-bottom: 1px solid #999;
+    text-align: center;
+    padding: 0.8rem;
 }
 
 .board_list > div:last-child {
     border-bottom: 1px solid #000;
-    font-size: 16px;
-    display: flex;
-    justify-content: center;
-    padding-bottom: 5px;
 }
 
 .board_list > div > div {

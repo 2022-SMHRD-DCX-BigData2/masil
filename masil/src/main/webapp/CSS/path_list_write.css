@@ -1,4 +1,8 @@
 /* 댓글기능 CSS 시작 */
+body{
+    margin-top: 8px;
+    padding-top: 30px;
+}
 
 .reply_wrap{
     margin: 0;
@@ -88,9 +92,6 @@
 
 /* 글쓰기 페이지 CSS */
 
-html{
-    font-size: 10px;
-}
 
 a{
     text-decoration: none;
@@ -98,14 +99,19 @@ a{
 }
 
 .board_wrap{
-    margin: 0;
-    padding: 0;
-    width: 1000px;
+	padding: 0;
+    width: 65rem;
     margin: 100px auto;
+    padding-right: 5px;
+    padding-left: 5px;
+    margin-left: 237px;
+    margin-right: 210px;
+    margin-bottom: 10px;
+    margin-top: 75px;
 }
 
 .board_title{
-    margin-bottom: 30px;
+    margin-bottom: 16px;
     font-size: 10px;
 }
 
@@ -114,8 +120,8 @@ a{
 }
 
 .board_title p{
-    margin-top: 5px;
-    font-size: 1.4rem;
+    font-size: 1rem;
+    margin: 5px 0px;
 }
 
 .bt_wrap{
@@ -126,12 +132,18 @@ a{
 
 .bt_wrap button{
     display: inline-block;
-    min-width: 80px;
+    min-width: 70px;
     margin-left: 10px;
     padding: 10px;
-    border: 1px solid #000;
+    border: 1px solid #2FD599;
     border-radius: 2px;
-    font-size: 1.4rem;
+    font-size: 1.2rem;
+    height: 2.6rem;
+}
+
+.on{
+    background-color: #2FD599;
+    color: white;
 }
 
 .br_wrap a:first-child{
@@ -154,6 +166,9 @@ a{
 .board_write .title,
 .board_write .info{
     padding: 15px;
+    display: inline-block;
+    padding-bottom: 10px;
+    padding-top: 10px;
 }
 
 .board_write .info{
@@ -178,12 +193,12 @@ a{
 .board_write .info dd{
     display: inline-block;
     vertical-align: middle;
-    font-size: 1.4rem;
+    font-size: 1.3rem;
 }
 
 .board_write .title dt,
 .board_write .info dt{
-    width: 100px;
+    width: 8rem;
 }
 
 .board_write .title dd{
@@ -215,4 +230,15 @@ a{
     box-sizing: border-box;
     border: 0;
     resize: vertical;
+}
+
+.ok{
+	 position: relative;
+    /* right: -1200%; */
+    background-color: black;
+    color: white;
+    height: 2.5rem;
+    width: 4rem;
+    right: -27rem;
+
 }
