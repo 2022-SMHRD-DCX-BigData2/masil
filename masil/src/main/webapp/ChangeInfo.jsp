@@ -18,14 +18,13 @@
         <div class="textForm">
         <input name="loginPw" type="password" class="pw" placeholder="비밀번호 변경">
         </div>
-
-        <input type="submit" class="btn" value="정보수정"/>
-     </form>
-     <form action="ExitMBR" method="POST" class="joinForm" onsubmit="DoJoinForm__submit(this);">
+      
+        <input type="submit" class="btn" value="정보수정"/></form>
+        
+        <form action="Exit">
         <input type="submit" class="btn" value="회원탈퇴"/>
-     </form>
 
-    
+    	</form>
 
 
 
