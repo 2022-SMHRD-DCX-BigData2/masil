@@ -19,12 +19,13 @@
         <input name="loginPw" type="password" class="pw" placeholder="비밀번호 변경">
         </div>
       
-        <input type="submit" class="btn" value="정보수정"/></form>
+        <input type="submit" class="btn" value="정보수정"/>
         
         <form action="Exit">
         <input type="submit" class="btn" value="회원탈퇴"/>
 
     	</form>
+    </form>
 
 
 
