@@ -88,12 +88,13 @@ a {
     font-weight: 600;
 }
 
-.board_list .btn {
+/*
+.board_list .btn-like {
     width: 30%;
     background-color: unset;
     border: none;
 }
-
+*/
 .board_list .title {
     width: 70%;
     text-align: center;
@@ -285,10 +286,12 @@ a {
     resize: vertical;
 }
 
-/*버튼 눌리는 효과*/
-.btn:active {
+
+/*버튼 눌리는 효과
+.btn-like:active {
 
     box-shadow: inset -.3rem -.1rem 1.4rem  #FBFBFB, inset .3rem .4rem .8rem #BEC5D0; 
     cursor: pointer;
 
 }
+*/

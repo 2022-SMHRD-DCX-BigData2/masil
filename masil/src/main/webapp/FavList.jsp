@@ -19,10 +19,10 @@
         </div>
         <div class="board_list_wrap">
             <div class="board_list" id="favList">
-                <div class="top">
-                    <div class="btn">표시</div>
+                <div class="top">            
+                    <div class="btn" style="text-align:center ">표시</div>
                     <!--  <div class="title">목적지이름</div>-->
-                    <div class="title" >산책로이름</div>
+                    <div class="title" style="text-align:center">산책로이름</div>         
                 </div>
                 <!--
                 <div>
@@ -67,7 +67,7 @@ if(strFavList!=null){
 		%>
 		var temp = GetWlkRTName(<%=string%>)
 		var text = "";
-		text +="<div><input type='button' class='btn' value='⭐'>";
+		text +="<div><button class='btn-like done' id='"+<%=string%>+"'>⭐</button>";
 		//text +="<div class='title'></div>";
 		text += "<div class='title'><a href=\'ShowWalkingRt.jsp?wlk_rt_nbr=";
 		text += "<%=string%>\'>";
@@ -98,6 +98,33 @@ function GetWlkRTName (wlk_rt_nbr){
 	});
 	return wlk_rt_name;
 }
+
+
+
+$(document).ready(function () {
+	$(document).on("click",".done",function() {
+		var wrt_nbr = $(this).attr("id");
+	    $.ajax({
+			url: "MinusFavList",
+			data: {
+				"mbr_nbr":${sessionScope.loginedMBR.mbr_nbr},
+				"wlk_rt_nbr":wrt_nbr
+			},
+			type: "POST",
+			async: false,
+			success: function(response) {
+				console.log("ajax 즐겨찾기 삭제 성공");
+				$(this).removeClass("done");
+				$(this).addClass("notdone");
+				window.location.reload();
+			},
+			error: function(xhr) {
+				console.log("ajax 즐겨찾기 삭제 실패");
+			}
+		});	
+	});
+});
+
 
 </script>
 

@@ -95,7 +95,7 @@ $(document).ready(function(){
 		dataType : "json",
 		success : function(res){
 			$("#walkingRtList").html("");
-			var text = "<table class='member'><tr><th>경로</th></tr>";
+			var text = "<table class='member'><tr><th>목적지</th></tr>";
 			for(var i=0 ; i<res.length ; i++){
 				text += "<tr><td><a href=\'ShowWalkingSpot.jsp?wlk_nbr="+res[i].wlk_nbr+"&lat="+res[i].lat_for_wlk+"&lon="+res[i].lon_for_wlk+"&wlk_name="+res[i].wlk_name+"'>"+res[i].wlk_name+"</a></td></tr>";
 			}
@@ -124,7 +124,7 @@ $(document).ready(function(){
 							<article class="post">
 								<header>
 									<div class="title">
-										<h2>산 책 경 로</h2>
+										<h2>산 책 목 적 지</h2>
 										<div class="btn">
 											<button type="submit" class="btn-dark" id="addWalkingSpot">
 												<a href="CreateWalking.jsp?area_nbr=${requestScope.type_nbr}">등록</a></button>

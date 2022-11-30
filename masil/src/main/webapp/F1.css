@@ -5,7 +5,46 @@
         padding: 0 30px;
         box-sizing: border-box;
     }
+	
+	
+ .btn-like {
+    width: 30%;
+    background-color: unset;
+    border: 0;
+	color: transparent;
+	
+	text-shadow: 0 0 2px rgba(255,255,255), 0 0 0 #000;
+	/*
+	background-color: #F8F8F8;
+	*/
+	font-size: 20px;
+	
+	margin: 0;
+	padding: 0;
+	/*
+	font-size: 100%;
+	*/
+	font: inherit;
+	vertical-align: baseline;
 
+  }
+  .btn-like:hover {
+	text-shadow: 0 0 0 #ea0;
+  }
+  .btn-like.done {
+	color: inherit;
+	/*
+	text-shadow: 0;
+	*/
+  }
+  
+  .btn-like.done:hover {
+	color: transparent;
+	text-shadow: 0 0 0 rgb(255, 255, 255);
+  }
+	
+	
+	
     .board_list .btn,
     .board_list .writer,
     .board_list .count {
