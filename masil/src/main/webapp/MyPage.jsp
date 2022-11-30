@@ -69,7 +69,8 @@
                 </div>
                 </div>
             <div class="delete">
-                  <a href="#" class="delete-user">회원탈퇴</a>
+            	  <br><br>
+                  <a href="Exit" class="delete-user">회원탈퇴</a>
              </div>
 
 
