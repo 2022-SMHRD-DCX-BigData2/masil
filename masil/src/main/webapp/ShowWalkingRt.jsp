@@ -6,12 +6,14 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Insert title here</title>
+<!--  This file has been downloaded from bootdey.com @bootdey on twitter -->
+<!--  All snippets are MIT license http://bootdey.com/license -->
+<title>path_detail</title>
+<!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
 <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
 <script src="https://netdna.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="./pd_css/path_detail.css">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-
 </head>
 
 <body style="background-color: #f4f4f4; ">
@@ -68,26 +70,32 @@ if(favList==null){
 	<div class="container board">
 		<div class="job-box">
 			<div class="job-box-filter">
-				<button id="show" onclick="location.href='CreateWriting.jsp?type=2&type_nbr=${param.wlk_rt_nbr}'">리뷰등록</button>
-				<!--  
+			<!--  
+				<button id="show" onclick="location.href='CreateWriting.jsp?type=2&type_nbr=${param.wlk_rt_nbr}'">리뷰등록</button>--> 
+				<button id="show">리뷰등록</button>
 				<div class="background">
 					<div class="window">
 						<div class="popup">
 							<h1 class="rating_heading">산책로를 평가해 주세요!</h1>
 							<div class="star_rating ">
-											<p>산책로는 어떠셨나요?</p>
-											<button class="star">&#9734;</button>
-											<button class="star">&#9734;</button>
-											<button class="star">&#9734;</button>
-											<button class="star">&#9734;</button>
-											<button class="star">&#9734;</button>
-											<p class="current_rating">0 of 5</p>
-											<input id="comment-input" type="text" placeholder="간단한 후기 부탁드립니다!">
+									<p>산책로는 어떠셨나요?</p>
+									<button class="star">&#9734;</button>
+									<button class="star">&#9734;</button>
+									<button class="star">&#9734;</button>
+									<button class="star">&#9734;</button>
+									<button class="star">&#9734;</button>
+									<p class="current_rating">0 of 5</p>
+									<input id="type" type="hidden" value="">
+									<input id="type_nbr" type="hidden" value="">
+									<input id="mbr_nbr" type="hidden" value="">
+									<input id="comment-input1" type="text" placeholder="제목">
+									<input id="comment-input2" type="text" placeholder="간단한 후기 부탁드립니다!">
+
 							</div>
 			
-							<button id="close" onclick="clearInput()"><a href="#" style="color:white;">등록</a></button>
+							<button id="close" onclick="clearInput()" ><a href="path_detail.html" style="color: white;">등록</a></button>
 						</div>
-				-->
+						
 					</div>
 				</div>
 				
@@ -113,20 +121,9 @@ if(favList==null){
 		</section>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-<script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+<!-- script -->
+<script type="text/javascript"></script>
+<script src="./pd_js/review.js"></script>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
