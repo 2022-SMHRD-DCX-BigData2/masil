@@ -32,7 +32,7 @@ $(document).on("click","#close",function() {
 	var text = "";
 	text += "★".repeat(starNum);
 	text += "☆".repeat(5-starNum);
-	text += "\n";
+	text += "<br><br>";
 	text += $("#comment-input2").val();
 	console.log(text)
 	
