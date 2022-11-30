@@ -29,21 +29,29 @@ allStars.forEach( (star, i) => {
 })
 
 $(document).on("click","#close",function() {
+	var text = "";
+	text += "★"*starNum;
+	text += "☆"*(5-starNum);
+	text += "\n\n";
+	text += $("#comment-input2").val();
+	
     $.ajax({
-		url: "",
+		url: "CreateWriting",
 		data: {
-			"type":$("type").val(),
-			"type_nbr":$("type_nbr").val(),
-			"wrt_ttl":$("comment-input1").val(),
-			"wrt_cnt":"★"*starNum+"☆"*(5-starNum)+"\n\n"+$("comment-input2").val(),
+			"type":$("#type").val(),
+			"type_nbr":$("#type_nbr").val(),
+			"title":$("#comment-input1").val(),
+			"mbr_nbr":$("#mbr_nbr").val(),
+			"content":text,
 		},
 		type: "POST",
 		//async: false,
-		success: function(response) {
-
+		success: function(res) {
+			console.log("리뷰 등록 성공");
+			location.reload();
 		},
 		error: function(xhr) {
-
+			alert("리뷰 등록 오류!");
 		}
 	});	
 });
@@ -51,17 +59,9 @@ $(document).on("click","#close",function() {
 
 
 function clearInput(){
-
-
-
     /* 텍스트박스 지우는 부분 */
-    
-    
-    
     var el = document.getElementsByClassName('input-text');
-    
-    
-    
+
     for(var i=0; i<el.length; i++){
     
         el[i].value = '';

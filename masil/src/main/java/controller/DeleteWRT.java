@@ -23,8 +23,7 @@ public class DeleteWRT extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		int wrt_nbr = Integer.parseInt(request.getParameter("wrt_nbr"));
 		System.out.println(wrt_nbr);
-		int type = Integer.parseInt(request.getParameter("type"));
-		int type_nbr = Integer.parseInt(request.getParameter("type_nbr"));
+		//int type = Integer.parseInt(request.getParameter("type"));
 		WRT_DAO dao = new WRT_DAO();
 		int result = dao.DeleteWRT(wrt_nbr);
 		

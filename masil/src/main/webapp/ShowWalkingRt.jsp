@@ -85,9 +85,9 @@ if(favList==null){
 									<button class="star">&#9734;</button>
 									<button class="star">&#9734;</button>
 									<p class="current_rating">0 of 5</p>
-									<input id="type" type="hidden" value="">
-									<input id="type_nbr" type="hidden" value="">
-									<input id="mbr_nbr" type="hidden" value="">
+									<input id="type" type="hidden" value="2">
+									<input id="type_nbr" type="hidden" value="${param.wlk_rt_nbr}">
+									<input id="mbr_nbr" type="hidden" value="${loginedMBR.mbr_nbr}">
 									<input id="comment-input1" type="text" placeholder="제목">
 									<input id="comment-input2" type="text" placeholder="간단한 후기 부탁드립니다!">
 
@@ -255,6 +255,8 @@ if(favList==null){
 								text += "<th>";
 								text += "<a href=\'ShowWritingContent?type=2&wrt_nbr=";
 								text += res[i].wrt_nbr;
+								text += "&type_nbr=";//wlk_rt_nbr을 쓰고 싶은데 el이 아무것도 없으면 js오류 나서 이렇게 함
+								text += ${param.wlk_rt_nbr};
 								text += "'>";
 								text += res[i].wrt_ttl;
 								text += "</a>";

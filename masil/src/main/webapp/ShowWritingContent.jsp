@@ -69,7 +69,8 @@ WRT writing = (WRT) request.getAttribute("writing");
 	                	<input type="hidden" name="wrt_ttl" value="<%=writing.getWrt_ttl()%>">
 	                	<input type="hidden" name="wrt_cnt" value="<%=writing.getWrt_cnt()%>">
 	                	<input type="hidden" name="type" value="${param.type}">
-	                	<input type="hidden" name="type_nbr" value="${param.type_nbr}">
+	                	<!-- 
+	                	<input type="hidden" name="type_nbr" value="${param.type_nbr}"> -->
 	                	<input type="hidden" name="wrt_nbr" value="${param.wrt_nbr}">
 		                <button class="on" id="updateWRT">수정</button>
 	                </div>	       
@@ -85,7 +86,8 @@ WRT writing = (WRT) request.getAttribute("writing");
         <div id="comment-count">댓글 <span id="count"></span></div>
         <input id="wrt_nbr" name="wrt_nbr" type="hidden" value="<%=writing.getWrt_nbr() %>">
         <input id="cmt_ath" name="cmt_ath" type="hidden" value="${sessionScope.loginedMBR.mbr_nbr}">
-        <input type="hidden" name="type_nbr" value="${param.type_nbr}">
+        <!-- 
+        <input type="hidden" name="type_nbr" value="${param.type_nbr}"> -->
         <input type="hidden" name="wrt_type" value="${param.type}">
         <input id="comment-input" name="cmt_cnt" type="text" placeholder="댓글을 입력해 주세요.">
         <button name="inputCMT" id="submit">등록</button>
@@ -178,7 +180,8 @@ $(document).ready(function () {
 			url : "DeleteCMT",
 			type : "post",
 			data : {
-				wrt_type : ${param.type},
+				//wrt_type : ${param.type_nbr},
+				type:${param.type},
 				wrt_nbr : ${param.wrt_nbr},
 				cmt_id : $(this).attr( 'id' )
 				
@@ -205,17 +208,23 @@ $(document).ready(function () {
 			url : "DeleteWRT",
 			type : "post",
 			data : {
-				type : ${param.type},
-				type_nbr : ${param.type_nbr},
-				wrt_nbr : ${param.wrt_nbr}	
+				//type:${param.type},
+				wrt_nbr :${param.wrt_nbr}	
 			},
 			success : function(res){
 				console.log("DeleteWRT Ajax 통신 성공!!");
-				var beforePage = "Writing?wrt_type=";
-				beforePage += ${param.type};
-				beforePage += "&type_nbr="
-				beforePage += ${param.type_nbr};
-				location.href=beforePage;				
+				if(${param.type}!=2){
+					var beforePage = "Writing?wrt_type=";
+					beforePage += ${param.type};
+					beforePage += "&type_nbr=";
+					beforePage += ${param.type_nbr};
+					location.href=beforePage;	
+				}else{
+					var beforePage = "ShowWalkingRt.jsp?wlk_rt_nbr=";
+					beforePage += ${param.type_nbr};
+					location.href=beforePage;	
+				}
+			
 			},
 			error:function(){
 				console.log("DeleteWRT Ajax 통신 실패!!");
@@ -231,11 +240,5 @@ $(document).ready(function () {
 
 </body>
 </html>
-
-
-
-
-
-
 
 

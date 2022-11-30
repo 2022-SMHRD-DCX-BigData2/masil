@@ -23,12 +23,13 @@ public class DeleteCMT extends HttpServlet {
 		// TODO Auto-generated method stub
 		request.setCharacterEncoding("UTF-8");
 		int cmt_id = Integer.parseInt(request.getParameter("cmt_id"));
-		String wrt_type = request.getParameter("wrt_type");
+		String type = request.getParameter("type");
 		String wrt_nbr = request.getParameter("wrt_nbr");
 		CMT_DAO dao = new CMT_DAO();
 		int result = dao.DeleteCMT(cmt_id);
 		if(result>0) {
-			response.sendRedirect("ShowWritingContent?type="+wrt_type+"&wrt_nbr="+wrt_nbr);
+			//response.sendRedirect("ShowWritingContent?type="+wrt_type+"&wrt_nbr="+wrt_nbr);
+			response.sendRedirect("ShowWritingContent?type="+type+"&wrt_nbr="+wrt_nbr);
 		}
 		
 	}
