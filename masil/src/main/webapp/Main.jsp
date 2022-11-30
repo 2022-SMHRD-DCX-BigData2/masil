@@ -40,13 +40,6 @@
 MBR loginedMBR = (MBR) session.getAttribute("loginedMBR");
 %>
 
-<!--  
-<c:if test="${loginedMBR.mbr_type eq 'ADMIN'}">
-	<c:import url="Admin.jsp"/>
-</c:if>
--->
-
-
 <body data-spy="scroll" data-target=".fixed-top">
     
     <!-- Preloader -->

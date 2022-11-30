@@ -240,9 +240,12 @@
 
 <!-- 로그인 -->
 <select id="AllCMBR" resultType="domain.MBR">
-      SELECT mbr_nbr,mbr_type,mbr_id, mbr_pw, area_nbr_for_mbr, fav_list, dog_list  FROM MBR WHERE mbr_type = 'c'
+      SELECT mbr_nbr,mbr_type,mbr_id, mbr_pw, area_nbr_for_mbr, fav_list, dog_list  FROM MBR WHERE mbr_type = 'C'
 </select>
 
-
+<!--회원 삭제 -->
+<delete id="DeleteMBR" parameterType="int">
+	DELETE FROM MBR WHERE MBR_NBR = #{mbr_nbr}
+</delete>
 
 </mapper>

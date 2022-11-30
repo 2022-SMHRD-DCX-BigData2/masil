@@ -28,7 +28,7 @@
             <c:if test="${loginedMBR.mbr_type eq 'ADMIN'}">
 				<li><a href="Admin" class="cm">ADMIN</a></li>
 			</c:if>
-
+                
             </ul>
         </nav>
     </div>
