@@ -216,6 +216,18 @@
   	<description></description>
   	<servlet-class>controller.DeleteMBR</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>ChangePW</servlet-name>
+  	<display-name>ChangePW</display-name>
+  	<description></description>
+  	<servlet-class>controller.ChangePW</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>Exit</servlet-name>
+  	<display-name>Exit</display-name>
+  	<description></description>
+  	<servlet-class>controller.Exit</servlet-class>
+  </servlet>
 
 
  
@@ -360,6 +372,14 @@
   <servlet-mapping>
   	<servlet-name>DeleteMBR</servlet-name>
   	<url-pattern>/DeleteMBR</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ChangePW</servlet-name>
+  	<url-pattern>/ChangePW</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>Exit</servlet-name>
+  	<url-pattern>/Exit</url-pattern>
   </servlet-mapping>
 
 

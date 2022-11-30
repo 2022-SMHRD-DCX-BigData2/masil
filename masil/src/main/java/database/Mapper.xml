@@ -248,4 +248,10 @@
 	DELETE FROM MBR WHERE MBR_NBR = #{mbr_nbr}
 </delete>
 
+<!--글 번호로 글 내용 고치기-->
+<update id="ChangePW" parameterType="hashmap">
+	UPDATE MBR SET MBR_PW=#{mbr_pw} WHERE mbr_nbr=#{mbr_nbr}
+</update>
+
+
 </mapper>

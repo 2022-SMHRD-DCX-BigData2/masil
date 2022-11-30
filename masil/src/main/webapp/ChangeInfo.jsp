@@ -1,3 +1,4 @@
+<%@page import="domain.MBR"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" isELIgnored="false"%>  
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix= "c"  %>
 <!DOCTYPE html>
@@ -10,22 +11,22 @@
     <title>Document</title>
 </head>
 <body>
+<%
+MBR loginedMBR = (MBR) session.getAttribute("loginedMBR");
+%>
 <%@ include file="header.jsp" %>
     <form action="ChangePW" method="POST" class="joinForm" onsubmit="DoJoinForm__submit(this);">
                                                                                                 
         <h2>회원정보수정</h2>
 
         <div class="textForm">
-        <input name="loginPw" type="password" class="pw" placeholder="비밀번호 변경">
+        <input type="hidden" name="mbr_nbr" value="${loginedMBR.mbr_nbr}">
+        <input type="password"  name="PW" class="pw" placeholder="비밀번호 변경">
         </div>
       
         <input type="submit" class="btn" value="정보수정"/>
         
-        <form action="Exit">
-        <input type="submit" class="btn" value="회원탈퇴"/>
-
-    	</form>
-    </form>
+        </form>
 
 
 

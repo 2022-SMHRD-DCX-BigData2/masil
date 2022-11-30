@@ -89,7 +89,7 @@ request.setAttribute에 area_name,area_nbr,isChecked 가지고 다시 옴-->
 <script>
 	var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 	    mapOption = { 
-	        center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
+	        center: new kakao.maps.LatLng(34.96479451435151, 127.55329298926941), // 지도의 중심좌표
 	        
 	        //area_nbr에 해당하는 중심 좌표가 찍히게 설정하기
 	        

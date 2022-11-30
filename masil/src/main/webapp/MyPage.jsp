@@ -67,22 +67,11 @@
                         </div>
                     </div>
                 </div>
-
-                <div class="right">
-                    <div>
-                        <h3 class="number">91</h3>
-                        <h5 class="number-title">posts</h5>
-                    </div>
-                    <div>
-                        <h3 class="number">2.4k</h3>
-                        <h5 class="number-title">following</h5>
-                    </div>
-                    <div>
-                        <h3 class="number">4.7k</h3>
-                        <h5 class="number-title">followers</h5>
-                    </div>
                 </div>
-            </div>
+            <div class="delete">
+            	  <br><br>
+                  <a href="Exit" class="delete-user">회원탈퇴</a>
+             </div>
 
 
         </div>
