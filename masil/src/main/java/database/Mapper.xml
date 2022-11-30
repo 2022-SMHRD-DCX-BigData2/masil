@@ -223,12 +223,19 @@
   <result property="WRT_TIME" column="WRT_TIME"/>
 </resultMap>
 
+<!-- 제목으로 글 찾기 -->
 <select id="searchWRTbyTTL" parameterType="hashmap" resultType="domain.WRT">
- SELECT WRT_NBR,WRT_TTL,WRT_ATH,WRT_TIME FROM WRT WHERE WRT_TYPE = #{wrt_type} AND COALESCE(B_CLS_NBR_FOR_WRT,WLK_RT_NBR_FOR_WRT,GRP_NBR_FOR_WRT)=#{nbr_for_wrt_type} AND WRT_TTL LIKE '%#{wrt_ttl}%'
+ SELECT WRT_NBR,WRT_TTL,WRT_ATH,WRT_TIME FROM WRT WHERE WRT_TYPE = #{wrt_type} AND COALESCE(B_CLS_NBR_FOR_WRT,WLK_RT_NBR_FOR_WRT,GRP_NBR_FOR_WRT)=#{nbr_for_wrt_type} AND WRT_TTL LIKE '%'||#{wrt_ttl}||'%'
 </select>
 
+<!-- 작성자 이름으로 글 찾기 -->
+<select id="searchWRTbyATH" parameterType="hashmap" resultType="domain.WRT">
+ SELECT WRT_NBR,WRT_TTL,WRT_ATH,WRT_TIME FROM WRT WHERE WRT_TYPE = #{wrt_type} AND COALESCE(B_CLS_NBR_FOR_WRT,WLK_RT_NBR_FOR_WRT,GRP_NBR_FOR_WRT)=#{nbr_for_wrt_type} AND WRT_ATH = #{wrt_ath}
+</select>
 
-
-
+<!--이름으로 회원 번호 가져오기-->
+<select id="getNbr" parameterType="string" resultType="bigdecimal">
+      SELECT MBR_NBR FROM MBR WHERE MBR_ID=#{mbr_id}
+</select>
 
 </mapper>

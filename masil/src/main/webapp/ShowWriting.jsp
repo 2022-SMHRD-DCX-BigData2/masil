@@ -55,7 +55,7 @@
         <div class="bt_wrap" >
             <div class="search" style="position:relative;left:370px;top:-17px">
             <form action="SearchWRT" method="post">
-	            <select name="search" style="height:30px;width:60px">
+	            <select name="ttl_or_cnt" style="height:30px;width:60px">
 	            <option value="ttl">글제목</option>
 	            <option value="ath">글쓴이</option>
 	            </select>
