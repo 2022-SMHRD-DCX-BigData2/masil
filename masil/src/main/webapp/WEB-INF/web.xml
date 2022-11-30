@@ -198,6 +198,12 @@
   	<description></description>
   	<servlet-class>controller.UpdateWRT</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>SearchWRT</servlet-name>
+  	<display-name>SearchWRT</display-name>
+  	<description></description>
+  	<servlet-class>controller.SearchWRT</servlet-class>
+  </servlet>
 
 
  
@@ -330,6 +336,10 @@
   <servlet-mapping>
   	<servlet-name>UpdateWRT</servlet-name>
   	<url-pattern>/UpdateWRT</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>SearchWRT</servlet-name>
+  	<url-pattern>/SearchWRT</url-pattern>
   </servlet-mapping>
 
 

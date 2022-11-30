@@ -53,8 +53,22 @@
         </div>
     </div>
         <div class="bt_wrap" >
-            <a href="CreateWriting.jsp?type=${requestScope.type}&type_nbr=${requestScope.type_nbr}" class="on">등록</a>
+            <div class="search" style="position:relative;left:370px;top:-17px">
+            <form action="SearchWRT">
+	            <select name="search" style="height:30px;width:60px">
+	            <option value="ttl">글제목</option>
+	            <option value="ath">글쓴이</option>
+	            </select>
+			     <input type="text" placeholder="검색어를 입력해주세요." style="height:30px">
+			     <button style="height:30px;width:40px">검색</button>
+		     </form>
+			</div>
+            <a href="CreateWriting.jsp?type=${requestScope.type}&type_nbr=${requestScope.type_nbr}" class="on" style="position:relative;top:-35px">등록</a>
         </div>
+        <br>
+        <br>
+        <br>
+        <br>
 
 
 <!-- Bootstrap -->

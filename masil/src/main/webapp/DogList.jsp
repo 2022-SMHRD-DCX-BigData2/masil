@@ -32,7 +32,7 @@ $(document).ready(function(){
 					text +=  res[i];
 					text += "<input type='hidden' name='mbr_nbr' value=\'"+${sessionScope.loginedMBR.mbr_nbr}+"\'>"
 					text += "<input type='hidden' name='dogNmae' vlaue=\'"+res[i]+"\' >";
-					text += "<input type='submit' value='x'></form>"
+					text += "<input type='submit' value='x'></form><br>"
 					$("#DogList").append(text);
 				}
 			}else{
@@ -50,11 +50,11 @@ $(document).ready(function(){
 $(document).ready(function () {
 	$(document).on("click","#plusDog",function(){
 		//PlusDog에서는 다시 마이페이지로 리다리엑트하기
-		$("PlusDogList").html("");
-		text = "<br><br><form action='PlusDog' method='post'>";
+		$("#PlusDogList").empty();
+		text = "<form action='PlusDog' method='post'>";
 		text += "<input type='hidden' name='mbr_nbr' value=\'"+${sessionScope.loginedMBR.mbr_nbr}+"\'>";
 		text += "댕댕이 이름 <input type='text' name='DogName' onchange='noSpaceForm(this)' >";
-		text += "<input type='submit'></form>";
+		text += "<input type='submit' value='추가'></form><br>";
 		//공백 입력 못하게 막기
 		$("#PlusDogList").append(text);	
 	});
@@ -100,7 +100,8 @@ function noSpaceForm(obj){
                 <div class="left">
                     <div class="absolute-container">
                         <h3 class="title">나의반려견</h3>
-                        <p class="text" id="DogList"></p>
+                        <!--<p class="title" class="text"></p>  -->
+                        <div id="DogList"></div>
                     </div>
                     <div class="icons-container">
                         

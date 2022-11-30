@@ -13,7 +13,7 @@ body{
     padding: 20px;
     display: flex;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
     min-height: 100vh;
 }
 
@@ -235,7 +235,7 @@ body{
 }
 
 .icons-container{
-    padding: 1rem 0;
+    padding: 3rem 0;
 }
 
 .icon{
@@ -257,7 +257,6 @@ body{
 
 .follow-wrap, .share-wrap{
     flex: 4;
-    display: flex;
     justify-content: center;
     align-items: center;
     transition: .5s;
@@ -283,7 +282,7 @@ body{
 
 .share{
     padding: 7.6px 0;
-    width: 100%;
+    width: 320px;
     border: 2px solid #38d39f;
     color: #38d39f;
     text-decoration: none;
@@ -291,8 +290,8 @@ body{
     font-size: .7rem;
     letter-spacing: 1px;
     text-transform: uppercase;
-    margin-left: 3px;
     border-radius: 18.1px;
+    float:left
 }
 
 /* .modal{
@@ -358,7 +357,7 @@ body{
     transform: translate(-50%, -50%) rotate(135deg);
 } */
 
-@media (max-width: 410px){
+/* @media (max-width: 410px){
     .content{
         flex-direction: column;
     }
@@ -449,5 +448,5 @@ body{
         border-radius: 14.6px;
         font-size: .6rem;
     }
-}
+} */
 
