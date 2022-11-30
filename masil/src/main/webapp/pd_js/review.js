@@ -30,10 +30,11 @@ allStars.forEach( (star, i) => {
 
 $(document).on("click","#close",function() {
 	var text = "";
-	text += "★"*starNum;
-	text += "☆"*(5-starNum);
-	text += "\n\n";
+	text += "★".repeat(starNum);
+	text += "☆".repeat(5-starNum);
+	text += "\n";
 	text += $("#comment-input2").val();
+	console.log(text)
 	
     $.ajax({
 		url: "CreateWriting",
