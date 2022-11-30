@@ -1,6 +1,7 @@
 package domain;
 
 
+import java.math.BigDecimal;
 import java.util.HashMap;
 
 import org.apache.ibatis.session.SqlSession;
@@ -298,5 +299,35 @@ public class MBR_DAO {
 	      
    }
    
+   
+   public BigDecimal getNbr(String mbr_id) {
+	   BigDecimal getNbr = null;
+	   
+	   try {
+		     //               mapper.xml의 id값
+		   getNbr = sqlSession.selectOne("getNbr",mbr_id);
+	     
+	     // 만약에 내가 원하는 일을 했으면 DB에 반영
+	     if(getNbr!=null) {
+	        //System.out.println("getNbr DAO메소드에선 값을 잘 가져옴");
+	        sqlSession.commit();
+	     }else {
+	        // 만약에 원하는 일을 못하면 다시 원래대로 돌려주기
+	        sqlSession.rollback();
+	     }
+	     
+	     
+	  } catch (Exception e) {
+	     // TODO: handle exception
+	     e.printStackTrace();
+	  } finally {
+	     // 빌렸던 Connection 객체를 반납
+	     sqlSession.close();
+	  }
+	   
+	   
+	   return getNbr;
+	      
+   }
 
 }

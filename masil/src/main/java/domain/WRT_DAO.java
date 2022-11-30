@@ -179,8 +179,6 @@ public class WRT_DAO {
 	   
 	   
 	   //글 검색하기
-	   
-	 //게시판 타입별 게시판 타입별 번호를 매개변수로 게시판 정보를 받아옴
 		public List<WRT> searchWRTbyTTL(String wrt_ttl,int wrt_type,int nbr_for_wrt_type){
 			HashMap<String,Object>map = new HashMap<String,Object>();
 			map.put("wrt_ttl", wrt_ttl);
@@ -190,6 +188,37 @@ public class WRT_DAO {
 			  try {
 				     //               mapper.xml의 id값
 			     result = sqlSession.selectList("searchWRTbyTTL",map);
+			     
+			     // 만약에 내가 원하는 일을 했으면 DB에 반영
+			     if(result!=null) {
+			        System.out.println("selectWRT DAO메소드에선 값을 잘 가져옴");
+			        sqlSession.commit();
+			     }else {
+			        // 만약에 원하는 일을 못하면 다시 원래대로 돌려주기
+			        sqlSession.rollback();
+			     }
+			     
+			     
+			  } catch (Exception e) {
+			     // TODO: handle exception
+			     e.printStackTrace();
+			  } finally {
+			     // 빌렸던 Connection 객체를 반납
+			     sqlSession.close();
+			  }
+			return result;
+		}
+		
+		
+		public List<WRT> searchWRTbyATH(int wrt_ath,int wrt_type,int nbr_for_wrt_type){
+			HashMap<String,Object>map = new HashMap<String,Object>();
+			map.put("wrt_ath", wrt_ath);
+			map.put("wrt_type", wrt_type);
+			map.put("nbr_for_wrt_type", nbr_for_wrt_type);
+			List<WRT> result = null;
+			  try {
+				     //               mapper.xml의 id값
+			     result = sqlSession.selectList("searchWRTbyATH",map);
 			     
 			     // 만약에 내가 원하는 일을 했으면 DB에 반영
 			     if(result!=null) {
