@@ -44,14 +44,13 @@ public class MinusFavList extends HttpServlet {
 	
 			List<String> temp3 = new ArrayList<>(Arrays.asList(temp2));
 			int i=0;
-			int index = 0;
 			for (String string : temp3) {
 				if(string.equals(str_wlk_rt_nbr)) {
-					index=i++;
 					break;
 				}
+				i++;
 			}
-			temp3.remove(index);
+			temp3.remove(i);
 			String[] temp4 = temp3.toArray(new String[0]);
 			String FavList = String.join("|", temp4);
 			System.out.println(FavList);
