@@ -21,7 +21,7 @@
         <div class="board_list_wrap">
             <div class="board_list" id="favList">
                 <div class="top">            
-                    <div class="btn" style="text-align:center ">표시</div>
+                    <div class="btn " style="text-align:center ">표시</div>
                     <!--  <div class="title">목적지이름</div>-->
                     <div class="title" style="text-align:center">산책로이름</div>         
                 </div>
@@ -68,12 +68,12 @@ if(strFavList!=null){
 		%>
 		var temp = GetWlkRTName(<%=string%>)
 		var text = "";
-		text +="<div><button class='btn-like done' id='"+<%=string%>+"' style='background: white; border: 0;'>⭐</button>";
+		text +="<div><div class='btn-like done' id='"+<%=string%>+"' style='background: white; border: 0; align:center'>⭐</div>";
 		//text +="<div class='title'></div>";
-		text += "<div class='title'><a href=\'ShowWalkingRt.jsp?wlk_rt_nbr=";
+		text += "<div class='title' style='background: white; border: 0; align:center'><a href=\'ShowWalkingRt.jsp?wlk_rt_nbr=";
 		text += "<%=string%>\'>";
 		text += temp;
-		text += "</a></div>";
+		text += "</a></div></div>";
 		$("#favList").append(text);
 		<%
 	}

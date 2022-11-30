@@ -63,7 +63,7 @@ WRT writing = (WRT) request.getAttribute("writing");
                 <div class="cont" >
                     <div style="height:250px;"><%=writing.getWrt_cnt() %></div>
                 </div>
-                <c:if test="${sessionScope.loginedMBR.mbr_nbr eq requestScope.writing.wrt_ath}">
+                <c:if test="${sessionScope.loginedMBR.mbr_nbr eq requestScope.writing.wrt_ath||loginedMBR.mbr_type eq 'ADMIN'}">
 	                <div class="bt_wrap">
 		                <button class="on" type="button" id="deleteWRT">삭제</button>
 	                	<input type="hidden" name="wrt_ttl" value="<%=writing.getWrt_ttl()%>">
@@ -72,7 +72,7 @@ WRT writing = (WRT) request.getAttribute("writing");
 	                	<input type="hidden" name="type_nbr" value="${param.type_nbr}">
 	                	<input type="hidden" name="wrt_nbr" value="${param.wrt_nbr}">
 		                <button class="on" id="updateWRT">수정</button>
-	                </div>
+	                </div>	       
                 </c:if>
             </div>
         </div>
@@ -146,7 +146,8 @@ $(document).ready(function () {
 				    
 				    var delBtn = document.createElement('button');
 					//아이디가 동일한 경우에만 삭제 버튼 보이게 하기
-					if(res[i].cmt_ath==${sessionScope.loginedMBR.mbr_nbr}){
+					//ADMIN인 경우에도
+					if(res[i].cmt_ath==${sessionScope.loginedMBR.mbr_nbr}||${loginedMBR.mbr_type eq 'ADMIN'}==true){
 						delBtn.className ="deleteComment";
 						delBtn.id = res[i].cmt_nbr;
 						delBtn.innerHTML="삭제";
