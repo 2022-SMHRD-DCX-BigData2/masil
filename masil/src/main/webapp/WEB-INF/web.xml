@@ -204,6 +204,12 @@
   	<description></description>
   	<servlet-class>controller.SearchWRT</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>Admin</servlet-name>
+  	<display-name>Admin</display-name>
+  	<description></description>
+  	<servlet-class>controller.Admin</servlet-class>
+  </servlet>
 
 
  
@@ -340,6 +346,10 @@
   <servlet-mapping>
   	<servlet-name>SearchWRT</servlet-name>
   	<url-pattern>/SearchWRT</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>Admin</servlet-name>
+  	<url-pattern>/Admin</url-pattern>
   </servlet-mapping>
 
 

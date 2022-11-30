@@ -22,9 +22,12 @@
         <nav class="navbar">
 
             <ul class="navbar_menu">
-                <li><a href="" class="cm">PATH</a></li>
-                <li><a href="" class="cm">FREE_BOARD</a></li>
-                <li><a href="" class="cm">MYPAGE</a></li>
+                <li><a href="Writing?area_nbr=${loginedMBR.area_nbr_for_mbr}&wrt_type=4" class="cm">PATH</a></li>
+                <li><a href="Writing?wrt_type=1&type_nbr=0" class="cm">FREE_BOARD</a></li>
+                <li><a href="MyPage.jsp" class="cm">MYPAGE</a></li>
+            <c:if test="${loginedMBR.mbr_type eq 'ADMIN'}">
+				<li><a href="Admin" class="cm">ADMIN</a></li>
+			</c:if>
 
             </ul>
         </nav>
