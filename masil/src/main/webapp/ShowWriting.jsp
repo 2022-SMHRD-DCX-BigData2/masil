@@ -54,12 +54,14 @@
     </div>
         <div class="bt_wrap" >
             <div class="search" style="position:relative;left:370px;top:-17px">
-            <form action="SearchWRT">
+            <form action="SearchWRT" method="post">
 	            <select name="search" style="height:30px;width:60px">
 	            <option value="ttl">글제목</option>
 	            <option value="ath">글쓴이</option>
 	            </select>
-			     <input type="text" placeholder="검색어를 입력해주세요." style="height:30px">
+	            <input type="hidden" name="type" value="${requestScope.type}">
+	            <input type="hidden" name="type_nbr" value="${requestScope.type_nbr}">
+			     <input type="text" name="target" placeholder="검색어를 입력해주세요." style="height:30px">
 			     <button style="height:30px;width:40px">검색</button>
 		     </form>
 			</div>

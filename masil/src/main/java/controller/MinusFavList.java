@@ -32,6 +32,7 @@ public class MinusFavList extends HttpServlet {
 		
 		MBR_DAO dao1 = new MBR_DAO();
 		String temp1 = dao1.getFavList(mbr_nbr);
+		System.out.println(temp1);
 		String[] temp2 = temp1.split("\\|");
 		MBR_DAO dao2 = new MBR_DAO();
 		int result =0;
@@ -52,7 +53,7 @@ public class MinusFavList extends HttpServlet {
 			}
 			temp3.remove(index);
 			String[] temp4 = temp3.toArray(new String[0]);
-			String FavList = String.join("\\|", temp4);
+			String FavList = String.join("|", temp4);
 			System.out.println(FavList);
 			FavList += "|";
 			result = dao2.setFavList(FavList, mbr_nbr);
