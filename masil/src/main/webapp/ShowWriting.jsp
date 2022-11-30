@@ -24,11 +24,25 @@
 <%@ include file="header.jsp" %>
 <div class="left-image-decor" ></div>
 <div class="right-image-decor" ></div>
- <div class="board_wrap">
+<div class="board_wrap">
         <div class="board_title">
             <strong>자유게시판</strong>
             <p>자유롭게 의견을 나눠주세요!</p>
         </div>
+        
+	<div class="search" style="position:relative;">
+		<form action="SearchWRT" method="post">
+	 		<select name="ttl_or_cnt" style="height: 40px; width: 7rem;">
+				<option value="ttl">글제목</option>
+				<option value="ath">글쓴이</option>
+			</select>
+			<input type="hidden" name="type" value="${requestScope.type}">
+			<input type="hidden" name="type_nbr" value="${requestScope.type_nbr}">
+			<input type="text" name="target" placeholder="검색어를 입력해주세요." class="ipt">
+			<button class="gm">검색</button>
+		</form>
+	</div>
+	<br>
         <div class="board_list_wrap">
             <div class="board_list">
                 <div class="top">
@@ -53,24 +67,10 @@
         </div>
     </div>
         <div class="bt_wrap" >
-            <div class="search" style="position:relative;left:370px;top:-17px">
-            <form action="SearchWRT" method="post">
-	            <select name="ttl_or_cnt" style="height:30px;width:60px">
-	            <option value="ttl">글제목</option>
-	            <option value="ath">글쓴이</option>
-	            </select>
-	            <input type="hidden" name="type" value="${requestScope.type}">
-	            <input type="hidden" name="type_nbr" value="${requestScope.type_nbr}">
-			     <input type="text" name="target" placeholder="검색어를 입력해주세요." style="height:30px">
-			     <button style="height:30px;width:40px">검색</button>
-		     </form>
-			</div>
-            <a href="CreateWriting.jsp?type=${requestScope.type}&type_nbr=${requestScope.type_nbr}" class="on" style="position:relative;top:-35px">등록</a>
+
+            <a href="CreateWriting.jsp?type=${requestScope.type}&type_nbr=${requestScope.type_nbr}" class="on" style="position:relative;">등록</a>
         </div>
-        <br>
-        <br>
-        <br>
-        <br>
+
 
 
 <!-- Bootstrap -->
