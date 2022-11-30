@@ -1,18 +1,20 @@
+
+@font-face {
+    font-family: 'NanumSquareRound';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NanumSquareRound.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 *{
 	padding: 0;
 	margin: 0;
 	box-sizing: border-box;
+	font-family: 'NanumSquareRound';
 }
 
-@font-face {
-    font-family: 'Cafe24Ohsquare';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/Cafe24Ohsquare.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-  }
-
 body{
-    font-family:'Cafe24Ohsquare';
+    font-family: 'NanumSquareRound';
     overflow: hidden;
 }
 
@@ -154,7 +156,7 @@ form{
 	padding: 0.5rem 0.7rem;
 	font-size: 1.2rem;
 	color: #555;
-	font-family: 'poppins', sans-serif;
+	font-family: 'NanumSquareRound';
 }
 
 .input-div.pass{
@@ -185,7 +187,7 @@ a:hover{
 	background-size: 200%;
 	font-size: 1.2rem;
 	color: #fff;
-	font-family:'Cafe24Ohsquare';
+	font-family: 'NanumSquareRound';
 	text-transform: uppercase;
 	margin: 1rem 0;
 	cursor: pointer;

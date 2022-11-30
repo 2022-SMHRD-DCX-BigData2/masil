@@ -30,7 +30,9 @@ String favList = loginedMBR.getFav_list();
 									</div>
 									<div class="meta">
 										<!--<time class="published" datetime="2015-11-01">November 1, 2015</time> -->
-										<a href="CreateWalkingRT.jsp?wlk_nbr=${param.wlk_nbr}&wlk_name=${param.wlk_name}&lat=${param.lat}&lon=${param.lon}" class="author"><span class="name">산책로 등록 하러가기</span><img src="images/avatar.jpg" alt="" /></a>
+										<a href="CreateWalkingRT.jsp?wlk_nbr=${param.wlk_nbr}&wlk_name=${param.wlk_name}&lat=${param.lat}&lon=${param.lon}" class="author">
+										<span class="name">산책로 등록 하러가기💨</span>
+										</a>
 									</div>
 								</header>
                             <!-- 카카오API -->

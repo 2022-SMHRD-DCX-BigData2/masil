@@ -74,12 +74,9 @@ a {
 
 .board_list > div {
     border-bottom: 1px solid #ddd;
-<<<<<<< HEAD
     padding: 1rem;
     text-align: center;
-=======
     font-size: 10;
->>>>>>> branch 'master' of https://github.com/2022-SMHRD-DCX-BigData2/masil.git
 }
 
 .board_list > div.top {

@@ -1,20 +1,21 @@
+@font-face {
+    font-family: 'NanumSquareRound';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NanumSquareRound.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
 * {
     margin: 0px;
     padding: 0px;
     text-decoration: none;
+    font-family: 'NanumSquareRound';
   
   }
 
-  @font-face {
-    font-family: 'Cafe24Ohsquare';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/Cafe24Ohsquare.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-  }
-
-
   body {
-    font-family:'Cafe24Ohsquare';
+    font-family: 'NanumSquareRound';
     background-image:#34495e;
   }
   
@@ -29,6 +30,7 @@
     left:50%;
     transform: translate(-50%,-50%);
     border-radius: 15px;
+    /* padding-bottom: 58px; */
   }
   
   .joinForm h2 {
@@ -41,7 +43,8 @@
     margin: 15px;
     padding: 5px 5px;
     height:45px;
-    font-family:'Cafe24Ohsquare';
+    font-family: 'NanumSquareRound';
+    text-align: left;
   }
   
   
@@ -53,7 +56,7 @@
     font-size:16px;
     height:45px;
     background: none;
-    font-family:'Cafe24Ohsquare';
+    font-family: 'NanumSquareRound';
   }
   
   .pw {
@@ -64,75 +67,37 @@
     font-size:16px;
     height:45px;
     background: none;
-    font-family:'Cafe24Ohsquare';
+    font-family: 'NanumSquareRound';
   }
-  
-  /* .name {
-    width: 100%;
-    border:none;
-    outline:none;
-    color: #636e72;
-    font-size:16px;
-    height:25px;
-    background: none;
-    font-family:'Cafe24Ohsquare';
-  }
-  
-  .email {
-    width: 100%;
-    border:none;
-    outline:none;
-    color: #636e72;
-    font-size:16px;
-    height:25px;
-    background: none;
-    font-family:'Cafe24Ohsquare';
-  }
-  
-  .nickname {
-    width: 100%;
-    border:none;
-    outline:none;
-    color: #636e72;
-    font-size:16px;
-    height:25px;
-    background: none;
-    font-family:'Cafe24Ohsquare';
-  }
-  
-  .cellphoneNo {
-    width: 100%;
-    border:none;
-    outline:none;
-    color: #636e72;
-    font-size:16px;
-    height:25px;
-    background: none;
-  } */
-  
+ 
   .area {
-    width: 160px; 
-    padding: .8em .5em; 
+    width: 90px; 
     border: rgba(255, 255, 255, 0.0);
-    font-family: inherit;  
+    font-family: 'NanumSquareRound';
     background: url('arrow.jp') no-repeat 95% 50%; 
-    border-radius: 0px; 
-    -webkit-appearance: none; 
+/*     -webkit-appearance: none; 
     -moz-appearance: none;
-    appearance: none;
+    appearance: none; */
+    text-align: left;
+    height: 3rem;
+    font-size: 1rem;
+    margin-right: 3rem;
   }
 
   .area2 {
-    width: 160px; 
-    padding: .8em .5em; 
+    width: 90px; 
     border: rgba(255, 255, 255, 0.0);
-    font-family: inherit;  
-    background: url('arrow.jpg') no-repeat 95% 50%; 
-    border-radius: 0px; 
+    font-family: 'NanumSquareRound';
+    background: url('arrow.jp') no-repeat 95% 50%; 
+/*     border-radius: 0px; 
     -webkit-appearance: none; 
     -moz-appearance: none;
-    appearance: none;
+    appearance: none; */
+    text-align: left;
+    height: 3rem;
+    font-size: 1rem
   }  
+  
   .btn {
     position:relative;
     left:40%;
@@ -144,7 +109,7 @@
     background-position: left;
     background-size: 200%;
     color:white;
-    font-family:'Cafe24Ohsquare';
+    font-family: 'NanumSquareRound';
     font-weight: bold;
     border:none;
     cursor:pointer;

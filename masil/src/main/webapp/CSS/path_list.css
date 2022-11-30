@@ -168,7 +168,6 @@ input, select, textarea {
 		-webkit-transition: color 0.2s ease, border-bottom-color 0.2s ease;
 		-ms-transition: color 0.2s ease, border-bottom-color 0.2s ease;
 		transition: color 0.2s ease, border-bottom-color 0.2s ease;
-		border-bottom: dotted 1px rgba(160, 160, 160, 0.65);
 		color: inherit;
 		text-decoration: none;
 	}
@@ -293,9 +292,8 @@ input, select, textarea {
 			-webkit-transition: border-bottom-color 0.2s ease;
 			-ms-transition: border-bottom-color 0.2s ease;
 			transition: border-bottom-color 0.2s ease;
-			border-bottom: dotted 1px rgba(160, 160, 160, 0.65);
 			display: block;
-			margin: 0 1.5em 0 0;
+			font-size: 0.9rem;
 		}
 
 		.author img {
@@ -1256,7 +1254,8 @@ input, select, textarea {
 				min-width: 17em;
 				text-align: center;
 				width: 17em;
-
+				padding-top: 20px;
+    			padding-bottom: 20px;
 			}
 
 				.post > header .title h2 {
