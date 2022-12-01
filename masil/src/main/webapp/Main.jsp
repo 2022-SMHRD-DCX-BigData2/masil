@@ -69,7 +69,7 @@ MBR loginedMBR = (MBR) session.getAttribute("loginedMBR");
         </div> <!-- end of header-content -->
         <div class="pat">
             <h1>PATHWAY</h1>
-            <p class="p-large">새로운 산책로를 찾고 있다구요?!</p>
+            <p class="p-large">다니던 산책로가 지겨워지셨나요? <br> 새로운 산책로를 알려드릴게요😊</p>
             <!-- 로그인 연결 -->
 			<c:if test="${empty loginedMBR}">
 				<a class="btn-solid-lg page-scroll" href="Login.jsp">SIGN UP</a>

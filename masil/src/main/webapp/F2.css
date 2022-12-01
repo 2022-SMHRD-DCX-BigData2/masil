@@ -26,7 +26,7 @@ a {
     margin: 100px auto;
     margin-top: 0px;
     margin-bottom: 0px;
-    padding-top: 150px;
+    padding-top: 130px;
 }
 
 .board_title {
@@ -298,12 +298,11 @@ a {
     resize: vertical;
 }
 
-
-/*버튼 눌리는 효과
-.btn-like:active {
-
-    box-shadow: inset -.3rem -.1rem 1.4rem  #FBFBFB, inset .3rem .4rem .8rem #BEC5D0; 
-    cursor: pointer;
-
+.btn input{
+	background-color: white;
+    border: 0;
 }
-*/
+
+input:hover{
+	color: #2FD599;
+}

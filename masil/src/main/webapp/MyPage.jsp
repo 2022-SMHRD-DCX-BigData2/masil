@@ -33,16 +33,16 @@
                 <div class="main">
                     <div class="image">
                     </div>
-                    <!--<div class="image2"></div>-->
+                    <div class="image2"></div>
                     <h3 class="name">${sessionScope.loginedMBR.mbr_id}</h3>
-                    <!--<h3 class="sub-name">자두</h3>-->
+                    <h3 class="sub-name">PATHWAY</h3>
                 </div>
             </div>
             <div class="content">
                 <div class="left">
                     <div class="absolute-container">
                         <h3 class="title">About</h3>
-                        <p class="text">Lorem ipsum is simply text of the printing and types industry.</p>
+                        <p class="text">안녕하세요! 제 강아지 자두와 산책하는걸 좋아합니다! 같이 산책하실분?</p>
                     </div>
                     <div class="icons-container">
                         <a href="#" class="icon">
@@ -65,6 +65,20 @@
                         <div class="share-wrap">
                             <a href="ShowRecord?mbr_nbr=${sessionScope.loginedMBR.mbr_nbr}" class="share">산책조회</a>
                         </div>
+                    </div>
+                </div>
+                <div class="right">
+                    <div>
+                        <h3 class="number">골드</h3>
+                        <h5 class="number-title">등급</h5>
+                    </div>
+                    <div>
+                        <h3 class="number">24562</h3>
+                        <h5 class="number-title">걸음</h5>
+                    </div>
+                    <div>
+                        <h3 class="number">21회</h3>
+                        <h5 class="number-title">산책완료</h5>
                     </div>
                 </div>
                 </div>
