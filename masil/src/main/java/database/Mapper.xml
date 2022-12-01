@@ -258,6 +258,13 @@
 	DELETE FROM WLK WHERE WLK_NBR = #{wlk_nbr}
 </delete>
 
+<!-- 경로 삭제 -->
+<delete id="DeleteWLK_RT_MTH" parameterType="int">
+	DELETE FROM mth_wlk_rt_name WHERE WLK_RT_NBR = #{wlk_rt_nbr}
+</delete>
+
+
+
 
 
 </mapper>

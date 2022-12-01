@@ -234,6 +234,13 @@
   	<description></description>
   	<servlet-class>controller.DeleteWLK</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>DeleteWLK_RT_MTH</servlet-name>
+  	<display-name>DeleteWLK_RT_MTH</display-name>
+  	<description></description>
+  	<servlet-class>controller.DeleteWLK_RT_MTH</servlet-class>
+  </servlet>
+
 
 
  
@@ -391,6 +398,11 @@
   	<servlet-name>DeleteWLK</servlet-name>
   	<url-pattern>/DeleteWLK</url-pattern>
   </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>DeleteWLK_RT_MTH</servlet-name>
+  	<url-pattern>/DeleteWLK_RT_MTH</url-pattern>
+  </servlet-mapping>
+
 
 
  

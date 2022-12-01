@@ -119,6 +119,9 @@ $(document).ready(function(){
 				text += "</td>";
 				text += "<td>";
 				text += "<a href=\'ShowWalkingRt.jsp?wlk_rt_nbr="+res[i].wlk_rt_nbr+"\'>"+res[i].wlk_rt_name+"</a>";
+				if(${loginedMBR.mbr_type eq 'ADMIN'}){
+					text += "&nbsp;&nbsp;&nbsp;&nbsp;<button style='position:relative;bottom:2px' id='"+res[i].wlk_rt_nbr+"' class='deleteWLK_RT_MTH'>x</button>";
+				}
 				text += "</td></tr>";
 				$("#WlkRtList").append(text);
 			}			
@@ -128,6 +131,31 @@ $(document).ready(function(){
 		}
 	});
 });
+
+//경로 삭제
+
+$(document).on("click", ".deleteWLK_RT_MTH" , function(){
+	var wlk_rt_nbr = $(this).attr('id');
+	$.ajax({
+		url : "DeleteWLK_RT_MTH",
+		type : "post",
+		data : {"wlk_rt_nbr":wlk_rt_nbr},
+		success : function(res){
+			window.location.reload();
+		},
+		error : function(){
+			alert("deleteWLK_RT Ajax 통신 실패!!");	
+		}
+	});	
+	
+});
+
+
+
+
+
+
+
 
 
 $(document).ready(function () {
