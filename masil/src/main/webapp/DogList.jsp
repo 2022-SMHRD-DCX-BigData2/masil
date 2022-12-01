@@ -77,13 +77,13 @@ function noSpaceForm(obj){
  <div class="container">
         <div class="card">
             <div class="header">
-            <a href="">
+<!--             <a href="">
                 <div class="hamburger-menu">
                     <div class="center"></div>
                 </div>
-            </a>
-                <a href="#" class="mail">
-                    <i class="fa fa-paw" aria-hidden="true"></i>
+            </a> -->
+                <a href="MyPage.jsp" class="mail" >
+                    <i class="fas fa-arrow-left"></i>
                 </a>
                 <div class="main">
                     <div class="image">

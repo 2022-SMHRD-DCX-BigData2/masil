@@ -40,6 +40,7 @@
 		<div class="card" style="width: 69.3rem;">
 			<div class="card-body text-center">
 				<div id="mark">			
+		<button name="nowLoc" class="nl">현재 위치 확인하기</button>
 <!-- 즐겨찾기 -->
 <%
 int wlk_rt_nbr = Integer.parseInt(request.getParameter("wlk_rt_nbr"));
@@ -63,7 +64,7 @@ if(favList==null){
 				<br>
 				<div>
 					<!-- 강아지, 인증버튼 -->
-					<button name="nowLoc">현재 위치 확인하기</button>
+					
 					<br><br>
 					<div id="record">
 					<button name="startRecord">인증시작</button><br>

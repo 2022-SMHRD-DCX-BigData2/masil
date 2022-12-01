@@ -28,11 +28,10 @@
                 </div>
                 </a>
                 <a href="DogList.jsp" class="mail">
-                    <i class="fa fa-paw" aria-hidden="true"></i>
+                    <i class="fa fa-paw" aria-hidden="true" style="font-size: 1.4rem;"></i>
                 </a>
                 <div class="main">
-                    <div class="image">
-                    </div>
+                    <img class="image" src="LoginForm/img/pro2.png" alt="alternative">
                     <div class="image2"></div>
                     <h3 class="name">${sessionScope.loginedMBR.mbr_id}</h3>
                     <h3 class="sub-name">PATHWAY</h3>

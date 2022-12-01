@@ -412,3 +412,12 @@ input{
   height: 200px;
 }
 
+.nl{
+	background-color: white;
+    border: 0;
+    padding-bottom: 0.5rem;
+}
+
+button.nl:hover{
+	color:#2FD599;
+}

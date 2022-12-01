@@ -67,19 +67,19 @@ body{
 }
 
 .hamburger-menu{
-    position: absolute;
-    width: 21px;
-    height: 16px;
-    top: 1.4rem;
+	position: absolute;
+    width: 20px;
+    height: 15px;
+    top: 2rem;
     left: 1.9rem;
     z-index: 3;
     cursor: pointer;
-    transition: .3s;
-    opacity: .8;
+/*     transition: .3s;
+    opacity: .8; */
 }
 
 .hamburger-menu:hover{
-    opacity: 1;
+    /* opacity: 1; */
 }
 
 .hamburger-menu .center{
@@ -127,7 +127,7 @@ body{
     height: 110px;
     border-radius: 50%;
     background: url('IU.png') no-repeat center/ cover;
-    border: 4px solid #7be7c3;
+    
     margin-bottom: 2px;
     overflow: hidden;
     cursor: pointer;
@@ -137,11 +137,11 @@ body{
     position: absolute;
     top: 6em;
     left: 14em;
-    width: 50px;
-    height: 60px;
+	width: 45px;
+    height: 50px;
     border-radius: 50%;
     background: url('./img/gold.png') no-repeat center/ cover;
-    border: 4px solid #7be7c3;
+    
     margin-bottom: 2px;
     overflow: hidden;
     cursor: pointer;
