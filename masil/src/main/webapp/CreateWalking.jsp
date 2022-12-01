@@ -103,8 +103,7 @@ request.setAttribute에 area_name,area_nbr,isChecked 가지고 다시 옴-->
 	    // 지도 중심좌표에 마커를 생성합니다 
 	    position: map.getCenter() 
 	}); 
-	// 지도에 마커를 표시합니다
-	marker.setMap(map);
+	
 	
 	// 지도에 클릭 이벤트를 등록합니다
 	// 지도를 클릭하면 마지막 파라미터로 넘어온 함수를 호출합니다
@@ -124,6 +123,8 @@ request.setAttribute에 area_name,area_nbr,isChecked 가지고 다시 옴-->
 	    
 	    $("#wlk_info").replaceWith('<input type="hidden" name="lat" value="'+latlng.getLat()+'"><input type="hidden" name="lon" value="'+latlng.getLng()+'">');
 	    
+	 // 지도에 마커를 표시합니다
+		marker.setMap(map);
 	    
 	});
 </script>
