@@ -97,8 +97,12 @@ $(document).ready(function(){
 			$("#walkingRtList").html("");
 			var text = "<table class='member'><tr><th>목적지</th></tr>";
 			for(var i=0 ; i<res.length ; i++){
-				text += "<tr><td><a href=\'ShowWalkingSpot.jsp?wlk_nbr="+res[i].wlk_nbr+"&lat="+res[i].lat_for_wlk+"&lon="+res[i].lon_for_wlk+"&wlk_name="+res[i].wlk_name+"'>"+res[i].wlk_name+"</a></td></tr>";
-			}
+				text += "<tr><td><a href=\'ShowWalkingSpot.jsp?wlk_nbr="+res[i].wlk_nbr+"&lat="+res[i].lat_for_wlk+"&lon="+res[i].lon_for_wlk+"&wlk_name="+res[i].wlk_name+"'>"+res[i].wlk_name+"</a>";
+				if(${loginedMBR.mbr_type eq 'ADMIN'}){
+					text += "&nbsp;&nbsp;&nbsp;&nbsp;<button style='position:relative;bottom:2px' id='"+res[i].wlk_nbr+"' class='deleteWLK'>x</button>"
+				}
+				text += "</td></tr>"
+			}			
 			text += "</table>";
 			$("#walkingRtList").append(text);
 		},
@@ -107,6 +111,25 @@ $(document).ready(function(){
 		}
 	});
 });
+
+
+$(document).on("click", ".deleteWLK" , function(){
+	var wlk_nbr = $(this).attr('id');
+	$.ajax({
+		url : "DeleteWLK",
+		type : "post",
+		data : {"wlk_nbr":wlk_nbr},
+		success : function(res){
+			window.location.reload();
+		},
+		error : function(){
+			alert("deleteWLK Ajax 통신 실패!!");	
+		}
+	});	
+	
+});
+
+
 </script>
 </head>
 

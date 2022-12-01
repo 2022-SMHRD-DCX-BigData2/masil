@@ -228,6 +228,12 @@
   	<description></description>
   	<servlet-class>controller.Exit</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>DeleteWLK</servlet-name>
+  	<display-name>DeleteWLK</display-name>
+  	<description></description>
+  	<servlet-class>controller.DeleteWLK</servlet-class>
+  </servlet>
 
 
  
@@ -380,6 +386,10 @@
   <servlet-mapping>
   	<servlet-name>Exit</servlet-name>
   	<url-pattern>/Exit</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>DeleteWLK</servlet-name>
+  	<url-pattern>/DeleteWLK</url-pattern>
   </servlet-mapping>
 
 

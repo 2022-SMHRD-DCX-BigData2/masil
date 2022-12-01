@@ -253,5 +253,11 @@
 	UPDATE MBR SET MBR_PW=#{mbr_pw} WHERE mbr_nbr=#{mbr_nbr}
 </update>
 
+<!-- 목적지 삭제 -->
+<delete id="DeleteWLK" parameterType="int">
+	DELETE FROM WLK WHERE WLK_NBR = #{wlk_nbr}
+</delete>
+
+
 
 </mapper>
