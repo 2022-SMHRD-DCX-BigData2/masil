@@ -32,7 +32,7 @@ $(document).ready(function(){
 					text +=  res[i];
 					text += "<input type='hidden' name='mbr_nbr' value=\'"+${sessionScope.loginedMBR.mbr_nbr}+"\'>"
 					text += "<input type='hidden' name='dogNmae' vlaue=\'"+res[i]+"\' >";
-					text += "<input type='submit' value='x'></form><br>"
+					text += "<input type='submit' value='x' style='background-color:white; border: 0; padding-left: 1.7rem;'></form><br>"
 					$("#DogList").append(text);
 				}
 			}else{
@@ -53,8 +53,8 @@ $(document).ready(function () {
 		$("#PlusDogList").empty();
 		text = "<form action='PlusDog' method='post'>";
 		text += "<input type='hidden' name='mbr_nbr' value=\'"+${sessionScope.loginedMBR.mbr_nbr}+"\'>";
-		text += "댕댕이 이름 <input type='text' name='DogName' onchange='noSpaceForm(this)' >";
-		text += "<input type='submit' value='추가'></form><br>";
+		text += "반려견 이름 <input type='text' name='DogName' onchange='noSpaceForm(this)' style='width: 6rem; height: 2rem;'>";
+		text += "<input type='submit' value='+' style='width: 1.2rem; height: 2.2rem; font-size: 1.5rem; border: 0; background-color: white; float: right;'></form><br>";
 		//공백 입력 못하게 막기
 		$("#PlusDogList").append(text);	
 	});
@@ -99,19 +99,15 @@ function noSpaceForm(obj){
             <div class="content">
                 <div class="left">
                     <div class="absolute-container">
-                        <h3 class="title">나의반려견</h3>
+
+                        <h3 class="title">나의 반려견 
+                            <a href="#" class="share" id="plusDog" style='text-decoration: none;'>+</a>
+                        </h3>
+                        <div id="PlusDogList"></div>
                         <!--<p class="title" class="text"></p>  -->
                         <div id="DogList"></div>
-                    </div>
                     <div class="icons-container">
                         
-                    </div>
-                    <div class="buttons-wrap">
-                        
-                        <div class="share-wrap">
-                            <a href="#" class="share" id="plusDog">반려견 등록</a>
-                            <div id="PlusDogList"></div>
-                        </div>
                     </div>
                 </div>
 
