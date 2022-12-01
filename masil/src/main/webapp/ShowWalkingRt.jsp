@@ -410,17 +410,31 @@ if(favList==null){
 						              //가까우면 인증 완료 버튼으로 변경
 						              //시작 위치랑 멀면 그대로
 						              
-						              //polyLine의 getLength활용해서 수정해보자!
-						              var myDistance = Math.abs(LinePath[0]["Ma"]-lat)+Math.abs(LinePath[0]["La"]-lon);
-						              console.log(myDistance);
-						              if(myDistance<1){
-						            	  console.log("인증성공");
+						              //polyLine의 getLength활용해서 수정해보자!						    
+						              //var myDistance = Math.abs(LinePath[0]["Ma"]-lat)+Math.abs(LinePath[0]["La"]-lon);
+						              var templine = new kakao.maps.Polyline({
+						            	    map: map,
+						            	    path: [
+						            	        new kakao.maps.LatLng(LinePath[0]["Ma"], LinePath[0]["La"]),
+						            	        new kakao.maps.LatLng(lat, lon)
+						            	    ],
+						            	    strokeColor: '#3333FF'
+
+						            	});
+						              
+						              var myDistance = templine.getLength();
+						              
+						              console.log("시작점까지의 거리 : "+myDistance+"m");
+						              if(myDistance<100){
 						            	  $("button[name='startRecord']").hide();
 						            	  $("#record").append("<button name='endRecord'>인증완료</button><br>");
 			 
 						            	  
 						              }else{
-						            	  console.log("인증실패");
+						            	  $("#record").html("");
+						            	  $("#record").append(" <button name='startRecord'>인증시작</button><br>");
+						       
+						            	  $("#record").append("거리가 맞지 않아 인증시작에 실패했습니다.");
 						              }
 											
 						              
@@ -457,14 +471,20 @@ if(favList==null){
 						          var locPosition = new kakao.maps.LatLng(lat, lon), // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다
 						              message = '<div style="padding:5px;">여기에 계신가요?!</div>'; // 인포윈도우에 표시될 내용입니다
 						          
-						              //시작 위치랑 가까운지 점검
-						              //가까우면 인증 완료 버튼으로 변경
-						              //시작 위치랑 멀면 그대로
+						              var templine = new kakao.maps.Polyline({
+						            	    map: map,
+						            	    path: [
+						            	        new kakao.maps.LatLng(LinePath[LinePath.length-1]["Ma"], LinePath[LinePath.length-1]["La"]),
+						            	        new kakao.maps.LatLng(lat, lon)
+						            	    ],
+						            	    strokeColor: '#3333FF'
+						            	});
 						              
-						              //polyLine의 getLength활용해서 수정해보자!
-						              var myDistance = Math.abs(LinePath[LinePath.length-1]["Ma"]-lat)+Math.abs(LinePath[LinePath.length-1]["La"]-lon);
-						              console.log(myDistance);
-						              if(myDistance<1){
+						              var myDistance = templine.getLength();
+						              
+						              
+						              console.log("도착점까지의 거리 : "+myDistance+"m");
+						              if(myDistance<100){
 						            	  $("button[name='endRecord']").hide();	  
 						            	  //ajax로 산책로 번호, 회원 번호 보내기
 						            	  //체크박스에 클릭된 댕댕이 이름들도 보내기		            	  
@@ -490,7 +510,9 @@ if(favList==null){
 								    			},
 								    		});	
 						              }else{
-						            	  $("#record").append("거리가 맞지 않아 인증실패했습니다.")
+						            	  $("#record").html("");
+						            	  $("#record").append("<button name='endRecord'>인증완료</button><br>");
+						            	  $("#record").append("거리가 맞지 않아 인증완료에 실패했습니다.")
 						              }
 						          // 마커와 인포윈도우를 표시합니다
 						          displayMarker(locPosition, message);
