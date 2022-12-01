@@ -117,7 +117,7 @@ MBR loginedMBR = (MBR) session.getAttribute("loginedMBR");
                         	<a href="Writing?wrt_type=1&type_nbr=0"><img class="img-fluid1" src="./main_img/content-writing.png" alt="alternative"></a>
                    		</c:if>
                    		<c:if test="${empty loginedMBR}">
-                   			 <img class="img-fluid1" src="./main_img/walking.png" alt="alternative" onclick="alert('로그인 부탁드립니다')">
+                   			 <img class="img-fluid1" src="./main_img/content-writing.png" alt="alternative" onclick="alert('로그인 부탁드립니다')">
                    		</c:if>
                     </div>
                     <div class="card-body">
