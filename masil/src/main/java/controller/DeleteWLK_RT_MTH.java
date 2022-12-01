@@ -32,10 +32,10 @@ public class DeleteWLK_RT_MTH extends HttpServlet {
 		int wlk_rt_nbr = Integer.parseInt(request.getParameter("wlk_rt_nbr"));
 		MTH_WLK_RT_NAME_DAO dao = new MTH_WLK_RT_NAME_DAO();
 		int result = dao.DeleteWLK_RT_MTH(wlk_rt_nbr);
+		
+		
 		MBR_DAO daoMBR = new MBR_DAO();
 		List<BigDecimal> mbr_nbrs = daoMBR.AllCMBR_nbr();		
-		
-		
 		for (BigDecimal bigDecimal : mbr_nbrs) {
 			MBR_DAO dao1 = new MBR_DAO();
 			String temp1 = dao1.getFavList(bigDecimal.intValue());
@@ -86,8 +86,8 @@ public class DeleteWLK_RT_MTH extends HttpServlet {
 				System.out.println("MinusFavList가 실행 안 됨.");
 			}
 
-		}
-		
-	}
+		}	
 
+	
+	}	
 }

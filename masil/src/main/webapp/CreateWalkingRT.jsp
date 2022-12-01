@@ -354,7 +354,7 @@ function checkPath(){
 		async : false,
 		success : function(res){
 			alert("CreateWalkingRT Ajax 통신 성공!!");
-			var next = "ShowWalkingRt.jsp?wlk_rt_nbr="
+			var next = "ShowWalkingRt.jsp?wlk_rt_nbr=";
 			location.href = next+res;
 			
 		},

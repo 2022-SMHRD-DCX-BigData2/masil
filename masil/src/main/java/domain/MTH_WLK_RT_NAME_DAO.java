@@ -51,7 +51,7 @@ public class MTH_WLK_RT_NAME_DAO {
 
 		     // 만약에 내가 원하는 일을 했으면 DB에 반영
 		     if(result!=null) {
-		        System.out.println("DAO메소드에선 값을 잘 가져옴");
+		        System.out.println("isWlk_rt_Exist DAO메소드에선 값을 잘 가져옴");
 		        sqlSession.commit();
 		     }else {
 		        // 만약에 원하는 일을 못하면 다시 원래대로 돌려주기
@@ -156,7 +156,31 @@ public class MTH_WLK_RT_NAME_DAO {
 		      return cnt;
 		   }
 	   
-		
+		public List<BigDecimal> selectWlkRtNbrByWlk(int wlk_nbr_for_wlk_rt){
+			List<BigDecimal> result = null;
+			  try {
+				     //               mapper.xml의 id값
+			     result = sqlSession.selectList("selectWlkRtNbrByWlk",wlk_nbr_for_wlk_rt);
+			     
+			     // 만약에 내가 원하는 일을 했으면 DB에 반영
+			     if(result!=null) {
+			        System.out.println("DAO메소드에선 값을 잘 가져옴");
+			        sqlSession.commit();
+			     }else {
+			        // 만약에 원하는 일을 못하면 다시 원래대로 돌려주기
+			        sqlSession.rollback();
+			     }
+			     
+			     
+			  } catch (Exception e) {
+			     // TODO: handle exception
+			     e.printStackTrace();
+			  } finally {
+			     // 빌렸던 Connection 객체를 반납
+			     sqlSession.close();
+			  }
+			return result;
+		}
 		
 		
 }

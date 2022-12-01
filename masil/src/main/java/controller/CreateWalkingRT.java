@@ -41,13 +41,19 @@ public class CreateWalkingRT extends HttpServlet {
 		MTH_WLK_RT_NAME_DAO mthDao1 = new MTH_WLK_RT_NAME_DAO();
 		int result1 = mthDao1.insertWlk_rt_name(wlk_rt_name,wlk_nbr);
 		MTH_WLK_RT_NAME_DAO mthDao2 = new MTH_WLK_RT_NAME_DAO();
+		try {
+			Thread.sleep(250);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		BigDecimal wlk_rt_nbr = mthDao2.isWlk_rt_Exist(wlk_rt_name);
 		System.out.println(wlk_rt_nbr);
 		
 		String[] Lats_string = Lat.split("\\|");
-		System.out.println(Lats_string[0]);
+		//System.out.println(Lats_string[0]);
 		String[] Lons_string = Lon.split("\\|");
-		System.out.println(Lons_string[0]);
+		//System.out.println(Lons_string[0]);
 		
 		//WLK_RT에 WLK_RT_NBR과 그 순서 위도, 경도를 집어넣음
 		WLK_RT_DAO wlkRtDao = new WLK_RT_DAO();
