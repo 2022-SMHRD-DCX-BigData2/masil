@@ -135,15 +135,15 @@ a{
     display: inline-block;
     min-width: 70px;
     margin-left: 10px;
-    padding: 10px;
-    border: 1px solid #2FD599;
+    /* padding: 10px; */
+    /* border: 1px solid #2FD599; */
     border-radius: 2px;
     font-size: 1.2rem;
-    height: 2.6rem;
+    height: 2.5rem;
 }
 
 .on{
-    background-color: #2FD599;
+    background-color: black;
     color: white;
 }
 

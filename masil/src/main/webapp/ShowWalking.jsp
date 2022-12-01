@@ -95,7 +95,7 @@ $(document).ready(function(){
 			for(var i=0 ; i<res.length ; i++){
 				text += "<tr><td><a href=\'ShowWalkingSpot.jsp?wlk_nbr="+res[i].wlk_nbr+"&lat="+res[i].lat_for_wlk+"&lon="+res[i].lon_for_wlk+"&wlk_name="+res[i].wlk_name+"'>"+res[i].wlk_name+"</a>";
 				if(${loginedMBR.mbr_type eq 'ADMIN'}){
-					text += "&nbsp;&nbsp;&nbsp;&nbsp;<button style='position:relative;bottom:2px' id='"+res[i].wlk_nbr+"' class='deleteWLK'>x</button>"
+					text += "&nbsp;&nbsp;&nbsp;&nbsp;<button style='    background-color: inherit; border: 0; font-size: 1.2rem;' id='"+res[i].wlk_nbr+"' class='deleteWLK'>x</button>"
 				}
 				text += "</td></tr>"
 			}			

@@ -23,7 +23,7 @@
         <div class="card">
             <div class="header">
                 <a href="FavList.jsp">
-                <div class="hamburger-menu">
+                <div class="hamburger-menu"> 
                     <div class="center"></div>
                 </div>
                 </a>

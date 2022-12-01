@@ -32,20 +32,21 @@
 	position: absolute;
 	left : 24%;
 	width: 47%;
-    height: 3.3em;
+    height: 2.6rem;
+    font-size: 1rem;
 }
 
 #submit{
 	position:relative;
 	left : 90%;
-    background-color: #38d39f;
+    background-color: black;
     width: 5.5em;
     height: 3.3em;;
     font-size: 15px;
     font-weight: bold;
     color: aliceblue;
     border: 0;
-    border-radius: 20px;
+    border-radius: 4px;
 }
 
 /* #voteUp, #voteDown{
@@ -131,8 +132,9 @@ a{
 .board_wrap{
     margin: 0;
     padding: 0;
-    width: 1000px;
+    width: 935px;
     margin: 100px auto;
+    margin-bottom: 35px;
 }
 
 .board_title{
@@ -146,7 +148,7 @@ a{
 
 .board_title p{
     margin-top: 5px;
-    font-size: 1.4rem;
+    font-size: 1.2rem;
 }
 
 .bt_wrap{
@@ -159,9 +161,9 @@ a{
     display: inline-block;
     min-width: 70px;
     height: 2.5rem;
-    border: 1px solid #000;
-    border-radius: 2px;
-    font-size: 1.4rem;
+    border: 1px solid;
+    border-radius: 4px;
+    font-size: 1rem;
     text-align: center;
     margin-right: 5px;
 }
@@ -230,8 +232,8 @@ a{
 }
 
 .board_write .title input[type="text"]{
-    width: 50rem;
-    font-size: 1.2rem;
+	width: 45rem;
+    font-size: 1.1rem;
 }
 
 
@@ -251,12 +253,12 @@ a{
 }
 
 .zx{
-	background-color: black; 
+	background-color: black;
 	color: white;
 }
 
 .del{
 	 background-color: white; 
 	 color: black; 
-	 border: 1px solid;
+	 border: 1px solid black;
 }

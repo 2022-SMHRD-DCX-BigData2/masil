@@ -120,7 +120,7 @@ $(document).ready(function(){
 				text += "<td>";
 				text += "<a href=\'ShowWalkingRt.jsp?wlk_rt_nbr="+res[i].wlk_rt_nbr+"\'>"+res[i].wlk_rt_name+"</a>";
 				if(${loginedMBR.mbr_type eq 'ADMIN'}){
-					text += "&nbsp;&nbsp;&nbsp;&nbsp;<button style='position:relative;bottom:2px' id='"+res[i].wlk_rt_nbr+"' class='deleteWLK_RT_MTH'>x</button>";
+					text += "&nbsp;&nbsp;&nbsp;&nbsp;<button style='background-color: inherit; border: 0; font-size: 1.2rem;' id='"+res[i].wlk_rt_nbr+"' class='deleteWLK_RT_MTH'>x</button>";
 				}
 				text += "</td></tr>";
 				$("#WlkRtList").append(text);

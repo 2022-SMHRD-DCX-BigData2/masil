@@ -2218,3 +2218,7 @@ input, select, textarea {
 	color: transparent;
 	text-shadow: 0 0 0 rgb(255, 255, 255);
   }
+
+  button:hover{
+  	color: #2FD599;
+  }
