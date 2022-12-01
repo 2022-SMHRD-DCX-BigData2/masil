@@ -7,6 +7,15 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
 
+@font-face {
+    font-family: 'NanumSquareRound';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NanumSquareRound.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+
 html, body, div, span, applet, object,
 iframe, h1, h2, h3, h4, h5, h6, p, blockquote,
 pre, a, abbr, acronym, address, big, cite,
@@ -23,7 +32,8 @@ section, summary, time, mark, audio, video {
 	border: 0;
 	font-size: 100%;
 	font: inherit;
-	vertical-align: baseline;}
+	vertical-align: baseline;
+}
 
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
@@ -117,7 +127,7 @@ input, select, textarea {
 
 	body, input, select, textarea {
 		color: #646464;
-		font-family: "Source Sans Pro", Helvetica, sans-serif;
+		font-family: 'NanumSquareRound';
 		font-size: 14pt;
 		font-weight: 400;
 		line-height: 1.75;
@@ -203,7 +213,7 @@ input, select, textarea {
 
 	h1, h2, h3, h4, h5, h6 {
 		color: #3c3b3b;
-		font-family: "Raleway", Helvetica, sans-serif;
+		font-family: 'NanumSquareRound';
 		font-weight: 800;
 		letter-spacing: 0.25em;
 		line-height: 1.65;
@@ -227,7 +237,7 @@ input, select, textarea {
 	code {
 		background: rgba(160, 160, 160, 0.075);
 		border: solid 1px rgba(160, 160, 160, 0.3);
-		font-family: "Courier New", monospace;
+		font-family: 'NanumSquareRound';
 		font-size: 0.9em;
 		margin: 0 0.25em;
 		padding: 0.25em 0.65em;
@@ -235,7 +245,7 @@ input, select, textarea {
 
 	pre {
 		-webkit-overflow-scrolling: touch;
-		font-family: "Courier New", monospace;
+		font-family: 'NanumSquareRound';
 		font-size: 0.9em;
 		margin: 0 0 2em 0;
 	}
@@ -279,7 +289,7 @@ input, select, textarea {
 		-ms-justify-content: -ms-flex-end;
 		justify-content: flex-end;
 		border-bottom: 0;
-		font-family: "Raleway", Helvetica, sans-serif;
+		font-family: 'NanumSquareRound';
 		font-size: 0.6em;
 		font-weight: 400;
 		letter-spacing: 0.25em;
@@ -1098,7 +1108,7 @@ input, select, textarea {
 
 				ul.posts article header .published {
 					display: block;
-					font-family: "Raleway", Helvetica, sans-serif;
+					font-family: 'NanumSquareRound';
 					font-size: 0.6em;
 					font-weight: 400;
 					letter-spacing: 0.25em;
@@ -1162,7 +1172,7 @@ input, select, textarea {
 
 			.mini-post header .published {
 				display: block;
-				font-family: "Raleway", Helvetica, sans-serif;
+				font-family: 'NanumSquareRound';
 				font-size: 0.6em;
 				font-weight: 400;
 				letter-spacing: 0.25em;
@@ -1286,7 +1296,7 @@ input, select, textarea {
 				.post > header .meta .published {
 					color: #3c3b3b;
 					display: block;
-					font-family: "Raleway", Helvetica, sans-serif;
+					font-family: 'NanumSquareRound';
 					font-size: 0.7em;
 					font-weight: 800;
 					letter-spacing: 0.25em;
@@ -1340,7 +1350,7 @@ input, select, textarea {
 				.post > footer .stats li {
 					border-left: solid 1px rgba(160, 160, 160, 0.3);
 					display: inline-block;
-					font-family: "Raleway", Helvetica, sans-serif;
+					font-family: 'NanumSquareRound';
 					font-size: 0.6em;
 					font-weight: 400;
 					letter-spacing: 0.25em;
@@ -1526,7 +1536,7 @@ input, select, textarea {
 	}
 
 	header p {
-		font-family: "Raleway", Helvetica, sans-serif;
+		font-family: 'NanumSquareRound';
 		font-size: 0.7em;
 		font-weight: 400;
 		letter-spacing: 0.25em;
@@ -1684,7 +1694,7 @@ input, select, textarea {
 
 				#header .links ul li a {
 					border-bottom: 0;
-					font-family: "Raleway", Helvetica, sans-serif;
+					font-family: 'NanumSquareRound';
 					font-size: 0.7em;
 					font-weight: 400;
 					letter-spacing: 0.25em;
@@ -2000,7 +2010,7 @@ input, select, textarea {
 
 	#footer .copyright {
 		color: #aaaaaa;
-		font-family: "Raleway", Helvetica, sans-serif;
+		font-family: 'NanumSquareRound';
 		font-size: 0.5em;
 		font-weight: 400;
 		letter-spacing: 0.25em;
@@ -2076,7 +2086,7 @@ input, select, textarea {
 					}
 
 					#menu .links > li a p {
-						font-family: "Raleway", Helvetica, sans-serif;
+						font-family: 'NanumSquareRound';
 						font-size: 0.6em;
 						font-weight: 400;
 						letter-spacing: 0.25em;
@@ -2117,7 +2127,7 @@ input, select, textarea {
 }
 
 .tb {
-	font-family: 'Montserrat', sans-serif;
+	font-family: 'NanumSquareRound';
 	/* margin-bottom: 0px; */
 	color: #333;
 	font-size: 17px;
@@ -2191,7 +2201,7 @@ input, select, textarea {
 	color: transparent;
 	text-shadow: 0 0 2px rgba(255,255,255), 0 0 0 #000;
 	
-	background-color: #F8F8F8;
+	background-color: inherit;
 	font-size: 20px;
 	border: 0;
 

@@ -26,7 +26,7 @@ MBR loginedMBR = (MBR) session.getAttribute("loginedMBR");
 WRT writing = (WRT) request.getAttribute("writing");
 %>
 
-<form action="SetUpdateWRT" method="post">
+<form action="SetUpdateWRT" method="post" style='padding-top: 26px;'>
 
     <div class="board_wrap">
         
@@ -61,18 +61,18 @@ WRT writing = (WRT) request.getAttribute("writing");
                     </dl>
                 </div>
                 <div class="cont" >
-                    <div style="height:250px;"><%=writing.getWrt_cnt() %></div>
+                    <div style="padding-top: 1.5rem; padding-left: 1rem; height: 190px; font-size: larger;}"><%=writing.getWrt_cnt() %></div>
                 </div>
                 <c:if test="${sessionScope.loginedMBR.mbr_nbr eq requestScope.writing.wrt_ath||loginedMBR.mbr_type eq 'ADMIN'}">
 	                <div class="bt_wrap">
-		                <button class="on" type="button" id="deleteWRT">삭제</button>
+		                <button class="zx" type="button" id="deleteWRT">삭제</button>
 	                	<input type="hidden" name="wrt_ttl" value="<%=writing.getWrt_ttl()%>">
 	                	<input type="hidden" name="wrt_cnt" value="<%=writing.getWrt_cnt()%>">
 	                	<input type="hidden" name="type" value="${param.type}">
 	                	<!-- 
 	                	<input type="hidden" name="type_nbr" value="${param.type_nbr}"> -->
 	                	<input type="hidden" name="wrt_nbr" value="${param.wrt_nbr}">
-		                <button class="on" id="updateWRT">수정</button>
+		                <button class="del" id="updateWRT">수정</button>
 	                </div>	       
                 </c:if>
             </div>

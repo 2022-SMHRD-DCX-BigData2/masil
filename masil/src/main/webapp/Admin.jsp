@@ -22,10 +22,10 @@
         </div>
         <div class="board_list_wrap">
             <div class="board_list" id="MBRList">
-                <div class="top">            
-                    <div class="btn " style="text-align:center ">관리</div>
+                <div class="top" style="display: block; text-align: left;">            
+                    <div class="btn " style="padding-left: 4rem; padding-right: 10rem;">관리</div>
                     <!--  <div class="title">목적지이름</div>-->
-                    <div class="title" style="position:relative;left:10%">회원 아이디</div>         
+                    <div class="title" style="position:relative;left:10%;width: 100px;">회원 아이디</div>         
                 </div>
                 <!--
                 <div>
@@ -69,12 +69,12 @@ List<MBR> AllCMBR = (List) request.getAttribute("AllCMBR");
 if(AllCMBR!=null){
 	for(MBR mbr : AllCMBR){
 		%>
-		text += "<div><form action='DeleteMBR' method='post'><div class='btn' style='float:left;align:center;width:28%;position:relative;bottom:10px'>";
+		text += "<div style='padding: 22px;'><form action='DeleteMBR' method='post'><div class='btn' style='float:left; align:center; width:28%; position:relative; bottom:10px'>";
 		text += "<input type='hidden' name='mbr_nbr' value='";
 		text += "<%=mbr.getMbr_nbr()%>"
 		text += "'>";
-		text += "<input type='submit' value=' X '></form></div>"
-		text += "<div class='title' style='float:left;position:relative;bottom:10px'>";
+		text += "<input type='submit' value=' 삭제 ' style='padding: 0; padding-right: 1.2rem;'></form></div>"
+		text += "<div class='title' style='float:left; position:relative; bottom:10px;'>";
 		text += "<%=mbr.getMbr_id()%>";
 		text += "</div></div>";
 		<%

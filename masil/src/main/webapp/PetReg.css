@@ -1,8 +1,16 @@
+@font-face {
+    font-family: 'NanumSquareRound';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NanumSquareRound.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
 *{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'NanumSquareRound';
 }
 
 body{
@@ -24,6 +32,7 @@ body{
     border-radius: 5px;
     box-shadow: 0 5x 15px 1px rgba(0, 0, 0, 0.1);
     overflow: hidden;
+    box-shadow: 1px 1px 3px 1px #dadce0;
 }
 
 .card:before{
@@ -171,7 +180,7 @@ body{
 }
 
 .sub-name{
-    font-family: 'Cutive Mono', monospace;
+    font-family: 'NanumSquareRound';
     font-size: 1.2rem;
     opacity: .8;
     color: #fff;

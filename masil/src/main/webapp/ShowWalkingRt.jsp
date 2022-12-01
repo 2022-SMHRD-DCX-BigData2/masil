@@ -26,7 +26,7 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 </head>
 
-<body style="background-color: #f4f4f4; ">
+<body style="background-color: rgb(244, 244, 244); padding-top: 87px;">
 
 
 <%@ include file="header.jsp" %>

@@ -15,18 +15,18 @@
 
 <title>Insert title here</title>
 </head>
-<body>
+<body  style="width: 1000px; display: contents;">
 <%@ include file="header.jsp" %>
 <%
 MBR loginedMBR = (MBR) session.getAttribute("loginedMBR");
 %>
 
-<form action="CreateWriting" method="post">
+<form action="CreateWriting" method="post" style="padding-top: 34px;">
 <input type="hidden" name="type" value="${param.type}">
 <input type="hidden" name="type_nbr" value="${param.type_nbr}">
 <input type="hidden" name="mbr_nbr" value="<%=loginedMBR.getMbr_nbr()%>">
 
-    <div class="board_wrap">
+    <div class="board_wrap" style="margin-left: 300px;">
         
         <div class="board_title">
         	<c:choose>
@@ -63,8 +63,8 @@ MBR loginedMBR = (MBR) session.getAttribute("loginedMBR");
             </div>
             
             <div class="bt_wrap">
-                <button type="submit" class="on" >등록</button>
-                <button type="reset" class="on">취소</button>
+                <button type="submit" class="zx">등록</button>
+                <button type="reset" class="del">취소</button>
             </div>
         </div>
     </div>
