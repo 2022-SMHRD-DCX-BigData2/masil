@@ -30,18 +30,22 @@ public class DeleteWLK extends HttpServlet {
 		// TODO Auto-generated method stub
 		request.setCharacterEncoding("UTF-8");
 		int wlk_nbr = Integer.parseInt(request.getParameter("wlk_nbr"));
-		WLK_DAO dao = new WLK_DAO();
-		int result = dao.DeleteWLK(wlk_nbr);
+		
 		
 		MTH_WLK_RT_NAME_DAO daoMTH = new MTH_WLK_RT_NAME_DAO();
+		
 		List<BigDecimal> wlk_rt_nbrs = daoMTH.selectWlkRtNbrByWlk(wlk_nbr);
-		for (BigDecimal big_wlk_rt_nbr : wlk_rt_nbrs) {
+		
+		for (BigDecimal wlk_rt_nbr : wlk_rt_nbrs) {
 			
 			MBR_DAO daoMBR = new MBR_DAO();
 			List<BigDecimal> mbr_nbrs = daoMBR.AllCMBR_nbr();		
-			for (BigDecimal bigDecimal : mbr_nbrs) {
+			for (BigDecimal mbr_nbr : mbr_nbrs) {
+				System.out.println(mbr_nbr);
+				
+				
 				MBR_DAO dao1 = new MBR_DAO();
-				String temp1 = dao1.getFavList(bigDecimal.intValue());
+				String temp1 = dao1.getFavList(mbr_nbr.intValue());
 				System.out.println(temp1);
 				if(temp1==null) {
 					continue;
@@ -49,16 +53,16 @@ public class DeleteWLK extends HttpServlet {
 				String[] temp2 = temp1.split("\\|");
 				MBR_DAO dao2 = new MBR_DAO();
 				int result2 =0;
-				if(temp2.length==1&&temp1.contains(big_wlk_rt_nbr.toPlainString())) {//즐겨찾기 목록에서 전부 제거하는 경우 좀 다르게 해야 함
+				if(temp2.length==1&&temp1.contains(wlk_rt_nbr.toPlainString())) {//즐겨찾기 목록에서 전부 제거하는 경우 좀 다르게 해야 함
 					
-					result2 = dao2.setFavList("", bigDecimal.intValue());
+					result2 = dao2.setFavList("", mbr_nbr.intValue());
 				
 				}else {
 			
 					List<String> temp3 = new ArrayList<>(Arrays.asList(temp2));
 					int i=0;
 					for (String string : temp3) {
-						if(string.equals(big_wlk_rt_nbr.toPlainString())) {
+						if(string.equals(wlk_rt_nbr.toPlainString())) {
 							break;
 						}
 						i++;
@@ -70,7 +74,7 @@ public class DeleteWLK extends HttpServlet {
 						String FavList = String.join("|", temp4);
 						System.out.println(FavList);
 						FavList += "|";
-						result2 = dao2.setFavList(FavList, bigDecimal.intValue());
+						result2 = dao2.setFavList(FavList, mbr_nbr.intValue());
 						
 					}
 
@@ -79,7 +83,7 @@ public class DeleteWLK extends HttpServlet {
 				MBR temp = (MBR) session.getAttribute("loginedMBR");
 				MBR loginedMbr = new MBR(temp.getMbr_id(),temp.getMbr_pw());
 				
-				if(result>0 && bigDecimal.intValue()==temp.getMbr_nbr().intValue()) {
+				if(mbr_nbr.intValue()==temp.getMbr_nbr().intValue()) {
 					MBR_DAO dao3 = new MBR_DAO();
 					MBR loginedMbr2 = dao3.loginMember(loginedMbr);
 					session.setAttribute("loginedMBR",loginedMbr2);	
@@ -95,6 +99,8 @@ public class DeleteWLK extends HttpServlet {
 			
 		}
 		
+		WLK_DAO dao = new WLK_DAO();
+		int result = dao.DeleteWLK(wlk_nbr);
 		
 	}
 
