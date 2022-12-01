@@ -16,7 +16,6 @@
 <script type="text/javascript">
 
 $(document).ready(function(){
-	var temp;
 	
 	$.ajax({
 		url : "SetBclsArea",
@@ -26,9 +25,6 @@ $(document).ready(function(){
 			console.log(res);
 			$("#selectbox").html("<option value='' selected disabled hidden>"+"${param.b_cls}"+"</option>");
 			for(var i=0 ; i<res.length ; i++){
-				if(i==0){
-					temp=res[i]
-				}
 				$("#selectbox").append("<option value="+res[i]+">"+res[i]+"</option>");
 			}			
 		},
@@ -46,7 +42,7 @@ $(document).ready(function(){
 			$("#selectNextbox").html("<option value='' selected disabled hidden>"+"${param.s_cls}"+"</option>");
 			//$("#selectNextbox").append("<option selected disabled hidden>"+선택+"</option>");
 			for(var i=0 ; i<res.length ; i++){
-				if(res[i].b_cls==temp){
+				if(res[i].b_cls=="${param.b_cls}"){
 				$("#selectNextbox").append("<option value="+res[i].s_cls+">"+res[i].s_cls+"</option>");
 				}
 			}			
