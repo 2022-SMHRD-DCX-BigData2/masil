@@ -108,6 +108,7 @@ a{
     margin-right: 210px;
     margin-bottom: 10px;
     margin-top: 75px;
+    padding-top: 17px;
 }
 
 .board_title{
@@ -125,7 +126,7 @@ a{
 }
 
 .bt_wrap{
-    margin-top: 30px;
+    margin-top: 35px;
     text-align: center;
     font-size: 0;
 }
@@ -167,8 +168,8 @@ a{
 .board_write .info{
     padding: 15px;
     display: inline-block;
-    padding-bottom: 10px;
     padding-top: 10px;
+    padding-bottom: 20px;
 }
 
 .board_write .info{

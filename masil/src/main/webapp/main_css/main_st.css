@@ -20,7 +20,8 @@ body, p {
 }
 
 .p-large {
-	font: 400 1.125rem/1.75rem 'NanumSquareRound';
+	font: 400 1.125rem/2.5rem 'NanumSquareRound';
+    font-size: 1.3rem;
 }
 
 .p-small {
@@ -765,7 +766,7 @@ input[type='checkbox'] {
 }
 
 .header h1 {
-	margin-bottom: 3rem;
+	margin-bottom: 2.5rem;
 	color: #fff;
 	font-size: 2.5rem;
 	line-height: 3rem;
@@ -1617,6 +1618,7 @@ a:hover.back-to-top {
 
 	.header .btn-solid-lg {
 		color: #2FD599;
+		margin-top: 10px;
 	}
 
 	.header-frame {
