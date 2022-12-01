@@ -143,7 +143,7 @@ $(document).on("click", ".deleteWLK" , function(){
 							<article class="post">
 								<header>
 									<div class="title">
-										<h2>산 책 목 적 지</h2>
+										<h2>산책목적지</h2>
 										<div class="btn">
 											<button type="submit" class="btn-dark" id="addWalkingSpot">
 												<a href="CreateWalking.jsp?area_nbr=${requestScope.type_nbr}">등록</a></button>

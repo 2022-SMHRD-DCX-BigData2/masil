@@ -24,7 +24,7 @@
 <%@ include file="header.jsp" %>
 <div class="left-image-decor" ></div>
 <div class="right-image-decor" ></div>
-<div class="board_wrap">
+<div class="board_wrap" >
         <div class="board_title">
             <strong>자유게시판</strong>
             <p>자유롭게 의견을 나눠주세요!</p>
@@ -44,7 +44,7 @@
 	</div>
 	<br>
         <div class="board_list_wrap">
-            <div class="board_list">
+            <div class="board_list" style="text-align: center;">
                 <div class="top">
                     <div class="num">작성시간</div>
                     <div class="title">제목</div>
