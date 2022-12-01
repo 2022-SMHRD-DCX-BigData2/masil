@@ -1,5 +1,6 @@
 *{
     padding: 0;
+    margin: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
 }
@@ -23,6 +24,7 @@ body{
     border-radius: 5px;
     box-shadow: 0 5x 15px 1px rgba(0, 0, 0, 0.1);
     overflow: hidden;
+    box-shadow: 1px 1px 3px 1px #dadce0;
 }
 
 .card:before{
@@ -182,7 +184,7 @@ body{
 }
 
 .right{
-    padding-top: 1.5rem;
+    padding-top: 2.5rem;
     display: flex;
     flex-direction: column;
     text-align: right;
@@ -192,7 +194,7 @@ body{
 }
 
 .number{
-    font-size: 2.1rem;
+    /* font-size: 2.1rem; */
     font-weight: 200;
     color: #333;
     line-height: 1.2;
@@ -298,6 +300,7 @@ body{
     font-size: .8rem;
     margin-left: 77%;
     margin-top: -7%;
+    margin-bottom: 4%;
 }
 
 .delete-user{
