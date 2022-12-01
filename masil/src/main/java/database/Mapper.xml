@@ -90,12 +90,12 @@
 
 <!-- 지역별 산책로 목적지 리스트-->
 <select id="WalkingRtListByArea" parameterType="int" resultType="domain.WLK">
-      SELECT WLK_NBR, WLK_NAME, LAT_FOR_WLK, LON_FOR_WLK,area_nbr_for_wlk FROM WLK WHERE area_nbr_for_wlk=#{area_nbr}
+      SELECT WLK_NBR, WLK_NAME, LAT_FOR_WLK, LON_FOR_WLK,area_nbr_for_wlk FROM WLK WHERE area_nbr_for_wlk=#{area_nbr} order by WLK_NBR
 </select>
 
 <!--산책로 목적지에 따른 산책로 경로 리스트-->
 <select id="selectWlkRtByWlk" parameterType="int" resultType="domain.MTH_WLK_RT_NAME">
-      SELECT WLK_RT_NBR, WLK_NBR_FOR_WLK_RT, WLK_RT_NAME  FROM mth_wlk_rt_name WHERE wlk_nbr_for_wlk_rt=#{wlk_nbr_for_wlk_rt}
+      SELECT WLK_RT_NBR, WLK_NBR_FOR_WLK_RT, WLK_RT_NAME  FROM mth_wlk_rt_name WHERE wlk_nbr_for_wlk_rt=#{wlk_nbr_for_wlk_rt} order by WLK_RT_NBR
 </select>
 
 <!--산책로 경로에 따른 산책로 경로 위도.경도.순서-->
