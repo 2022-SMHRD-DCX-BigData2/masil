@@ -263,7 +263,10 @@
 	DELETE FROM mth_wlk_rt_name WHERE WLK_RT_NBR = #{wlk_rt_nbr}
 </delete>
 
-
+<!-- 전체 회원 번호 조회 -->
+<select id="AllCMBR_nbr" resultType="bigdecimal">
+      SELECT MBR_NBR FROM MBR
+</select>
 
 
 
