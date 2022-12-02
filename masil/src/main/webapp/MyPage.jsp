@@ -83,13 +83,23 @@
                 </div>
             <div class="delete">
             	  <br><br>
-                  <a href="Exit" class="delete-user">회원탈퇴</a>
+                  <a onclick="checkExit()" class="delete-user">회원탈퇴</a>
              </div>
 
 
         </div>
     </div>
-    
+<script src="./js/jquery.min.js"></script>
+<script type="text/javascript">
+function checkExit(){
+	var result = confirm("정말로 탈퇴하시겠습니까?");
+	if(result==true){
+		location.href="Exit";
+	}
+}
+
+
+</script>
 
 
 </body>
