@@ -367,14 +367,20 @@ if(favList==null){
 							$("#dogCheckbox").html("");
 							//이거 체크박스로 바꾸기
 							if(res!="댕댕이가 없습니다"){
-								$("#dogCheckbox").append("같이 산책한 반려견🐶"+"<br>");
+								
+								var text = "";
+								text += "<table><tr><td>같이 산책한 반려견🐶<td></tr>";
 								for(var i=0 ; i<res.length ; i++){
-									var text = "";
+									text += "<tr><td>";
 									text += res[i];
 									text += "<input type='checkbox' id=\'"+res[i]+"\' style='width: 1.2rem; height: 1.6rem; margin-left: 0.8rem;'>";
-									$("#dogCheckbox").append(text);
+									text += "</td></tr>"
 									dogList.push(res[i]);
 								}
+								text += "</table>"
+								
+								$("#dogCheckbox").append(text);
+								
 							}else{
 								$("#dogCheckbox").append(res+"<br>");
 							}
