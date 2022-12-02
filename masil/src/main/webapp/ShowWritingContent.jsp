@@ -81,9 +81,11 @@ WRT writing = (WRT) request.getAttribute("writing");
  </form>
 
 <div class="reply_wrap">
+        <div id="comment-count">댓글 <span id="count"></span></div>
+    <div id=comments>
+    </div>
     <div id="form-commentInfo">
     <form action="insertCMT" method="post">
-        <div id="comment-count">댓글 <span id="count"></span></div>
         <input id="wrt_nbr" name="wrt_nbr" type="hidden" value="<%=writing.getWrt_nbr() %>">
         <input id="cmt_ath" name="cmt_ath" type="hidden" value="${sessionScope.loginedMBR.mbr_nbr}">
         <!-- 
@@ -92,8 +94,6 @@ WRT writing = (WRT) request.getAttribute("writing");
         <input id="comment-input" name="cmt_cnt" type="text" placeholder="댓글을 입력해 주세요.">
         <button name="inputCMT" id="submit">등록</button>
     </form>
-    </div>
-    <div id=comments>
     </div>
 </div>
 

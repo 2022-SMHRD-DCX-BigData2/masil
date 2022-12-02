@@ -64,6 +64,7 @@
     margin: 10px;  
     padding: 0.5em; 
     border-bottom: 1px solid #c1bcba;
+    font-size:0.95rem;
 }
 
 .eachComment .name{
@@ -75,8 +76,7 @@
 }
 
 .eachComment .inputValue{
-    font-size: 1.2em;
-    font-style: italic;   
+    font-size: 1.2em; 
 }
 
 .eachComment .time{
