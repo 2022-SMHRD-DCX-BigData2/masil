@@ -26,7 +26,7 @@ public class ChangePW extends HttpServlet {
 		int result = dao.ChangePW(mbr_nbr, mbr_pw);
 		if(result>0) {
 			System.out.println("비밀번호 변경 성공");
-			response.sendRedirect("Main.jsp");
+			response.sendRedirect("MyPage.jsp");
 		}else {
 			System.out.println("비밀번호 변경 실패");
 		}
