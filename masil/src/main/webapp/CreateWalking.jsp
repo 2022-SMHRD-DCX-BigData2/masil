@@ -62,12 +62,12 @@ request.setAttribute에 area_name,area_nbr,isChecked 가지고 다시 옴-->
                 		<div id="map" style="width:100%;height:350px;"></div>
                 		<div id="clickLatlng"></div>
                 	</div>
-                	<form action="InsertWalking" method="get" style="padding-left: 20px;">
+                	<form name="walking" action="InsertWalking" method="get" style="padding-left: 20px;">
 						<input type="hidden" name="wlk_name" value="${requestScope.wlk_name}"><!-- 목적지 이름 -->
 						<input type="hidden" name="area_nbr" value="${requestScope.area_nbr}"><!-- 지역 번호 -->
 					<div id="wlk_info"></div> 
          			<div class="bt_wrap">
-		               <button type="submit" class="on">등록</button>
+		               <button onclick="checkValue()" type="button" class="on">등록</button>
 		               <button type="reset" style="background-color:white;">취소</button>
 		              </div>
 					</form><!-- 목적지 이름 값이 없으면 목적지 이름을 정하라고 하고 돌려보내야 함 -->   		
@@ -127,6 +127,20 @@ request.setAttribute에 area_name,area_nbr,isChecked 가지고 다시 옴-->
 		marker.setMap(map);
 	    
 	});
+	
+function checkValue(){
+	var lat = $('input[name=lat]').val();
+	if(lat==null){
+		alert("목적지를 클릭해 주세요");
+	}else{
+		document.walking.submit();
+	}
+}
+	
+	
+	
+	
+	
 </script>
 
 
