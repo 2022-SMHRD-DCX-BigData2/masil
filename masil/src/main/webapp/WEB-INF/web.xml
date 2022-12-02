@@ -240,6 +240,12 @@
   	<description></description>
   	<servlet-class>controller.DeleteWLK_RT_MTH</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>checkID</servlet-name>
+  	<display-name>checkID</display-name>
+  	<description></description>
+  	<servlet-class>controller.checkID</servlet-class>
+  </servlet>
 
 
 
@@ -401,6 +407,10 @@
   <servlet-mapping>
   	<servlet-name>DeleteWLK_RT_MTH</servlet-name>
   	<url-pattern>/DeleteWLK_RT_MTH</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>checkID</servlet-name>
+  	<url-pattern>/checkID</url-pattern>
   </servlet-mapping>
 
 

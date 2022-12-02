@@ -22,7 +22,7 @@ $(document).ready(function(){
 		type : "get",
 		dataType : "json",
 		success : function(res){
-			console.log(res);
+			//console.log(res);
 			$("#selectbox").html("");
 			for(var i=0 ; i<res.length ; i++){
 				if(i==0){
@@ -41,7 +41,7 @@ $(document).ready(function(){
 		type : "get",
 		dataType : "json",
 		success : function(res){
-			console.log(res);
+			//console.log(res);
 			$("#selectNextbox").html("");
 			for(var i=0 ; i<res.length ; i++){
 				if(res[i].b_cls==temp){
@@ -62,7 +62,7 @@ function changeSelect(){
 		type : "get",
 		dataType : "json",
 		success : function(res){
-			console.log(res);
+			//console.log(res);
 			$("#selectNextbox").html("");
 			for(var i=0 ; i<res.length ; i++){
 				if(res[i].b_cls==select){
@@ -75,6 +75,32 @@ function changeSelect(){
 		}
 	});	
 }
+
+
+function checkID(){
+	var check = $("input[name=mbr_id]").val();
+	$.ajax({
+		url: "checkID",
+		data: {"check":check},
+		dataType : "text",
+		type: "POST",
+		success: function(res) {
+				if(res=="중복"){
+					$("#check").html("");
+					$("#check").css("color","red");
+					$("#check").append("이미 있는 아이디입니다.");
+				}else{
+					$("#check").html("");
+					$("#check").css("color","green");
+					$("#check").append("사용해도 좋은 아이디입니다.");
+				}
+		},
+		error: function(xhr) {
+			alert("ajax 아이디 체크 실패!");
+		}
+	});	
+
+}
 </script>
 </head>
 
@@ -84,8 +110,8 @@ function changeSelect(){
                                                                                                 
         <h2>회원가입</h2>
         <div class="textForm">
-        <input name="mbr_id" type="text" class="id" placeholder="아이디">
-        </input>
+        <input name="mbr_id" type="text" class="id" placeholder="아이디" onchange="checkID()">
+        	<div id="check" style="position:relative;top:5px"></div>
         </div>
         <div class="textForm">
         <input name="mbr_pw" type="text" class="pw" placeholder="비밀번호">

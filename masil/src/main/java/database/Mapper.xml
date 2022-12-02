@@ -273,4 +273,9 @@
       SELECT WLK_RT_NBR  FROM mth_wlk_rt_name WHERE wlk_nbr_for_wlk_rt=#{wlk_nbr_for_wlk_rt}
 </select>
 
+<!-- 아이디 중복 확인 -->
+<select id="checkID" parameterType="string" resultType="bigdecimal">
+      SELECT COUNT(*) FROM mbr WHERE mbr_id=#{mbr_id}
+</select>
+
 </mapper>
