@@ -35,7 +35,7 @@
                 <div class="title">
                     <dl>
                         <dt>경로 이름</dt>
-                        <dd><input type="text" id="wlk_rt_name" placeholder="이름입력"></dd>
+                        <dd><input type="text" id="wlk_rt_name" name="wlk_rt_name" placeholder="이름입력"></dd>
                     </dl>
                 </div>
                 <div class="cont">
@@ -331,44 +331,59 @@ function getTimeHTML(distance) {
 }
 
 function checkPath(){
-	var path = clickLine.getPath();
-	var wlk_rt_name = $("#wlk_rt_name").val();
-	var wlk_nbr = ${param.wlk_nbr};
-	var Lat ="";
-	for(var i = 0; i<path.length;i++){
-		Lat += path[i]["Ma"]+"|";
+	var check = 0
+	var name = $('input[name=wlk_rt_name]').val();
+	if(name.length==0){
+		alert("경로 이름을 입력해주세요.");
+		check=1;
 	}
-	var Lon="";
-	for(var i = 0; i<path.length;i++){
-		Lon += path[i]["La"]+"|";
+	if(clickLine==null){
+		alert("경로를 입력해 주세요.");
+		check=1;
 	}
-	$.ajax({
-		url : "CreateWalkingRT",
-		type : "post",
-		data : {"wlk_rt_name" :wlk_rt_name,
-			"wlk_nbr":wlk_nbr,
-			"Lat":Lat,
-			"Lon":Lon		
-		},
-		dataType:'text',
-		async : false,
-		success : function(res){
-			alert("CreateWalkingRT Ajax 통신 성공!!");
-			var next = "ShowWalkingRt.jsp?wlk_rt_nbr=";
-			location.href = next+res;
-			
-		},
-		error : function(){
-			alert("CreateWalkingRT Ajax 통신 실패!!");	
+	if(check==0){
+		var path = clickLine.getPath();
+		var wlk_rt_name = $("#wlk_rt_name").val();
+		var wlk_nbr = ${param.wlk_nbr};
+		var Lat ="";
+		for(var i = 0; i<path.length;i++){
+			Lat += path[i]["Ma"]+"|";
 		}
-	});
-	
-	
-	
-	
-	
-	
+		var Lon="";
+		for(var i = 0; i<path.length;i++){
+			Lon += path[i]["La"]+"|";
+		}
+		$.ajax({
+			url : "CreateWalkingRT",
+			type : "post",
+			data : {"wlk_rt_name" :wlk_rt_name,
+				"wlk_nbr":wlk_nbr,
+				"Lat":Lat,
+				"Lon":Lon		
+			},
+			dataType:'text',
+			async : false,
+			success : function(res){
+				alert("CreateWalkingRT Ajax 통신 성공!!");
+				var next = "ShowWalkingRt.jsp?wlk_rt_nbr=";
+				location.href = next+res;
+				
+			},
+			error : function(){
+				alert("CreateWalkingRT Ajax 통신 실패!!");	
+			}
+		});
+	}
+
 }
+
+
+
+
+
+	
+
+
 
     
 </script>
