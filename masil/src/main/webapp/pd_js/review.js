@@ -34,9 +34,10 @@ $(document).on("click","#close",function() {
 	text += "☆".repeat(5-starNum);
 	text += "<br><br>";
 	text += $("#comment-input2").val();
-	console.log(text)
-	
-    $.ajax({
+	if($("#comment-input2").val().length==0||$("#comment-input1").val().length==0){
+		alert("내용을 입력해주세요");
+	}else{
+	$.ajax({
 		url: "CreateWriting",
 		data: {
 			"type":$("#type").val(),
@@ -55,6 +56,11 @@ $(document).on("click","#close",function() {
 			alert("리뷰 등록 오류!");
 		}
 	});	
+		
+		
+	}
+
+
 });
 
 

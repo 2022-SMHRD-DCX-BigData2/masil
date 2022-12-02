@@ -94,7 +94,7 @@ if(favList==null){
 
 							</div>
 			
-							<button id="close" onclick="clearInput()" ><a style="color: white;">등록</a></button>
+							<button id="close" onclick="clearInput()" ><a style="color:white;">등록</a></button>
 						</div>
 						
 					</div>
