@@ -89,7 +89,7 @@ function checkID(){
 				if(res=="중복"){
 					$("#check").html("");
 					$("#check").css("color","red");
-					$("#check").append("이미 있는 아이디입니다.");
+					$("#check").append("중복된 아이디입니다.");
 					isOkey = 1;
 				}else if(check.length==0){
 					$("#check").html("");					
@@ -98,7 +98,7 @@ function checkID(){
 				}else{
 					$("#check").html("");
 					$("#check").css("color","green");
-					$("#check").append("사용해도 좋은 아이디입니다.");
+					$("#check").append("사용가능한 아이디입니다.");
 					isOkey = 2;
 				}
 		},
@@ -134,7 +134,7 @@ function isOkeyf(){
         <h2>회원가입</h2>
         <div class="textForm">
         <input name="mbr_id" type="text" class="id" placeholder="아이디" onchange="checkID()">
-        	<div id="check" style="position:relative;top:5px"></div>
+        	<div id="check" style="position:relative;top:3px; font-size: 14px;"></div>
         </div>
         <div class="textForm">
         <input name="mbr_pw" type="password" class="pw" placeholder="비밀번호">

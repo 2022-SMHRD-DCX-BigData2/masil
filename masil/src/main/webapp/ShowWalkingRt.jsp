@@ -54,14 +54,15 @@ if(favList==null){
 
 				<br>
 				<div>
+
+					<!-- 댕댕이 목록(체크박스) 비동기 통신으로 보여주기 -->
+					<div id="dogCheckbox"></div>
 					<!-- 강아지, 인증버튼 -->
+				</div>
+				<br>
 					<div id="record">
 					<button name="startRecord" class="inst">인증시작</button><br>
 					</div>
-					<br>
-					<!-- 댕댕이 목록(체크박스) 비동기 통신으로 보여주기 -->
-					<div id="dogCheckbox"></div>
-				</div>
 			</div>
 		</div>
 	</div>
@@ -369,11 +370,11 @@ if(favList==null){
 							if(res!="댕댕이가 없습니다"){
 								
 								var text = "";
-								text += "<table><tr><td>같이 산책한 반려견🐶<td></tr>";
+								text += "<table><tr><td style='font-size: 1.4rem; padding-bottom: 0.5rem;'>같이 산책한 🐶</td></tr>";
 								for(var i=0 ; i<res.length ; i++){
 									text += "<tr><td>";
 									text += res[i];
-									text += "<input type='checkbox' id=\'"+res[i]+"\' style='width: 1.2rem; height: 1.6rem; margin-left: 0.8rem;'>";
+									text += "<input type='checkbox' id=\'"+res[i]+"\' style='width: 1.2rem; height: 1.6rem; float: right;'>";
 									text += "</td></tr>"
 									dogList.push(res[i]);
 								}

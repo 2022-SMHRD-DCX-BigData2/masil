@@ -482,7 +482,8 @@ button.nl:hover{
 .inst{
 	border: 1px solid;
     background-color: white;
-    height: 2.5rem;
+    width: 8rem;
+    height: 2.2rem;
     border-radius: 4px;
 }
 
@@ -496,3 +497,6 @@ button.nl:hover{
     font-size: 1.1rem;
 }
 
+#record{
+    padding-bottom: 0.7rem;
+}
