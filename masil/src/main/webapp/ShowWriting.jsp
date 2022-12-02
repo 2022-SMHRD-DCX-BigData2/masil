@@ -31,7 +31,7 @@
         </div>
         
 	<div class="search" style="position:relative;">
-		<form action="SearchWRT" method="post">
+		<form name="search" action="SearchWRT" method="post">
 	 		<select name="ttl_or_cnt" style="height: 40px; width: 7rem;">
 				<option value="ttl">글제목</option>
 				<option value="ath">글쓴이</option>
@@ -39,7 +39,7 @@
 			<input type="hidden" name="type" value="${requestScope.type}">
 			<input type="hidden" name="type_nbr" value="${requestScope.type_nbr}">
 			<input type="text" name="target" placeholder="검색어를 입력해주세요." class="ipt">
-			<button class="gm">검색</button>
+			<button type="button" onclick="checkValue()" class="gm">검색</button>
 		</form>
 	</div>
 	<br>
@@ -130,6 +130,19 @@ function GetId(mbr_nbr) {
 	});
 	return mbr_id;
 }
+
+
+function checkValue(){
+	var text = $("input[name=target]").val();
+	if(text.length==0){
+		alert("검색어를 입력해주세요.");
+	}else{
+		document.search.submit();
+	}
+	
+	
+}
+
 </script>
 </body>
 </html>
