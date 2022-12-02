@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="./CSS/fb_owl-carousel.css">
     <link rel="stylesheet" href="./CSS/fl_css.css">
     
-<title>Insert title here</title>
+<title>자유게시판</title>
 </head>
 <body>
 <!-- Header --> 

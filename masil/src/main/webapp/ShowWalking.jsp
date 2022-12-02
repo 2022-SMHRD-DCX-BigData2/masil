@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 <link rel="stylesheet" href="./dstn_css/dstn_list.css" />
-<title>Insert title here</title>
+<title>산책목적지</title>
 <script src="./dstn_js/jquery.min.js"></script>
 <script src="./dstn_js/browser.min.js"></script>
 <script src="./dstn_js/breakpoints.min.js"></script>

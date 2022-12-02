@@ -8,7 +8,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="Favorites.css">
-<title>Insert title here</title>
+<title>관리자</title>
 </head>
 <body>
 <%@ include file="header.jsp" %>

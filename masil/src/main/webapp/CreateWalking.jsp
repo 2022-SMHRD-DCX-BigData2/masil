@@ -12,7 +12,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Cutive+Mono&family=Poppins:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" type="text/css" media="screen" href="./CSS/path_list_write.css">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-<title>Insert title here</title>
+<title>목적지등록</title>
 </head>
 <body>
 <%@ include file="header.jsp" %>

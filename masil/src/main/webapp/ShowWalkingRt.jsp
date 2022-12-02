@@ -9,7 +9,7 @@
 
 <!--  This file has been downloaded from bootdey.com @bootdey on twitter -->
 <!--  All snippets are MIT license http://bootdey.com/license -->
-<title>path_detail</title>
+<title>경로상세</title>
 <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
 <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
 <script src="https://netdna.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
@@ -383,7 +383,7 @@ if(favList==null){
 								$("#dogCheckbox").append(text);
 								
 							}else{
-								$("#dogCheckbox").append(res+"<br>");
+								$("#dogCheckbox").append("등록한 반려견🐶이 없습니다."+"<br>");
 							}
 							
 							

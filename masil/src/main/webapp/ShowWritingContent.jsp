@@ -15,7 +15,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"/>
 <link href="https://fonts.googleapis.com/css2?family=Cutive+Mono&family=Poppins:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-<title>Insert title here</title>
+<title>자유게시판</title>
 </head>
 <body>
 <!-- Header --> 
@@ -42,7 +42,7 @@ WRT writing = (WRT) request.getAttribute("writing");
 	        		<strong>모임 게시판</strong>
 	        	</c:otherwise>
             </c:choose>
-            <p>산책로 관련하여 자유롭게 의견을 나눠주세요!</p>
+            <p>자유롭게 의견을 나눠주세요!</p>
             
         </div>
 

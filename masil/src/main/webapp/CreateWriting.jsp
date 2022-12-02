@@ -13,7 +13,7 @@
 <link rel="stylesheet" type="text/css" media="screen" href="reply.css">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
-<title>Insert title here</title>
+<title>자유게시판</title>
 </head>
 <body  style="width: 1000px; display: contents;">
 <%@ include file="header.jsp" %>
@@ -40,7 +40,7 @@ MBR loginedMBR = (MBR) session.getAttribute("loginedMBR");
 	        		<strong>모임 게시판</strong>
 	        	</c:otherwise>
             </c:choose>
-            <p>산책로 관련하여 자유롭게 의견을 나눠주세요!</p>
+            <p>자유롭게 의견을 나눠주세요!</p>
         </div>
 
         <div class="board_write_wrap">
