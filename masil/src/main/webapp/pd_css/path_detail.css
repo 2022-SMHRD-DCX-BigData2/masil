@@ -500,3 +500,8 @@ button.nl:hover{
 #record{
     padding-bottom: 0.7rem;
 }
+
+.nl{
+	display: flex;
+    position: fixed;
+}

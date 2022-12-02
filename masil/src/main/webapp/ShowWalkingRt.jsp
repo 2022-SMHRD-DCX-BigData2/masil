@@ -30,8 +30,8 @@
     <div class="container confirm" style="margin-top: 48px;">
 		<div class="card" style="width: 69.3rem;">
 			<div class="card-body text-center">
-				<div id="mark">			
 		<button name="nowLoc" class="nl">현재 위치 확인하기</button>
+				<div id="mark">			
 <!-- 즐겨찾기 -->
 <%
 int wlk_rt_nbr = Integer.parseInt(request.getParameter("wlk_rt_nbr"));

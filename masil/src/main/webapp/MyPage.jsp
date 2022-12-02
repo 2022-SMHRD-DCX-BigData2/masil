@@ -11,7 +11,7 @@
 <link rel="stylesheet" href="Mypage.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"/>
 <link href="https://fonts.googleapis.com/css2?family=Cutive+Mono&family=Poppins:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
-<title>My Page</title>
+<title>마이페이지</title>
 <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
 <script src="Mypage.js"></script>
 <script type="text/javascript">
