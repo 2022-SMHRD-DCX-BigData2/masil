@@ -76,6 +76,7 @@ function changeSelect(){
 	});	
 }
 
+var isOkey = 0;
 
 function checkID(){
 	var check = $("input[name=mbr_id]").val();
@@ -89,10 +90,16 @@ function checkID(){
 					$("#check").html("");
 					$("#check").css("color","red");
 					$("#check").append("이미 있는 아이디입니다.");
+					isOkey = 1;
+				}else if(check.length==0){
+					$("#check").html("");					
+					$("#check").css("color","blue");
+					$("#check").append("아이디를 입력하세요.");
 				}else{
 					$("#check").html("");
 					$("#check").css("color","green");
 					$("#check").append("사용해도 좋은 아이디입니다.");
+					isOkey = 2;
 				}
 		},
 		error: function(xhr) {
@@ -100,13 +107,29 @@ function checkID(){
 		}
 	});	
 
-}
+};
+
+function isOkeyf(){
+	var check = $("input[name=mbr_id]").val();
+	if(isOkey==0||check.length==0){
+		alert('아이디를 입력하세요');
+		return false;
+	}else if(isOkey==1){
+		alert('중복된 아이디 입니다');
+		return false;
+	}else if(isOkey==2){
+		document.join.submit();
+	}
+};
+
+
+
 </script>
 </head>
 
 <body>
 
-    <form action="Join" method="POST" class="joinForm" onsubmit="DoJoinForm__submit(this);">
+    <form name="join" action="Join" method="POST" class="joinForm" onsubmit="DoJoinForm__submit(this);">
                                                                                                 
         <h2>회원가입</h2>
         <div class="textForm">
@@ -114,13 +137,13 @@ function checkID(){
         	<div id="check" style="position:relative;top:5px"></div>
         </div>
         <div class="textForm">
-        <input name="mbr_pw" type="text" class="pw" placeholder="비밀번호">
+        <input name="mbr_pw" type="password" class="pw" placeholder="비밀번호">
         </div>
         <div class="textForm">
         <select id="selectbox" name="b_cls"  class="area" placeholder="지역" onchange="changeSelect()"></select>
         <select id="selectNextbox" name="s_cls" class="area2" placeholder="지역"></select>
         </div>
-        <input type="submit" class="btn" value="J O I N"/>
+        <input type="button" class="btn" value="J O I N" onclick="isOkeyf()"/>
     </form>
 
 

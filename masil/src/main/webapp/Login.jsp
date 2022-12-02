@@ -27,7 +27,7 @@
            		   </div>
            		   <div class="div">
            		   		<h5>Username</h5>
-           		   		<input type="text" class="input" onchange="checkID" name="mbr_id">
+           		   		<input type="text" class="input" name="mbr_id">
            		   </div>
            		</div>
            		<div class="input-div pass">
@@ -48,24 +48,7 @@
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
 <script type="text/javascript">
 
-function checkID(){
-	int check = $("input[name='mbr_id']").val();
-	$.ajax({
-		url: "checkID",
-		data: {"check":check},
-		dataType : "text",
-		type: "POST",
-		success: function(res) {
-				mbr_id=res;
-		},
-		error: function(xhr) {
-			alert("ajax 아이디 체크 실패");
-		}
-	});	
-	
-	
-	
-}
+
 
 
 
