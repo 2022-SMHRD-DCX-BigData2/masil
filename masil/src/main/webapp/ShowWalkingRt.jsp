@@ -6,16 +6,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<style>
-.dot {overflow:hidden;float:left;width:12px;height:12px;background: url('https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/mini_circle.png');}    
-.dotOverlay {position:relative;bottom:10px;border-radius:6px;border: 1px solid #ccc;border-bottom:2px solid #ddd;float:left;font-size:12px;padding:5px;background:#fff;}
-.dotOverlay:nth-of-type(n) {border:0; box-shadow:0px 1px 2px #888;}    
-.number {font-weight:bold;color:#ee6152;}
-.dotOverlay:after {content:'';position:absolute;margin-left:-6px;left:50%;bottom:-8px;width:11px;height:8px;background:url('https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/vertex_white_small.png')}
-.distanceInfo {position:relative;top:5px;left:5px;list-style:none;margin:0;}
-.distanceInfo .label {display:inline-block;width:50px;}
-.distanceInfo:after {content:none;}
-</style>
+
 <!--  This file has been downloaded from bootdey.com @bootdey on twitter -->
 <!--  All snippets are MIT license http://bootdey.com/license -->
 <title>path_detail</title>
@@ -64,10 +55,8 @@ if(favList==null){
 				<br>
 				<div>
 					<!-- 강아지, 인증버튼 -->
-					
-					<br><br>
 					<div id="record">
-					<button name="startRecord">인증시작</button><br>
+					<button name="startRecord" class="inst">인증시작</button><br>
 					</div>
 					<br>
 					<!-- 댕댕이 목록(체크박스) 비동기 통신으로 보여주기 -->
@@ -378,11 +367,11 @@ if(favList==null){
 							$("#dogCheckbox").html("");
 							//이거 체크박스로 바꾸기
 							if(res!="댕댕이가 없습니다"){
-								$("#dogCheckbox").append("같이 하는 댕댕이<br>");
+								$("#dogCheckbox").append("같이 산책한 반려견🐶"+"<br>");
 								for(var i=0 ; i<res.length ; i++){
 									var text = "";
 									text += res[i];
-									text += "<input type='checkbox' id=\'"+res[i]+"\' >";
+									text += "<input type='checkbox' id=\'"+res[i]+"\' style='width: 1.2rem; height: 1.6rem; margin-left: 0.8rem;'>";
 									$("#dogCheckbox").append(text);
 									dogList.push(res[i]);
 								}

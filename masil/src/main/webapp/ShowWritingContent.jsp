@@ -61,7 +61,7 @@ WRT writing = (WRT) request.getAttribute("writing");
                     </dl>
                 </div>
                 <div class="cont" >
-                    <div style="padding-top: 1.5rem; padding-left: 1rem; height: 190px; font-size: larger;}"><%=writing.getWrt_cnt() %></div>
+                    <div style="padding-top: 1.5rem; padding-left: 1rem; height: 190px; font-size: 1.15rem;"><%=writing.getWrt_cnt() %></div>
                 </div>
                 <c:if test="${sessionScope.loginedMBR.mbr_nbr eq requestScope.writing.wrt_ath||loginedMBR.mbr_type eq 'ADMIN'}">
 	                <div class="bt_wrap">

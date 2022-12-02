@@ -40,11 +40,11 @@
 	position:relative;
 	left : 90%;
     background-color: black;
-    width: 5.5em;
-    height: 3.3em;;
+    width: 4em;
+    height: 3.15em;;
     font-size: 15px;
-    font-weight: bold;
-    color: aliceblue;
+    font-weight: light;
+    color: white;
     border: 0;
     border-radius: 4px;
 }
