@@ -25,14 +25,18 @@ public class Login extends HttpServlet {
 		String mbr_id = request.getParameter("mbr_id");
 		String mbr_pw = request.getParameter("mbr_pw");
 		
+		
 		MBR loginedMbr = new MBR(mbr_id, mbr_pw);	
 		MBR_DAO dao = new MBR_DAO();
 		MBR loginedMbr2 = dao.loginMember(loginedMbr);
 		
-		HttpSession session = request.getSession();
-		session.setAttribute("loginedMBR",loginedMbr2);
-
-		response.sendRedirect("Main.jsp");
+		if(loginedMbr2==null) {
+			response.sendRedirect("Login.jsp?result=0");
+		}else {		
+			HttpSession session = request.getSession();
+			session.setAttribute("loginedMBR",loginedMbr2);
+			response.sendRedirect("Main.jsp");
+		}
 	}
 
 }

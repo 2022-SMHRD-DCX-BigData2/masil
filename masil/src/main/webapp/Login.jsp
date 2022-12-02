@@ -1,6 +1,5 @@
-
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" isELIgnored="false"%>  
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix= "c"  %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,7 +8,13 @@
 	<link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
 	<script src="https://kit.fontawesome.com/a81368914c.js"></script>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+<script type="text/javascript">
+if(${param.result}==0){
+	alert("정확한 아이디와 비밀번호를 입력해 주세요");
+}
 
+</script>
 </head>
 <body>
 	<img class="wave" src="./LoginForm/img/wave.png">
