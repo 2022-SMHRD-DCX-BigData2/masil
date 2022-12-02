@@ -71,6 +71,7 @@ MBR loginedMBR = (MBR) session.getAttribute("loginedMBR");
 </form>
 
 <script src="./js/jquery.min.js"></script>
+
 <script>
 	function but(){
 		var title = $("input[name=title]").val();
@@ -84,7 +85,6 @@ MBR loginedMBR = (MBR) session.getAttribute("loginedMBR");
 		
 		
 	}
-
 </script>
 
 
