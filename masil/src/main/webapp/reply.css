@@ -20,8 +20,9 @@
 }
 
 #form-commentInfo{
-	
     width: 100%;
+    margin-top: 47px;
+    margin-bottom: 26%;
 }
 
 #comment-count{
