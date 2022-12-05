@@ -34,7 +34,7 @@
                 </a>
                 <div class="main">
                     <div class="image">
-
+                    <img class="image" src="LoginForm/css/images/KakaoTalk_20221205_122237975.jpg" alt="alternative">
                     </div>
                     <!--<div class="image2"></div>-->
                     <h3 class="name">${sessionScope.loginedMBR.mbr_id}</h3>

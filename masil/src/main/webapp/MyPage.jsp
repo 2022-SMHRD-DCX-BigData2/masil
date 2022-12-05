@@ -32,7 +32,7 @@
                 </a>
                 <div class="main">
                     <img class="image" src="LoginForm/css/images/KakaoTalk_20221205_122237975.jpg" alt="alternative">
-                    <div class="image2"><img class="image" src="LoginForm/css/images/KakaoTalk_20221205_122237975.jpg" alt="alternative"></div>
+                    <div class="image2"></div>
                     <h3 class="name">${sessionScope.loginedMBR.mbr_id}</h3>
                     <h3 class="sub-name">PATHWAY</h3>
                 </div>
