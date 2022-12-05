@@ -96,10 +96,10 @@ MBR loginedMBR = (MBR) session.getAttribute("loginedMBR");
                     <div class="card-image">
                         <!-- 목적지연결 -->
                         <c:if test="${not empty loginedMBR}">
-                        	<a href="Writing?area_nbr=${loginedMBR.area_nbr_for_mbr}&wrt_type=4"><img class="img-fluid1" src="./main_img/walking%20(1).png" alt="alternative"></a>
+                        	<a href="Writing?area_nbr=${loginedMBR.area_nbr_for_mbr}&wrt_type=4"><img class="img-fluid1" src="main_img/KakaoTalk_20221205_145205331.png" alt="alternative"></a>
                    		</c:if>
                    		<c:if test="${empty loginedMBR}">
-                   			 <img class="img-fluid1" src="./main_img/walking (1).png" alt="alternative" onclick="alert('로그인 부탁드립니다')">
+                   			 <img class="img-fluid1" src="main_img/KakaoTalk_20221205_145205331.png" alt="alternative" onclick="alert('로그인 부탁드립니다')">
                    		</c:if>
                     </div>
                     <div class="card-body">
@@ -114,10 +114,10 @@ MBR loginedMBR = (MBR) session.getAttribute("loginedMBR");
                     <div class="card-image">
 						<c:if test="${not empty loginedMBR}">
                         <!-- 자유게시판연결 -->
-                        	<a href="Writing?wrt_type=1&type_nbr=0"><img class="img-fluid1" src="./main_img/list-items.png" alt="alternative"></a>
+                        	<a href="Writing?wrt_type=1&type_nbr=0"><img class="img-fluid1" src="main_img/list-itemsdd.png" alt="alternative"></a>
                    		</c:if>
                    		<c:if test="${empty loginedMBR}">
-                   			 <img class="img-fluid1" src="./main_img/list-items.png" alt="alternative" onclick="alert('로그인 부탁드립니다')">
+                   			 <img class="img-fluid1" src="main_img/list-itemsdd.png" alt="alternative" onclick="alert('로그인 부탁드립니다')">
                    		</c:if>
                     </div>
                     <div class="card-body">
@@ -133,10 +133,10 @@ MBR loginedMBR = (MBR) session.getAttribute("loginedMBR");
 
                         <!-- 마이페이지연결 -->
                         <c:if test="${not empty loginedMBR}">
-                        	<a href="MyPage.jsp"><img class="img-fluid1" src="./main_img/save-animals.png" alt="alternative"></a>
+                        	<a href="MyPage.jsp"><img class="img-fluid1" src="main_img/save-animalsdd.png" alt="alternative"></a>
                     	</c:if>
                     	<c:if test="${empty loginedMBR}">
-                    		<img class="img-fluid1" src="./main_img/save-animals.png" alt="alternative" onclick="alert('로그인 부탁드립니다')">
+                    		<img class="img-fluid1" src="main_img/save-animalsdd.png" alt="alternative" onclick="alert('로그인 부탁드립니다')">
                     	</c:if>
                     </div>
                     <div class="card-body">

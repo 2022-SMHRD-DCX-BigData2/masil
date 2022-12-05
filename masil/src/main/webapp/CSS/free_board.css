@@ -1234,4 +1234,6 @@ preloader
 	width: 5rem;
 	border: 1px solid black;
 	background-color: white;
+	border-radius: 2px;
+	
 }

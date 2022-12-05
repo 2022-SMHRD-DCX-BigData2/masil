@@ -183,6 +183,7 @@ button:hover {
     border-radius: 5px;
     height: 36px;
     color: white;
+    padding: 0 10px;
 }
 
 a {
@@ -483,7 +484,7 @@ button.nl:hover{
     background-color: white;
     width: 8rem;
     height: 2.2rem;
-    border-radius: 4px;
+    border-radius: 3px;
 }
 
 .inst:hover{
