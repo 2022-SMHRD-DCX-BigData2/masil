@@ -1,20 +1,19 @@
 
-@font-face {
-    font-family: 'NanumSquareRound';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NanumSquareRound.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+
+.notosanskr * { 
+ font-family: 'Noto Sans KR', sans-serif;
 }
 
 *{
 	padding: 0;
 	margin: 0;
 	box-sizing: border-box;
-	font-family: 'NanumSquareRound';
+	font-family: 'Noto Sans KR', sans-serif;
 }
 
 body{
-    font-family: 'NanumSquareRound';
+    font-family: 'Noto Sans KR', sans-serif;
     overflow: hidden;
 }
 
@@ -156,7 +155,7 @@ form{
 	padding: 0.5rem 0.7rem;
 	font-size: 1.2rem;
 	color: #555;
-	font-family: 'NanumSquareRound';
+	font-family: 'Noto Sans KR', sans-serif;
 }
 
 .input-div.pass{
@@ -187,7 +186,7 @@ a:hover{
 	background-size: 200%;
 	font-size: 1.2rem;
 	color: #fff;
-	font-family: 'NanumSquareRound';
+	font-family: 'Noto Sans KR', sans-serif;
 	text-transform: uppercase;
 	margin: 1rem 0;
 	cursor: pointer;

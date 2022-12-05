@@ -4,6 +4,12 @@
  * Copyright 2011-2019 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
+ 
+ @import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+
+.notosanskr * { 
+ font-family: 'Noto Sans KR', sans-serif;
+}
 :root {
   --blue: #007bff;
   --indigo: #6610f2;
@@ -477,14 +483,14 @@ mark,
 }
 
 .img-fluid {
-  width: 110%;
+  width: 90%;
   height: auto;
   margin-left: -5rem;
   margin-top: -4.5rem;
 }
 
 .img-fluid1{
-  max-width: 100%;
+  max-width: 90%;
   height: auto;
 }
 

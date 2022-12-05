@@ -99,12 +99,12 @@ MBR loginedMBR = (MBR) session.getAttribute("loginedMBR");
                         	<a href="Writing?area_nbr=${loginedMBR.area_nbr_for_mbr}&wrt_type=4"><img class="img-fluid1" src="./main_img/walking%20(1).png" alt="alternative"></a>
                    		</c:if>
                    		<c:if test="${empty loginedMBR}">
-                   			 <img class="img-fluid1" src="./main_img/walking%20(1).png" alt="alternative" onclick="alert('로그인 부탁드립니다')">
+                   			 <img class="img-fluid1" src="./main_img/walking (1).png" alt="alternative" onclick="alert('로그인 부탁드립니다')">
                    		</c:if>
                     </div>
                     <div class="card-body">
                         <h4 class="card-title">PATH</h4>
-                        <p>목적지/경로 보러가기</p>
+                        <p class="p">목적지/경로 보러가기</p>
                     </div>
                 </div>
                 <!-- end of card -->
@@ -122,7 +122,7 @@ MBR loginedMBR = (MBR) session.getAttribute("loginedMBR");
                     </div>
                     <div class="card-body">
                         <h4 class="card-title">FREE_BOARD</h4>
-                        <p>반려견 자랑/소통소통</p>
+                        <p class="p">반려견 자랑/소통소통</p>
                     </div>
                 </div>
                 <!-- end of card -->
@@ -141,7 +141,7 @@ MBR loginedMBR = (MBR) session.getAttribute("loginedMBR");
                     </div>
                     <div class="card-body">
                         <h4 class="card-title">MYPAGE</h4>
-                        <p>비밀번호변경/반려견등록/즐겨찾기목록</p>
+                        <p class="p">비밀번호변경/반려견등록/즐겨찾기목록</p>
                     </div>
                 </div>
                 <!-- end of card -->

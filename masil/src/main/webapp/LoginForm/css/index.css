@@ -1,11 +1,10 @@
 @import url("fontawesome-all.min.css");
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,400,400italic,600,600italic,700,700italic");
-@font-face {
-    font-family: 'Cafe24Ohsquare';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/Cafe24Ohsquare.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-  }
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+
+.notosanskr * { 
+ font-family: 'Noto Sans KR', sans-serif;
+}
 
 /*
 	Directive by HTML5 UP
@@ -29,7 +28,9 @@ section, summary, time, mark, audio, video {
 	border: 0;
 	font-size: 100%;
 	font: inherit;
-	vertical-align: baseline;}
+	vertical-align: baseline;
+	font-family: 'Noto Sans KR', sans-serif;
+	}
 
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
@@ -109,7 +110,7 @@ input, select, textarea {
 
 	body, input, select, textarea {
 		color: #6e6e6e;
-		font-family: 'Cafe24Ohsquare';
+		font-family: 'Noto Sans KR', sans-serif;
 		font-size: 16pt;
 		font-weight: 400;
 		line-height: 1.75em;
@@ -2534,7 +2535,7 @@ input, select, textarea {
 		background-size: 200%;
 		font-size: 1.2rem;
 		color: #fff;
-		font-family:'Cafe24Ohsquare';
+		font-family: 'Noto Sans KR', sans-serif;
 		text-transform: uppercase;
 		margin: 1rem 0;
 		cursor: pointer;

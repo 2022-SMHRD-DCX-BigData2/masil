@@ -25,7 +25,7 @@ String favList = loginedMBR.getFav_list();
 							<article class="post">
 								<header>
 									<div class="title">
-										<h2><a href="#">${param.wlk_name}</a></h2>
+										<h2>${param.wlk_name}</h2>
 										<p>즐거운 산책 되세요!</p>
 									</div>
 									<div class="meta">

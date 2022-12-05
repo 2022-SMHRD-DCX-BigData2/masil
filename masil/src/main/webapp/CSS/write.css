@@ -1,5 +1,15 @@
 /* 댓글기능 CSS 시작 */
 
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+
+.notosanskr * { 
+ font-family: 'Noto Sans KR', sans-serif;
+}
+
+*{
+	font-family: 'Noto Sans KR', sans-serif;
+}
+
 .reply_wrap{
     margin: 0;
     padding: 0;

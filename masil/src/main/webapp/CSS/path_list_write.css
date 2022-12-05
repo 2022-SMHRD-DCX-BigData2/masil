@@ -1,4 +1,15 @@
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+
+.notosanskr * { 
+ font-family: 'Noto Sans KR', sans-serif;
+}
+
+
 /* 댓글기능 CSS 시작 */
+*{
+	font-family: 'Noto Sans KR', sans-serif;
+}
+
 body{
     margin-top: 8px;
     padding-top: 30px;

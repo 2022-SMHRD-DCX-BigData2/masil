@@ -2,15 +2,14 @@
   background: #f4f4f4;
 } */
 
-@font-face {
-    font-family: 'NanumSquareRound';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NanumSquareRound.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+
+.notosanskr * { 
+ font-family: 'Noto Sans KR', sans-serif;
 }
 
 *{
-    font-family: 'NanumSquareRound';
+    font-family: 'Noto Sans KR', sans-serif;
 }
 
 
@@ -78,7 +77,7 @@ body {
     display: inline-block;
     margin-right: 15px;
     padding: 4px 10px;
-    font-family: 'NanumSquareRound';
+    font-family: 'Noto Sans KR', sans-serif;
     transition: all ease 0.4s;
     background: #edf0f3;
     border-radius: 50px;

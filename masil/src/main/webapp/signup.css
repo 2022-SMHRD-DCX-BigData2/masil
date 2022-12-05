@@ -1,8 +1,7 @@
-@font-face {
-    font-family: 'NanumSquareRound';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NanumSquareRound.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+
+.notosanskr * { 
+ font-family: 'Noto Sans KR', sans-serif;
 }
 
 
@@ -10,12 +9,12 @@
     margin: 0px;
     padding: 0px;
     text-decoration: none;
-    font-family: 'NanumSquareRound';
+    font-family: 'Noto Sans KR', sans-serif;
   
   }
 
   body {
-    font-family: 'NanumSquareRound';
+    font-family: 'Noto Sans KR', sans-serif;
     background-image:#34495e;
   }
   
@@ -43,7 +42,7 @@
     margin: 15px;
     padding-top: 10px;
     height:45px;
-    font-family: 'NanumSquareRound';
+    font-family: 'Noto Sans KR', sans-serif;
     text-align: left;
   }
   
@@ -56,7 +55,7 @@
     font-size:16px;
     height:45px;
     background: none;
-    font-family: 'NanumSquareRound';
+    font-family: 'Noto Sans KR', sans-serif;
   }
   
   .pw {
@@ -67,13 +66,13 @@
     font-size:16px;
     height:45px;
     background: none;
-    font-family: 'NanumSquareRound';
+    font-family: 'Noto Sans KR', sans-serif;
   }
  
   .area {
     width: 90px; 
     border: rgba(255, 255, 255, 0.0);
-    font-family: 'NanumSquareRound';
+    font-family: 'Noto Sans KR', sans-serif;
     background: url('arrow.jp') no-repeat 95% 50%; 
 /*     -webkit-appearance: none; 
     -moz-appearance: none;
@@ -87,7 +86,7 @@
   .area2 {
     width: 90px; 
     border: rgba(255, 255, 255, 0.0);
-    font-family: 'NanumSquareRound';
+    font-family: 'Noto Sans KR', sans-serif;
     background: url('arrow.jp') no-repeat 95% 50%; 
 /*     border-radius: 0px; 
     -webkit-appearance: none; 
@@ -109,7 +108,7 @@
     background-position: left;
     background-size: 200%;
     color:white;
-    font-family: 'NanumSquareRound';
+    font-family: 'Noto Sans KR', sans-serif;
     font-weight: bold;
     border:none;
     cursor:pointer;

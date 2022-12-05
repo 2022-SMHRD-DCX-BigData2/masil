@@ -1,13 +1,12 @@
 /* 댓글기능 CSS 시작 */
-@font-face {
-    font-family: 'NanumSquareRound';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NanumSquareRound.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+
+.notosanskr * { 
+ font-family: 'Noto Sans KR', sans-serif;
 }
 
 *{
-    font-family: 'NanumSquareRound';
+    font-family: 'Noto Sans KR', sans-serif;
 }
 
 
@@ -16,12 +15,13 @@
     margin-left: 22.8%;
     padding: 0;
     width: 55%;
+    padding-top: 30px;
     
 }
 
 #form-commentInfo{
     width: 100%;
-    margin-top: 47px;
+    margin-top: 20px;
     margin-bottom: 26%;
 }
 
@@ -131,9 +131,9 @@ a{
 }
 
 .board_wrap{
-    margin: 0;
-    padding: 0;
-    width: 935px;
+	margin: 0;
+	padding: 0;
+    width: 870px;
     margin: 100px auto;
     margin-bottom: 35px;
     font-weight: lighter;

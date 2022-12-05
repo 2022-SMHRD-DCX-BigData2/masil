@@ -82,8 +82,8 @@ WRT writing = (WRT) request.getAttribute("writing");
 
 <div class="reply_wrap">
         <div id="comment-count">댓글 <span id="count"></span></div>
-    <div id=comments>
-    </div>
+<!--     <div id=comments>
+    </div> -->
     <div id="form-commentInfo">
     <form action="insertCMT" method="post">
         <input id="wrt_nbr" name="wrt_nbr" type="hidden" value="<%=writing.getWrt_nbr() %>">
