@@ -85,7 +85,7 @@ WRT writing = (WRT) request.getAttribute("writing");
 <!--     <div id=comments>
     </div> -->
     <div id="form-commentInfo">
-    <form action="insertCMT" method="post">
+    <form action="insertCMT" method="post" style="width: 140%;">
         <input id="wrt_nbr" name="wrt_nbr" type="hidden" value="<%=writing.getWrt_nbr() %>">
         <input id="cmt_ath" name="cmt_ath" type="hidden" value="${sessionScope.loginedMBR.mbr_nbr}">
         <!-- 

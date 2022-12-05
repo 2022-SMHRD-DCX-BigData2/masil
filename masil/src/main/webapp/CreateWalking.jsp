@@ -19,7 +19,7 @@
 <!-- 목적지 이름이 중복되는가 확인해야 함 중복이 안 되면
 request.setAttribute에 area_name,area_nbr,isChecked 가지고 다시 옴-->
 
-    <div class="board_wrap">
+    <div class="board_wrap" style="margin-top: 128px;">
         <div class="board_title">
         <c:choose>
 			<c:when test="${empty requestScope.isChecked}">
