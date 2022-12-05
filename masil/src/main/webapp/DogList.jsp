@@ -87,9 +87,7 @@ function noSpaceForm(obj){
                 </a>
                 <div class="main">
                     <div class="image">
-                        <!-- <div class="hover">
-                            <i class="fas fa-camera fa-2x"></i>
-                        </div> -->
+                    <img class="image" src="LoginForm/css/images/675ea0b7-8067-40f3-b724-264ae270695b.jpg" alt="alternative">
                     </div>
                     <div class="image2"></div>
                     <h3 class="name">아이유</h3>
