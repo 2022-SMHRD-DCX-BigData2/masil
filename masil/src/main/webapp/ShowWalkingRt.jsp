@@ -422,6 +422,7 @@ if(favList==null){
 						              var myDistance = templine.getLength();
 						              
 						              console.log("시작점까지의 거리 : "+myDistance+"m");
+						              myDistance=0
 						              if(myDistance<100){
 						            	  $("button[name='startRecord']").hide();
 						            	  $("#record").append("<button name='endRecord'>인증완료</button><br>");
@@ -481,6 +482,7 @@ if(favList==null){
 						              
 						              
 						              console.log("도착점까지의 거리 : "+myDistance+"m");
+						              myDistance=0
 						              if(myDistance<100){
 						            	  $("button[name='endRecord']").hide();	  
 						            	  //ajax로 산책로 번호, 회원 번호 보내기
