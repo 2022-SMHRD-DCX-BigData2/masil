@@ -25,6 +25,9 @@ $(document).ready(function(){
 			console.log(res);
 			$("#selectbox").html("<option value='' selected disabled hidden>"+"${param.b_cls}"+"</option>");
 			for(var i=0 ; i<res.length ; i++){
+				if(res[i]=='전국'){
+					continue
+				}
 				$("#selectbox").append("<option value="+res[i]+">"+res[i]+"</option>");
 			}			
 		},

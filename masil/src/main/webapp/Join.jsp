@@ -28,6 +28,9 @@ $(document).ready(function(){
 				if(i==0){
 					temp=res[i]
 				}
+				else if(res[i]=='전국'){
+					continue
+				}
 				$("#selectbox").append("<option value="+res[i]+">"+res[i]+"</option>");
 			}			
 		},
