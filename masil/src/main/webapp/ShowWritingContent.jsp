@@ -26,7 +26,7 @@ MBR loginedMBR = (MBR) session.getAttribute("loginedMBR");
 WRT writing = (WRT) request.getAttribute("writing");
 %>
 
-<form action="SetUpdateWRT" method="post" style='padding-top: 26px;'>
+<form action="SetUpdateWRT" method="post" style='padding-top: 37px;display: flex;justify-content: center;'>
 
     <div class="board_wrap">
         

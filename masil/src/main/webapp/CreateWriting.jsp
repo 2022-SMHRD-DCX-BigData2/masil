@@ -21,12 +21,12 @@
 MBR loginedMBR = (MBR) session.getAttribute("loginedMBR");
 %>
 
-<form name="cw" action="CreateWriting" method="post" style="padding-top: 34px;">
+<form name="cw" action="CreateWriting" method="post" style="padding-top: 34px;display: flex;justify-content: center;">
 <input type="hidden" name="type" value="${param.type}">
 <input type="hidden" name="type_nbr" value="${param.type_nbr}">
 <input type="hidden" name="mbr_nbr" value="<%=loginedMBR.getMbr_nbr()%>">
 
-    <div class="board_wrap" style="margin-left: 300px;">
+    <div class="board_wrap">
         
         <div class="board_title">
         	<c:choose>
@@ -58,7 +58,7 @@ MBR loginedMBR = (MBR) session.getAttribute("loginedMBR");
                     </dl>
                 </div>
                 <div class="cont">
-                    <textarea placeholder="내용입력" name="content"></textarea>
+                    <textarea placeholder="내용입력" name="content" style="height: 17rem;"></textarea>
                 </div>
             </div>
             
