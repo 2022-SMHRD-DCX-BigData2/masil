@@ -90,7 +90,7 @@ function noSpaceForm(obj){
                     <img class="image" src="LoginForm/css/images/675ea0b7-8067-40f3-b724-264ae270695b.jpg" alt="alternative">
                     </div>
                     <div class="image2"></div>
-                    <h3 class="name">아이유</h3>
+                    <!-- <h3 class="name">아이유</h3> -->
                     <h3 class="sub-name">자두</h3>
                 </div>
             </div>
