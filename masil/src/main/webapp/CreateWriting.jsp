@@ -76,11 +76,10 @@ MBR loginedMBR = (MBR) session.getAttribute("loginedMBR");
 	function but(){
 		var title = $("input[name=title]").val();
 		var content = $("input[name=content]").val();
-		if(title==null||content==null){
+		if(title.length==0||content==''){
 			alert("내용을 입력해주세요!")
 		}else{
 			document.cw.submit();
-			
 		}
 	}
 </script>

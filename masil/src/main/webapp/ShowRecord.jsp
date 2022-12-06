@@ -78,7 +78,8 @@ for(WLK_LOG log : logs){ %>
 	}
 	
 	text += "완료한 시기 : ";
-	text += wlk_time;
+	var tempTime = wlk_time
+	text += tempTime.slice(0,-2);
 	text += "<br>";
 	text += "<br>";
 	$("#logs").append(text);
