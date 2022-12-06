@@ -82,8 +82,8 @@ WRT writing = (WRT) request.getAttribute("writing");
 
 <div class="reply_wrap">
         <div id="comment-count">댓글 <span id="count"></span></div>
-<!--     <div id=comments>
-    </div> -->
+<div id=comments>
+    </div>
     <div id="form-commentInfo">
     <form action="insertCMT" method="post" style="width: 140%;">
         <input id="wrt_nbr" name="wrt_nbr" type="hidden" value="<%=writing.getWrt_nbr() %>">
@@ -152,7 +152,7 @@ $(document).ready(function () {
 					if(res[i].cmt_ath==${sessionScope.loginedMBR.mbr_nbr}||${loginedMBR.mbr_type eq 'ADMIN'}==true){
 						delBtn.className ="deleteComment";
 						delBtn.id = res[i].cmt_nbr;
-						delBtn.innerHTML="삭제";
+						delBtn.innerHTML="X";
 						userName.appendChild(delBtn);
 					}
 
